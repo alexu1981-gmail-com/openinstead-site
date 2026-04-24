@@ -4,6 +4,42 @@ Persistent log, updated by Claude every session. Read from top-down.
 
 ---
 
+## 2026-04-24 — Session 2: Expansion sprint ✅
+
+**Pushed:** commit `3766bfe` pe main. Cloudflare Pages face rebuild automat în ~2 min.
+
+**Total pages now: 394** (up from 257 — +137 pages, +53%).
+
+Added:
+- [x] +10 categorii noi: whiteboards, screen-recording, writing-tools, rss-readers, social-media, website-builders, ecommerce, paas-hosting, accounting, ai-coding.
+- [x] +24 SaaS products: Microsoft Teams, Webex, ClickUp, Linear, Basecamp, Miro, InVision, Sketch, Loom, Grammarly, Pocket, Feedly, Buffer, Hootsuite, Airtable, Webflow, Wix, Shopify, HelloSign, Heroku, Vercel, Xero, QuickBooks, GitHub Copilot.
+- [x] +31 OSS profiles: Kanboard, Redmine, OpenBoard, Drawpile, OBS Studio, ShareX, LanguageTool, Wallabag, LinkAce, FreshRSS, Miniflux, Mixpost, Postiz, Teable, Silex, GrapesJS, WordPress, Hugo, Ghost, WooCommerce, Saleor, Medusa, ERPNext, Akaunting, InvoicePlane, Dokku, Coolify, CapRover, Continue, Aider, Tabby.
+- [x] +64 comparison pages (185 total).
+- [x] **6 long-form articles** at `/article/{slug}/`:
+  - Self-hosting in 2026: the honest survey
+  - Why your team can't ditch Slack yet
+  - The real monthly cost of a Notion workspace at scale
+  - Open source alternatives: the comparison criteria that actually matter
+  - From SaaS to self-hosted: a 30-day migration playbook
+  - Why the best open source alternative is sometimes a smaller one
+- [x] Articles index la `/articles/`.
+- [x] **Client-side search** în header — no JS framework, minimal scorer; index la `/search-index.json` (388 entries).
+- [x] Mobile-responsive CSS pentru header + search.
+- [x] Build script: markdown parser inline (fără dependencies noi), `dirs_exist_ok` pentru re-copy static.
+
+Fixed:
+- YAML parse error în saas_products (tagline ClickUp cu ghilimele neescape-uite).
+- `shutil.copytree` fail pe re-build (folderele din Drive nu pot fi șterse în sandbox — `dirs_exist_ok=True`).
+
+**Next sprint (session 3) — decision pending:**
+- Opțiune A: a doua proprietate (utility tool — concrete calculator, RPM $6-15).
+- Opțiune B: planificare distribuție (Show HN, Reddit r/selfhosted, domeniu propriu + AdSense roadmap).
+- Opțiune C: mai multe articole + un al doilea round de expansion (GraphQL categories, marketing automation, CDN alternatives).
+
+**Site live după auto-deploy:** https://openinstead-site.alexu1981.workers.dev (va reflecta sprint 2 în ~2 min după push).
+
+---
+
 ## 2026-04-24 — Session 1d: SITE LIVE ✅✅
 
 - [x] Cloudflare Pages/Workers deploy succeeded.

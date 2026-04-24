@@ -546,6 +546,26 @@ def build():
     write_page(DIST / "about" / "index.html", html)
     add_url("/about/", 0.3, "yearly")
 
+    contact_body = """
+    <p>Have a correction? Notice a dead project or a missed alternative? Want to suggest a new SaaS to track?</p>
+    <p>Email us at <a href="mailto:hello@openinstead.dev">hello@openinstead.dev</a> and we'll update the directory.
+    We read every message and usually reply within 72 hours.</p>
+    <p>We do not accept paid placements. Every entry in this directory is editorial; we say so publicly because it
+    affects how much you should trust our recommendations.</p>
+    <p>For press, partnerships or larger conversations, same address.</p>
+    """
+    html = render(
+        "static_page.html",
+        page_title=f"Contact · {SITE_NAME}",
+        meta_description=f"Contact {SITE_NAME} — corrections, suggestions and press enquiries.",
+        canonical_path="/contact/",
+        page_heading="Contact",
+        lead="How to reach us about the directory.",
+        body=contact_body,
+    )
+    write_page(DIST / "contact" / "index.html", html)
+    add_url("/contact/", 0.3, "yearly")
+
     privacy_body = """
     <p>This site uses privacy-friendly analytics to understand which pages are helpful. No personal data is
     collected or sold. We may show display advertising from Google AdSense; advertisers receive only the
@@ -567,6 +587,36 @@ def build():
     )
     write_page(DIST / "privacy" / "index.html", html)
     add_url("/privacy/", 0.2, "yearly")
+
+    # -------------------------------------------------------------------
+    # RSS feed for articles
+    # -------------------------------------------------------------------
+    print("[build] rss feed for articles")
+    rss_parts = [
+        '<?xml version="1.0" encoding="UTF-8"?>\n',
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n',
+        '<channel>\n',
+        f'  <title>{SITE_NAME} Articles</title>\n',
+        f'  <link>{SITE_URL}/articles/</link>\n',
+        f'  <atom:link href="{SITE_URL}/articles/rss.xml" rel="self" type="application/rss+xml" />\n',
+        '  <description>Long-form essays on self-hosting, open source evaluation and SaaS migration.</description>\n',
+        '  <language>en-us</language>\n',
+    ]
+    for art in articles:
+        rss_parts.append('  <item>\n')
+        rss_parts.append(f'    <title>{art["title"]}</title>\n')
+        rss_parts.append(f'    <link>{SITE_URL}/article/{art["slug"]}/</link>\n')
+        rss_parts.append(f'    <guid>{SITE_URL}/article/{art["slug"]}/</guid>\n')
+        rss_parts.append(f'    <description><![CDATA[{art["description"]}]]></description>\n')
+        if art.get("date"):
+            try:
+                d = datetime.fromisoformat(art["date"])
+                rss_parts.append(f'    <pubDate>{d.strftime("%a, %d %b %Y %H:%M:%S +0000")}</pubDate>\n')
+            except Exception:
+                pass
+        rss_parts.append('  </item>\n')
+    rss_parts.append('</channel>\n</rss>\n')
+    write_page(DIST / "articles" / "rss.xml", "".join(rss_parts))
 
     # -------------------------------------------------------------------
     # robots.txt + sitemap.xml

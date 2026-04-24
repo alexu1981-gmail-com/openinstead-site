@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>OpenInstead Articles</title>
+  <link>https://openinstead.dev/articles/</link>
+  <atom:link href="https://openinstead.dev/articles/rss.xml" rel="self" type="application/rss+xml" />
+  <description>Long-form essays on self-hosting, open source evaluation and SaaS migration.</description>
+  <language>en-us</language>
+  <item>
+    <title>From SaaS to self-hosted: a 30-day migration playbook</title>
+    <link>https://openinstead.dev/article/30-day-saas-to-self-hosted-migration-playbook/</link>
+    <guid>https://openinstead.dev/article/30-day-saas-to-self-hosted-migration-playbook/</guid>
+    <description><![CDATA[A week-by-week plan to move one service off SaaS and onto your own server without breaking your team's workflow.]]></description>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>Why the best open source alternative is sometimes a smaller one</title>
+    <link>https://openinstead.dev/article/avoiding-mega-incumbents-oss-alternatives/</link>
+    <guid>https://openinstead.dev/article/avoiding-mega-incumbents-oss-alternatives/</guid>
+    <description><![CDATA[The most-starred project isn't always the right one. A guide to when a smaller, leaner open source tool beats the popular choice.]]></description>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>Open source alternatives: the comparison criteria that actually matter</title>
+    <link>https://openinstead.dev/article/evaluating-open-source-alternatives-framework/</link>
+    <guid>https://openinstead.dev/article/evaluating-open-source-alternatives-framework/</guid>
+    <description><![CDATA[GitHub stars lie. Forks can mislead. Here's a framework for evaluating open source projects that goes beyond the vanity metrics.]]></description>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>The real monthly cost of a Notion workspace at scale</title>
+    <link>https://openinstead.dev/article/real-monthly-cost-of-notion-workspace-at-scale/</link>
+    <guid>https://openinstead.dev/article/real-monthly-cost-of-notion-workspace-at-scale/</guid>
+    <description><![CDATA[Add-ons, seats, AI credits, storage. What a mid-sized team actually pays for Notion once you count everything — and what switching saves.]]></description>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>Self-hosting in 2026: the honest survey</title>
+    <link>https://openinstead.dev/article/self-hosting-in-2026-honest-survey/</link>
+    <guid>https://openinstead.dev/article/self-hosting-in-2026-honest-survey/</guid>
+    <description><![CDATA[An honest look at what self-hosting actually costs in 2026 — time, money, attention — and who should and shouldn't do it.]]></description>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>Why your team probably can't ditch Slack yet (and what needs to change)</title>
+    <link>https://openinstead.dev/article/why-your-team-cant-ditch-slack-yet/</link>
+    <guid>https://openinstead.dev/article/why-your-team-cant-ditch-slack-yet/</guid>
+    <description><![CDATA[Mattermost and Rocket.Chat are excellent. So why do most teams who try to migrate away from Slack end up back on Slack? An honest look at the real blockers.]]></description>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
+  </item>
+</channel>
+</rss>
