@@ -24,7 +24,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 # Config
 # ---------------------------------------------------------------------------
 SITE_NAME = "OpenInstead"
-SITE_URL = os.environ.get("SITE_URL", "https://openinstead.dev")  # change after you pick a domain
+SITE_URL = os.environ.get("SITE_URL", "https://openinstead.dev")  # production domain, live since 2026-04-25
 ROOT = Path(__file__).parent
 DATA = ROOT / "data"
 TEMPLATES = ROOT / "templates"

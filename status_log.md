@@ -4,6 +4,34 @@ Persistent log, updated by Claude every session. Read from top-down.
 
 ---
 
+## 2026-04-25 — Session 2.1: Distribution strategy + AdSense prep ✅
+
+**Pushed:** commit `13ae462` pe main.
+
+**Added:**
+- [x] [DISTRIBUTION_PLAN.md](DISTRIBUTION_PLAN.md) — 12-week roadmap: domeniu, Search Console, Reddit launch, AdSense application timing, projections realiste, cheltuieli estimate.
+- [x] Contact page (`/contact/`) — prerequirement pentru AdSense (email: `hello@openinstead.dev`).
+- [x] RSS feed la `/articles/rss.xml` — pentru subscribe/backlink-uri naturale.
+- [x] Footer nav extins cu Contact + RSS links.
+
+**Decizii pending (de la Alexandru):**
+1. Domeniu — recomandat `openinstead.dev` pe Cloudflare Registrar (~$12/an).
+2. Email pentru contact page — `alexu1981@gmail.com` direct sau `contact@openinstead.dev` după domain setup?
+3. Cont AdSense — PF (Alexandru Drăghici) sau PFA/SRL? Depinde de target revenue.
+
+**Next concrete steps (ale tale, în ordine):**
+- [ ] Verifică și cumpără domeniul (5-10 min).
+- [ ] Conectează-l la Cloudflare Pages (Custom Domains) — 5 min.
+- [ ] Google Search Console: add property + submit sitemap (10 min).
+- [ ] Bing Webmaster Tools (5 min).
+- [ ] Cloudflare Web Analytics enable (2 min).
+- [ ] La săpt 3: Reddit r/selfhosted + r/opensource post.
+- [ ] La săpt 4: AdSense apply.
+
+**Planning review:** după ce cumperi domeniul, open new Claude session — voi reciti memory + status_log și continuăm cu sprint 3 (OG images, JSON-LD Org markup, +20 SaaS al doilea val).
+
+---
+
 ## 2026-04-24 — Session 2: Expansion sprint ✅
 
 **Pushed:** commit `3766bfe` pe main. Cloudflare Pages face rebuild automat în ~2 min.
