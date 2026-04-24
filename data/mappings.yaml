@@ -1,0 +1,377 @@
+# For each SaaS, an ordered list of OSS alternatives (best-fit first).
+# Alternatives are slugs from oss_alternatives.yaml.
+# `best_for` is a 1-line opinionated tagline for THIS pairing.
+
+- saas: notion
+  alternatives:
+    - slug: appflowy
+      best_for: The closest visual and feature clone of Notion's blocks and databases.
+    - slug: affine
+      best_for: When you want Notion plus a whiteboard canvas in one tool.
+    - slug: trilium
+      best_for: Serious personal knowledge bases with hierarchical notes.
+    - slug: joplin
+      best_for: If Notion is overkill and you want encrypted markdown notes instead.
+
+- saas: evernote
+  alternatives:
+    - slug: joplin
+      best_for: The natural Evernote replacement with web clipper and sync.
+    - slug: trilium
+      best_for: Power users with decades of notes and complex hierarchies.
+    - slug: standard-notes
+      best_for: Privacy-focused users who want encrypted notes above all else.
+    - slug: appflowy
+      best_for: If you actually want more than Evernote offers.
+
+- saas: obsidian
+  alternatives:
+    - slug: joplin
+      best_for: Similar markdown focus but open source and multi-platform.
+    - slug: trilium
+      best_for: Hierarchical structure instead of Obsidian's graph approach.
+    - slug: appflowy
+      best_for: If you want a Notion-style workspace instead of a note graph.
+    - slug: standard-notes
+      best_for: Simple, encrypted note-taking when you don't need the plugin sprawl.
+
+- saas: slack
+  alternatives:
+    - slug: mattermost
+      best_for: The most drop-in Slack replacement for teams.
+    - slug: rocket-chat
+      best_for: Large teams that want omnichannel and federation.
+    - slug: zulip
+      best_for: Async-heavy teams who like threaded topics.
+    - slug: element
+      best_for: When end-to-end encryption is a hard requirement.
+
+- saas: discord
+  alternatives:
+    - slug: element
+      best_for: Decentralized communities that want federation.
+    - slug: rocket-chat
+      best_for: Communities mixing voice, chat and admin controls.
+    - slug: mattermost
+      best_for: Teams graduating from Discord to something business-grade.
+
+- saas: whatsapp
+  alternatives:
+    - slug: signal
+      best_for: The gold-standard encrypted 1-to-1 and small group messenger.
+    - slug: element
+      best_for: If you want encryption plus federation across servers.
+
+- saas: zoom
+  alternatives:
+    - slug: jitsi-meet
+      best_for: Free public meetings or a small self-hosted instance.
+    - slug: bigbluebutton
+      best_for: Online classes, webinars and training.
+
+- saas: google-meet
+  alternatives:
+    - slug: jitsi-meet
+      best_for: Instant browser meetings with no Google account.
+    - slug: bigbluebutton
+      best_for: Structured learning and webinar workflows.
+
+- saas: trello
+  alternatives:
+    - slug: planka
+      best_for: The cleanest, lightest Trello replacement you can self-host.
+    - slug: focalboard
+      best_for: When you want a Trello/Notion hybrid and maybe Mattermost later.
+    - slug: wekan
+      best_for: Enterprises that want a long-proven kanban with SSO.
+
+- saas: asana
+  alternatives:
+    - slug: plane
+      best_for: Modern teams that want Linear-style sprints and cycles.
+    - slug: openproject
+      best_for: Teams that need Gantt, roadmaps and enterprise controls.
+    - slug: taiga
+      best_for: Scrum-first teams who like structured agile flows.
+
+- saas: jira
+  alternatives:
+    - slug: plane
+      best_for: Lightweight Jira alternative with similar modules and cycles.
+    - slug: openproject
+      best_for: Regulated environments that need Jira's weight without the lock-in.
+    - slug: taiga
+      best_for: Scrum teams who want a focused agile tool.
+
+- saas: monday
+  alternatives:
+    - slug: openproject
+      best_for: Enterprise Monday replacement with Gantt and budgets.
+    - slug: plane
+      best_for: Teams who like Monday but want self-host.
+    - slug: focalboard
+      best_for: If Monday felt bloated and you want something simpler.
+
+- saas: dropbox
+  alternatives:
+    - slug: nextcloud
+      best_for: Dropbox plus calendar, contacts, office and more — all self-hosted.
+    - slug: seafile
+      best_for: Raw sync performance and dedup at scale.
+    - slug: syncthing
+      best_for: Peer-to-peer sync with no server at all.
+
+- saas: google-drive
+  alternatives:
+    - slug: nextcloud
+      best_for: Closest drop-in replacement with office and collaboration.
+    - slug: seafile
+      best_for: High-performance file sync for larger libraries.
+    - slug: syncthing
+      best_for: Simple device-to-device sync without a central server.
+
+- saas: onedrive
+  alternatives:
+    - slug: nextcloud
+      best_for: Full Microsoft 365 alternative with office server integration.
+    - slug: seafile
+      best_for: Reliable sync for a Windows-centric home or office.
+
+- saas: google-docs
+  alternatives:
+    - slug: onlyoffice
+      best_for: Best MS Office fidelity in a browser suite.
+    - slug: collabora-online
+      best_for: Tight LibreOffice-based collaboration on ODF docs.
+    - slug: cryptpad
+      best_for: End-to-end encrypted docs where the server can't read anything.
+    - slug: nextcloud
+      best_for: When you want docs bundled with files, calendars and more.
+
+- saas: microsoft-365
+  alternatives:
+    - slug: onlyoffice
+      best_for: Drop-in office suite with strong Word/Excel/PowerPoint compatibility.
+    - slug: libreoffice
+      best_for: Free desktop office suite with no subscription.
+    - slug: collabora-online
+      best_for: Browser-based collaboration with LibreOffice engine.
+
+- saas: figma
+  alternatives:
+    - slug: penpot
+      best_for: The most Figma-like open source design tool today.
+    - slug: excalidraw
+      best_for: Quick wireframes and sketch-style diagrams.
+    - slug: inkscape
+      best_for: When you need precision SVG work instead of UI screens.
+
+- saas: canva
+  alternatives:
+    - slug: penpot
+      best_for: When you want a real design canvas rather than drag-and-drop templates.
+    - slug: gimp
+      best_for: Photo-heavy designs and pixel-level edits.
+    - slug: inkscape
+      best_for: Vector posters, flyers and logos.
+    - slug: krita
+      best_for: Illustrated designs and digital artwork.
+
+- saas: photoshop
+  alternatives:
+    - slug: gimp
+      best_for: The long-standing free alternative for most Photoshop tasks.
+    - slug: krita
+      best_for: Digital painting, illustration and concept art.
+
+- saas: zapier
+  alternatives:
+    - slug: n8n
+      best_for: The most mature and feature-rich open automation platform.
+    - slug: activepieces
+      best_for: If you want a strictly MIT-licensed, truly-open alternative.
+    - slug: huginn
+      best_for: Feed monitoring and IFTTT-style agent automations.
+
+- saas: make
+  alternatives:
+    - slug: n8n
+      best_for: Visual scenario builder with similar node-based flows.
+    - slug: activepieces
+      best_for: Cleaner MIT-licensed alternative with a modern UI.
+    - slug: huginn
+      best_for: Long-running monitors and scheduled agents.
+
+- saas: ifttt
+  alternatives:
+    - slug: huginn
+      best_for: The original IFTTT-style self-hosted agent tool.
+    - slug: n8n
+      best_for: Consumer automations plus room to grow into business flows.
+    - slug: activepieces
+      best_for: A friendlier UI for consumer-style automations.
+
+- saas: 1password
+  alternatives:
+    - slug: bitwarden
+      best_for: The strongest 1Password-like cloud and self-host story.
+    - slug: vaultwarden
+      best_for: Lightweight self-hosted server that works with Bitwarden clients.
+    - slug: keepassxc
+      best_for: Offline, no-account password vaults for power users.
+
+- saas: lastpass
+  alternatives:
+    - slug: bitwarden
+      best_for: The obvious modern replacement — free cloud or self-hosted.
+    - slug: vaultwarden
+      best_for: Tiny self-hosted server plus all the Bitwarden clients you love.
+    - slug: keepassxc
+      best_for: No cloud at all — a local encrypted vault you control.
+
+- saas: google-analytics
+  alternatives:
+    - slug: plausible
+      best_for: Cookie-free, lightweight analytics with a clean dashboard.
+    - slug: umami
+      best_for: Self-hosted privacy-friendly analytics with multi-site support.
+    - slug: matomo
+      best_for: When you need GA-level reporting without Google.
+
+- saas: mixpanel
+  alternatives:
+    - slug: plausible
+      best_for: Simple web-level metrics without the cost.
+    - slug: umami
+      best_for: Self-hosted event tracking on your own database.
+    - slug: matomo
+      best_for: Funnels, cohorts and goals on your own infrastructure.
+
+- saas: hubspot-crm
+  alternatives:
+    - slug: espocrm
+      best_for: Fast, lean CRM for SMBs who want the basics done well.
+    - slug: suitecrm
+      best_for: Enterprise features without HubSpot's pricing ramp.
+    - slug: mautic
+      best_for: Marketing-heavy teams that want automation plus lead nurture.
+
+- saas: salesforce
+  alternatives:
+    - slug: suitecrm
+      best_for: The long-running open source Salesforce alternative.
+    - slug: espocrm
+      best_for: Lighter and more modern when full Salesforce is overkill.
+
+- saas: zendesk
+  alternatives:
+    - slug: chatwoot
+      best_for: Modern multichannel inbox that feels closest to Zendesk.
+    - slug: zammad
+      best_for: Strict email-first ticketing with enterprise controls.
+    - slug: freescout
+      best_for: Small teams who want a Help Scout-style inbox for free.
+
+- saas: intercom
+  alternatives:
+    - slug: chatwoot
+      best_for: The most Intercom-like open source experience today.
+    - slug: zammad
+      best_for: When your support is email + telephony rather than live chat.
+
+- saas: mailchimp
+  alternatives:
+    - slug: listmonk
+      best_for: Sending plain newsletters at low cost — bring your own SMTP.
+    - slug: mautic
+      best_for: When you actually need marketing automation, not just sends.
+
+- saas: convertkit
+  alternatives:
+    - slug: listmonk
+      best_for: Creators who want simple broadcast newsletters self-hosted.
+    - slug: mautic
+      best_for: Creators scaling into automations and lead funnels.
+
+- saas: typeform
+  alternatives:
+    - slug: formbricks
+      best_for: The closest modern replacement for Typeform's conversational feel.
+    - slug: limesurvey
+      best_for: Research-grade forms with deep question types.
+
+- saas: google-forms
+  alternatives:
+    - slug: formbricks
+      best_for: Modern UI and in-app surveys where Google Forms feels old.
+    - slug: limesurvey
+      best_for: Any survey where Google Forms' logic runs out of gas.
+
+- saas: calendly
+  alternatives:
+    - slug: calcom
+      best_for: Feature-rich Calendly replacement with self-host option.
+    - slug: rallly
+      best_for: When you just need to find a meeting time with a group.
+
+- saas: netflix
+  alternatives:
+    - slug: jellyfin
+      best_for: Stream your own movies and shows to any device, free.
+
+- saas: spotify
+  alternatives:
+    - slug: navidrome
+      best_for: Your own music library, streamable from any Subsonic app.
+    - slug: jellyfin
+      best_for: When you want music, video and photos in one server.
+
+- saas: google-photos
+  alternatives:
+    - slug: immich
+      best_for: Modern, mobile-first photo server with ML tagging.
+    - slug: photoprism
+      best_for: Stable, mature photo library when you prefer proven software.
+    - slug: nextcloud
+      best_for: Photos alongside files, contacts and calendar in one place.
+
+- saas: todoist
+  alternatives:
+    - slug: super-productivity
+      best_for: Local-first todo app with Pomodoro and Jira/GitHub integrations.
+    - slug: vikunja
+      best_for: Teams or power users who want Kanban, Gantt and CalDAV.
+
+- saas: github
+  alternatives:
+    - slug: gitea
+      best_for: Fast, lightweight GitHub clone for small teams and self-host.
+    - slug: forgejo
+      best_for: Community-governed fork of Gitea — fully open and non-profit.
+    - slug: gitlab-ce
+      best_for: When you want DevOps, CI/CD and registry bundled in.
+
+- saas: datadog
+  alternatives:
+    - slug: signoz
+      best_for: Unified metrics, traces and logs with an OpenTelemetry-native stack.
+    - slug: prometheus-grafana
+      best_for: The industry-standard metrics stack for infrastructure.
+    - slug: uptime-kuma
+      best_for: Simple uptime and availability checks without a full APM.
+
+- saas: retool
+  alternatives:
+    - slug: appsmith
+      best_for: The most Retool-like drag-and-drop builder, fully open source.
+    - slug: tooljet
+      best_for: Modern UI with git versioning for internal apps.
+    - slug: budibase
+      best_for: Bundled database plus internal tool builder in one install.
+    - slug: nocodb
+      best_for: When you mostly need a spreadsheet UI on top of your database.
+
+- saas: docusign
+  alternatives:
+    - slug: docuseal
+      best_for: Self-hosted e-signature in a single container.

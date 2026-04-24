@@ -1,0 +1,1363 @@
+# Open source alternatives — each gets its own profile page.
+# self_host_difficulty: 1 (easy, docker-one-command) to 5 (complex, multi-server).
+# license values: standard SPDX ids.
+
+- slug: appflowy
+  name: AppFlowy
+  category: note-taking
+  tagline: Open source alternative to Notion, built in Rust and Flutter.
+  license: AGPL-3.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://appflowy.io
+  github: https://github.com/AppFlowy-IO/AppFlowy
+  strengths:
+    - Familiar Notion-style blocks and databases.
+    - Local-first desktop app for privacy.
+    - Active development and growing plugin ecosystem.
+  weaknesses:
+    - Newer project — some Notion features still missing.
+    - Real-time collaboration is still maturing.
+    - Mobile apps lag behind desktop.
+
+- slug: affine
+  name: AFFiNE
+  category: note-taking
+  tagline: Open source canvas-meets-docs workspace.
+  license: MPL-2.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: []
+  website: https://affine.pro
+  github: https://github.com/toeverything/AFFiNE
+  strengths:
+    - Whiteboard + docs + databases in a single surface.
+    - Clean UI, local-first architecture.
+    - Active roadmap with frequent releases.
+  weaknesses:
+    - Mobile app is still in development.
+    - Some instability during rapid iteration.
+    - Smaller community than Obsidian or AppFlowy.
+
+- slug: trilium
+  name: Trilium Notes
+  category: note-taking
+  tagline: Hierarchical personal notes with scripting.
+  license: AGPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: false
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: []
+  website: https://github.com/zadam/trilium
+  github: https://github.com/zadam/trilium
+  strengths:
+    - Deep hierarchical notes with relations.
+    - Scripting support for automation inside notes.
+    - Strong for large personal knowledge bases.
+  weaknesses:
+    - No official mobile apps.
+    - UI feels dense for new users.
+    - Original maintainer stepped back; Trilium Next fork is active.
+
+- slug: joplin
+  name: Joplin
+  category: note-taking
+  tagline: Open source Evernote alternative with markdown notes and end-to-end encryption.
+  license: AGPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://joplinapp.org
+  github: https://github.com/laurent22/joplin
+  strengths:
+    - End-to-end encryption for syncable notes.
+    - Works with Nextcloud, Dropbox, WebDAV and Joplin Cloud.
+    - Web clipper and mobile apps available.
+  weaknesses:
+    - Interface can feel basic compared to Notion-style tools.
+    - Plugin ecosystem is smaller than Obsidian's.
+    - Sync conflicts occasionally need manual resolution.
+
+- slug: standard-notes
+  name: Standard Notes
+  category: note-taking
+  tagline: Encrypted, simple note-taking with long-term data portability.
+  license: AGPL-3.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://standardnotes.com
+  github: https://github.com/standardnotes
+  strengths:
+    - End-to-end encryption by default.
+    - Focused, minimalist note app.
+    - Extended features through paid Productivity plan.
+  weaknesses:
+    - Rich editors and features are behind paid plan.
+    - Self-hosting the sync server is non-trivial.
+    - Not a Notion-style workspace — much simpler scope.
+
+- slug: mattermost
+  name: Mattermost
+  category: team-communication
+  tagline: Slack-style open source team messaging.
+  license: AGPL-3.0 / Apache-2.0 (modules)
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://mattermost.com
+  github: https://github.com/mattermost/mattermost
+  strengths:
+    - Familiar Slack-like UX.
+    - Strong self-hosting story and enterprise features.
+    - Good permission and compliance controls.
+  weaknesses:
+    - Some advanced features require paid tier.
+    - Mobile app performance is acceptable but not stellar.
+    - Larger install footprint than lightweight chats.
+
+- slug: rocket-chat
+  name: Rocket.Chat
+  category: team-communication
+  tagline: Open source team and community chat with video and voice.
+  license: MIT (community); proprietary modules available
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://rocket.chat
+  github: https://github.com/RocketChat/Rocket.Chat
+  strengths:
+    - Federation support (via Matrix bridge).
+    - Large feature set: channels, threads, omnichannel.
+    - Strong customization options.
+  weaknesses:
+    - Can feel heavy for small teams.
+    - Past performance issues on large deployments.
+    - Resource footprint is higher than competitors.
+
+- slug: zulip
+  name: Zulip
+  category: team-communication
+  tagline: Threaded team chat with topics.
+  license: Apache-2.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://zulip.com
+  github: https://github.com/zulip/zulip
+  strengths:
+    - Topic-based threading prevents channel noise.
+    - Great for async and open-source communities.
+    - Powerful search and history.
+  weaknesses:
+    - Topic model has a learning curve.
+    - Smaller ecosystem of third-party integrations.
+    - UI feels less polished than Slack.
+
+- slug: element
+  name: Element (Matrix)
+  category: team-communication
+  tagline: Decentralized messaging on the Matrix protocol.
+  license: Apache-2.0
+  self_host_difficulty: 4
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://element.io
+  github: https://github.com/element-hq/element-web
+  strengths:
+    - Fully federated — you own your data.
+    - End-to-end encryption by default.
+    - Bridges to Slack, Discord, WhatsApp, etc.
+  weaknesses:
+    - Self-hosting Synapse or Conduit server is work.
+    - E2E encryption UX (device verification) can confuse users.
+    - Cross-signing and key backup setup is fiddly.
+
+- slug: signal
+  name: Signal
+  category: team-communication
+  tagline: Encrypted messaging for individuals and small groups.
+  license: AGPL-3.0 / GPL-3.0
+  self_host_difficulty: 5
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://signal.org
+  github: https://github.com/signalapp
+  strengths:
+    - Gold-standard end-to-end encryption.
+    - Non-profit governance.
+    - Clean, minimal UX.
+  weaknesses:
+    - Requires phone number for registration.
+    - Self-hosting the server is effectively impossible in practice.
+    - Not designed for large teams or admin controls.
+
+- slug: jitsi-meet
+  name: Jitsi Meet
+  category: video-conferencing
+  tagline: Open source video meetings you can self-host or use free.
+  license: Apache-2.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: [iOS, Android]
+  website: https://jitsi.org
+  github: https://github.com/jitsi/jitsi-meet
+  strengths:
+    - Free public instance (meet.jit.si) with no sign-up.
+    - Self-hostable for privacy.
+    - Webhook and SDK integrations available.
+  weaknesses:
+    - Tuning a self-hosted instance for scale takes ops work.
+    - Advanced features (e2ee, breakouts) evolving.
+    - No native desktop app.
+
+- slug: bigbluebutton
+  name: BigBlueButton
+  category: video-conferencing
+  tagline: Open source web conferencing built for online learning.
+  license: LGPL-3.0
+  self_host_difficulty: 4
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://bigbluebutton.org
+  github: https://github.com/bigbluebutton/bigbluebutton
+  strengths:
+    - Designed for virtual classrooms with whiteboard and polls.
+    - Recording, breakout rooms and captions built in.
+    - Integrates with Moodle and other LMS.
+  weaknesses:
+    - Demanding hardware for self-hosting.
+    - Setup and maintenance are not beginner-friendly.
+    - UI feels academic, not corporate.
+
+- slug: planka
+  name: Planka
+  category: project-management
+  tagline: Trello-style kanban you can self-host in minutes.
+  license: AGPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://planka.app
+  github: https://github.com/plankanban/planka
+  strengths:
+    - One-command Docker deploy.
+    - Clean Trello-like UX.
+    - Lightweight and fast.
+  weaknesses:
+    - Fewer power-ups than Trello.
+    - No official mobile app.
+    - Small team — features land at moderate pace.
+
+- slug: wekan
+  name: Wekan
+  category: project-management
+  tagline: Open source kanban with long self-hosted history.
+  license: MIT
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: [Android]
+  website: https://wekan.github.io
+  github: https://github.com/wekan/wekan
+  strengths:
+    - Mature project used by governments and enterprises.
+    - Sandstorm/snap/docker packages available.
+    - Supports import from Trello.
+  weaknesses:
+    - UI is functional but dated.
+    - Performance can be sluggish on large boards.
+    - Meteor stack is heavier than modern alternatives.
+
+- slug: focalboard
+  name: Focalboard
+  category: project-management
+  tagline: Open source Trello/Notion hybrid by Mattermost.
+  license: MIT / AGPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: []
+  website: https://www.focalboard.com
+  github: https://github.com/mattermost/focalboard
+  strengths:
+    - Integrates tightly with Mattermost.
+    - Personal desktop mode (no server required).
+    - Multiple views — board, table, gallery.
+  weaknesses:
+    - Development pace has slowed after Mattermost integration.
+    - Smaller community.
+    - Feature set is narrower than Notion.
+
+- slug: openproject
+  name: OpenProject
+  category: project-management
+  tagline: Enterprise-ready open source project management.
+  license: GPL-3.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://openproject.org
+  github: https://github.com/opf/openproject
+  strengths:
+    - Strong Gantt, roadmaps and budget features.
+    - BIM (Building Information Modeling) for construction industry.
+    - Active enterprise adoption.
+  weaknesses:
+    - Community edition lacks some premium features.
+    - Setup has more moving parts than lightweight tools.
+    - UI density can intimidate newcomers.
+
+- slug: plane
+  name: Plane
+  category: project-management
+  tagline: Open source JIRA alternative with cycles and modules.
+  license: AGPL-3.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://plane.so
+  github: https://github.com/makeplane/plane
+  strengths:
+    - Modern UI inspired by Linear/Jira.
+    - Cycles, modules and views.
+    - Active community and rapid updates.
+  weaknesses:
+    - Still adding features at pace — occasional rough edges.
+    - Self-hosted setup involves several services.
+    - Fewer integrations than mature incumbents.
+
+- slug: taiga
+  name: Taiga
+  category: project-management
+  tagline: Agile project management with Scrum and Kanban.
+  license: Mozilla-2.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://taiga.io
+  github: https://github.com/taigaio/taiga-back
+  strengths:
+    - Dedicated Scrum and Kanban flows.
+    - Clean, focused UI.
+    - Free cloud tier available.
+  weaknesses:
+    - Self-hosting is multi-service.
+    - Smaller integration ecosystem than Jira.
+    - Reporting features are lighter.
+
+- slug: nextcloud
+  name: Nextcloud
+  category: file-storage
+  tagline: Self-hosted Dropbox and Google Drive alternative — files, calendar, contacts and more.
+  license: AGPL-3.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://nextcloud.com
+  github: https://github.com/nextcloud/server
+  strengths:
+    - Huge app ecosystem — Talk, Office, Mail, Deck.
+    - Strong privacy and encryption features.
+    - Works well on small home servers or enterprise deployments.
+  weaknesses:
+    - Performance depends heavily on setup (PHP + DB tuning).
+    - Many features come from third-party apps with variable quality.
+    - Mobile photo sync occasionally needs manual fixes.
+
+- slug: seafile
+  name: Seafile
+  category: file-storage
+  tagline: File sync and share with block-level deduplication.
+  license: AGPL-3.0 / Apache-2.0 (client)
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://seafile.com
+  github: https://github.com/haiwen/seafile
+  strengths:
+    - Very efficient sync engine (block dedup).
+    - Strong reliability on large file sets.
+    - Libraries model keeps things organized.
+  weaknesses:
+    - Community edition lacks some pro features.
+    - UI is functional but less polished than Nextcloud.
+    - Smaller app ecosystem.
+
+- slug: syncthing
+  name: Syncthing
+  category: file-storage
+  tagline: Peer-to-peer file sync with no central server.
+  license: MPL-2.0
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [Android]
+  website: https://syncthing.net
+  github: https://github.com/syncthing/syncthing
+  strengths:
+    - True peer-to-peer, no vendor cloud.
+    - End-to-end encrypted between devices.
+    - Simple to install on any machine.
+  weaknesses:
+    - No shared team workflow — device-to-device.
+    - iOS support is limited to a third-party app.
+    - Requires all paired devices online for fastest sync.
+
+- slug: onlyoffice
+  name: ONLYOFFICE
+  category: office-docs
+  tagline: Open source office suite with excellent MS Office compatibility.
+  license: AGPL-3.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://onlyoffice.com
+  github: https://github.com/ONLYOFFICE/DocumentServer
+  strengths:
+    - Best-in-class Word/Excel/PowerPoint rendering fidelity.
+    - Integrates with Nextcloud, Seafile, WordPress, and more.
+    - Both desktop app and server editor available.
+  weaknesses:
+    - Document Server install is heavier than Collabora Online.
+    - Some advanced features require enterprise licence.
+    - Concurrent edit conflicts still occur occasionally.
+
+- slug: collabora-online
+  name: Collabora Online
+  category: office-docs
+  tagline: Browser-based LibreOffice for collaborative editing.
+  license: MPL-2.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://collaboraonline.com
+  github: https://github.com/CollaboraOnline/online
+  strengths:
+    - True LibreOffice engine in the browser.
+    - Plugs into Nextcloud, ownCloud and more.
+    - Strong at ODF-first workflows.
+  weaknesses:
+    - MS Office fidelity is good but below ONLYOFFICE in places.
+    - Requires integration with a file server (no standalone UI).
+    - Server resource usage is noticeable.
+
+- slug: cryptpad
+  name: CryptPad
+  category: office-docs
+  tagline: End-to-end encrypted collaboration suite.
+  license: AGPL-3.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://cryptpad.org
+  github: https://github.com/cryptpad/cryptpad
+  strengths:
+    - Zero-knowledge encryption — even the server cannot read docs.
+    - Includes pad, sheets, kanban, whiteboard.
+    - Public instance available.
+  weaknesses:
+    - Feature depth below Google Docs for heavy users.
+    - Search across pads is limited.
+    - Some editors are lighter than mainstream equivalents.
+
+- slug: libreoffice
+  name: LibreOffice
+  category: office-docs
+  tagline: The classic open source office suite for desktop.
+  license: MPL-2.0
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [Android]
+  website: https://libreoffice.org
+  github: https://github.com/LibreOffice/core
+  strengths:
+    - Mature, trusted suite for desktop.
+    - No subscription — free forever.
+    - Strong ODF support and decent MS Office compatibility.
+  weaknesses:
+    - UI feels dated to some users.
+    - Collaboration requires Collabora/ONLYOFFICE server.
+    - Mobile version is read-focused.
+
+- slug: penpot
+  name: Penpot
+  category: design-tools
+  tagline: Open source Figma alternative for design-dev collaboration.
+  license: MPL-2.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://penpot.app
+  github: https://github.com/penpot/penpot
+  strengths:
+    - Strong Figma-like UX with design tokens.
+    - SVG-native — developer-friendly exports.
+    - Self-hostable for confidential work.
+  weaknesses:
+    - Plugin ecosystem is newer.
+    - Performance on very large files lags Figma.
+    - Collaboration UX still maturing.
+
+- slug: excalidraw
+  name: Excalidraw
+  category: design-tools
+  tagline: Virtual whiteboard for sketchy diagrams.
+  license: MIT
+  self_host_difficulty: 1
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://excalidraw.com
+  github: https://github.com/excalidraw/excalidraw
+  strengths:
+    - Great for wireframes and brainstorms.
+    - End-to-end encrypted rooms on official instance.
+    - Embeddable in docs and wikis.
+  weaknesses:
+    - Not a full design tool — sketch-style only.
+    - Limited component/library system.
+    - Real-time plus is behind a paid tier.
+
+- slug: gimp
+  name: GIMP
+  category: design-tools
+  tagline: Long-running open source raster image editor.
+  license: GPL-3.0
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: []
+  website: https://www.gimp.org
+  github: https://gitlab.gnome.org/GNOME/gimp
+  strengths:
+    - Full feature set for photo retouching and painting.
+    - Huge plugin ecosystem.
+    - Totally free — no subscription.
+  weaknesses:
+    - UI is dated and takes time to learn.
+    - Non-destructive editing (layers/effects) is limited vs Photoshop.
+    - Performance on very large files can lag.
+
+- slug: krita
+  name: Krita
+  category: design-tools
+  tagline: Open source digital painting and illustration.
+  license: GPL-3.0
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [Android]
+  website: https://krita.org
+  github: https://invent.kde.org/graphics/krita
+  strengths:
+    - Built for illustrators and concept artists.
+    - Rich brush engine and animation support.
+    - Regular releases with bug fixes.
+  weaknesses:
+    - Not built for photo editing workflows.
+    - Performance on very large canvases varies.
+    - No desktop subscription means slower paid support paths.
+
+- slug: inkscape
+  name: Inkscape
+  category: design-tools
+  tagline: Open source vector design — SVG-first.
+  license: GPL-3.0
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: []
+  website: https://inkscape.org
+  github: https://gitlab.com/inkscape/inkscape
+  strengths:
+    - Native SVG handling — perfect for developers.
+    - Strong path editing and typography.
+    - Huge hobbyist and professional community.
+  weaknesses:
+    - Not as polished as Adobe Illustrator.
+    - Large files can slow the UI.
+    - Limited macro/script discoverability.
+
+- slug: n8n
+  name: n8n
+  category: automation
+  tagline: Node-based automation tool — self-host or cloud.
+  license: Sustainable Use License (source-available, free for self-host)
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: []
+  website: https://n8n.io
+  github: https://github.com/n8n-io/n8n
+  strengths:
+    - 400+ integrations out of the box.
+    - Visual editor plus code nodes for flexibility.
+    - Active community building templates.
+  weaknesses:
+    - License is "fair-code" — not strict OSI open source.
+    - Cloud pricing scales with active executions.
+    - Some integrations lag behind Zapier's freshest APIs.
+
+- slug: activepieces
+  name: Activepieces
+  category: automation
+  tagline: Open source Zapier alternative with MIT license.
+  license: MIT
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://activepieces.com
+  github: https://github.com/activepieces/activepieces
+  strengths:
+    - Properly MIT-licensed and open.
+    - Visual flows with branching and loops.
+    - TypeScript-based custom pieces.
+  weaknesses:
+    - Smaller integration catalogue than Zapier or n8n.
+    - Newer project — breaking changes occur.
+    - Cloud pricing tiers still evolving.
+
+- slug: huginn
+  name: Huginn
+  category: automation
+  tagline: Self-hosted "agents" that watch, scrape and act.
+  license: MIT
+  self_host_difficulty: 3
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://github.com/huginn/huginn
+  github: https://github.com/huginn/huginn
+  strengths:
+    - Built for IFTTT-style feed monitoring and actions.
+    - Huge agent library for feeds, weather, email.
+    - Long-running, stable project.
+  weaknesses:
+    - Ruby/Rails stack can feel heavy.
+    - UI is functional, not polished.
+    - Not beginner-friendly.
+
+- slug: bitwarden
+  name: Bitwarden
+  category: password-managers
+  tagline: Open source password manager with free cloud and self-host options.
+  license: GPL-3.0 / AGPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://bitwarden.com
+  github: https://github.com/bitwarden
+  strengths:
+    - Generous free tier on the hosted service.
+    - Strong open source credentials.
+    - Cross-platform clients and browser extensions.
+  weaknesses:
+    - Self-hosting the full stack is multi-container.
+    - Some polish features (password health, reports) are paid.
+    - Occasional syncing edge cases on mobile.
+
+- slug: vaultwarden
+  name: Vaultwarden
+  category: password-managers
+  tagline: Lightweight Bitwarden-compatible server in Rust.
+  license: AGPL-3.0
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://github.com/dani-garcia/vaultwarden
+  github: https://github.com/dani-garcia/vaultwarden
+  strengths:
+    - Single container — runs on a Raspberry Pi.
+    - Fully compatible with all Bitwarden clients.
+    - Trivial backups.
+  weaknesses:
+    - Not officially supported by Bitwarden Inc.
+    - Paid Bitwarden features require self-bypass.
+    - Home-lab focus — not aimed at large teams.
+
+- slug: keepassxc
+  name: KeePassXC
+  category: password-managers
+  tagline: Offline password database — KeePass-compatible.
+  license: GPL-3.0
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: []
+  website: https://keepassxc.org
+  github: https://github.com/keepassxreboot/keepassxc
+  strengths:
+    - No server — just a single encrypted file you sync yourself.
+    - Fast and minimal resource usage.
+    - Strong browser integration.
+  weaknesses:
+    - No native mobile app (KeePassDX/Strongbox fill the gap).
+    - Sharing between users is manual.
+    - Sync is user's responsibility.
+
+- slug: plausible
+  name: Plausible
+  category: analytics
+  tagline: Lightweight, privacy-first Google Analytics alternative.
+  license: AGPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://plausible.io
+  github: https://github.com/plausible/analytics
+  strengths:
+    - No cookies — no consent banner needed.
+    - Tiny script, fast page loads.
+    - Clean, simple dashboard.
+  weaknesses:
+    - Lighter feature set than GA4 (no funnels in free tier).
+    - Retention limits on cloud tier.
+    - Some goal-tracking requires plan upgrade.
+
+- slug: umami
+  name: Umami
+  category: analytics
+  tagline: Self-hosted privacy-focused analytics.
+  license: MIT
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://umami.is
+  github: https://github.com/umami-software/umami
+  strengths:
+    - Easy docker deploy with Postgres/MySQL.
+    - Clean UI and fast dashboard.
+    - Multi-website support out of the box.
+  weaknesses:
+    - Less detailed than Matomo for heavy analysis.
+    - Smaller integration ecosystem.
+    - No built-in alerting.
+
+- slug: matomo
+  name: Matomo
+  category: analytics
+  tagline: Full-featured open source web analytics.
+  license: GPL-3.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: [iOS, Android]
+  website: https://matomo.org
+  github: https://github.com/matomo-org/matomo
+  strengths:
+    - Feature parity with GA for most reports.
+    - Heatmaps, session recordings and goal funnels available.
+    - Strong GDPR tooling.
+  weaknesses:
+    - Heavier to self-host (PHP + DB + cron).
+    - Some premium features are paid plugins.
+    - UI can feel dense.
+
+- slug: suitecrm
+  name: SuiteCRM
+  category: crm-sales
+  tagline: Open source enterprise CRM — SugarCRM fork.
+  license: AGPL-3.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: [iOS, Android]
+  website: https://suitecrm.com
+  github: https://github.com/salesagility/SuiteCRM-Core
+  strengths:
+    - Feature-rich — accounts, opportunities, workflows.
+    - Mature project with enterprise adoption.
+    - Extensible via modules.
+  weaknesses:
+    - UI feels aging vs modern SaaS CRMs.
+    - Self-hosting is LAMP-stack-heavy.
+    - Hosted tier is less polished than HubSpot.
+
+- slug: espocrm
+  name: EspoCRM
+  category: crm-sales
+  tagline: Fast, lightweight open source CRM.
+  license: AGPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: [iOS, Android]
+  website: https://espocrm.com
+  github: https://github.com/espocrm/espocrm
+  strengths:
+    - Snappy UI and modern feel.
+    - Workflow and reporting included in community edition.
+    - Docker deploy works well.
+  weaknesses:
+    - Smaller extension ecosystem than SuiteCRM.
+    - Some advanced modules are paid extensions.
+    - Smaller partner network.
+
+- slug: chatwoot
+  name: Chatwoot
+  category: helpdesk
+  tagline: Open source customer engagement — chat, email, social inboxes.
+  license: MIT
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://chatwoot.com
+  github: https://github.com/chatwoot/chatwoot
+  strengths:
+    - Multi-channel inbox — web chat, email, Facebook, WhatsApp.
+    - Modern UI and mobile apps.
+    - Active development with frequent releases.
+  weaknesses:
+    - Self-hosting requires several services (DB, Redis, Sidekiq).
+    - Integrations with third-party tools still growing.
+    - Some features are gated in hosted "Enterprise" tier.
+
+- slug: zammad
+  name: Zammad
+  category: helpdesk
+  tagline: Ticketing system with email, chat and telephony.
+  license: AGPL-3.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://zammad.org
+  github: https://github.com/zammad/zammad
+  strengths:
+    - Strong email-first ticketing.
+    - Integrations with LDAP, telephony, monitoring.
+    - Detailed SLAs and reporting.
+  weaknesses:
+    - UI complexity can intimidate new agents.
+    - Docker setup is heavy on resources.
+    - Smaller app marketplace than Zendesk.
+
+- slug: freescout
+  name: FreeScout
+  category: helpdesk
+  tagline: Lightweight self-hosted Help Scout alternative.
+  license: AGPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: [iOS, Android]
+  website: https://freescout.net
+  github: https://github.com/freescout-helpdesk/freescout
+  strengths:
+    - Email-first inbox, minimal and fast.
+    - Runs on standard LAMP hosting.
+    - Good free module selection.
+  weaknesses:
+    - Fewer channels than Chatwoot (email primarily).
+    - Premium modules for advanced features.
+    - Smaller community.
+
+- slug: listmonk
+  name: Listmonk
+  category: email-marketing
+  tagline: Self-hosted newsletter and mailing list manager.
+  license: AGPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://listmonk.app
+  github: https://github.com/knadh/listmonk
+  strengths:
+    - Fast Go binary — single executable.
+    - Clean UI and import/export tools.
+    - Bring-your-own-SMTP (Amazon SES, Postmark, etc.).
+  weaknesses:
+    - No drag-and-drop visual builder.
+    - Deliverability depends on your SMTP setup.
+    - Not a visual marketing suite — plain newsletter focus.
+
+- slug: mautic
+  name: Mautic
+  category: email-marketing
+  tagline: Open source marketing automation platform.
+  license: GPL-3.0
+  self_host_difficulty: 4
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://mautic.org
+  github: https://github.com/mautic/mautic
+  strengths:
+    - Full marketing automation — campaigns, landing pages, scoring.
+    - Large ecosystem.
+    - Strong for B2B lead nurturing.
+  weaknesses:
+    - Heavy self-host setup (PHP + queue + cron).
+    - UI is complex and has a learning curve.
+    - Smaller company behind — not as polished as Mailchimp.
+
+- slug: formbricks
+  name: Formbricks
+  category: forms-surveys
+  tagline: Open source Typeform alternative with in-app surveys.
+  license: AGPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://formbricks.com
+  github: https://github.com/formbricks/formbricks
+  strengths:
+    - Modern React UI.
+    - In-app surveys for product teams.
+    - Quick docker deploy.
+  weaknesses:
+    - Some analytics tied to paid tier.
+    - Younger project with evolving features.
+    - Form logic UX is still improving.
+
+- slug: limesurvey
+  name: LimeSurvey
+  category: forms-surveys
+  tagline: Long-established open source survey platform.
+  license: GPL-2.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://limesurvey.org
+  github: https://github.com/LimeSurvey/LimeSurvey
+  strengths:
+    - Deep question types and logic.
+    - Used widely in research and academia.
+    - Self-hosted or paid cloud.
+  weaknesses:
+    - UI feels dated.
+    - Setup wizard is clunky.
+    - Theming requires effort to match modern brands.
+
+- slug: calcom
+  name: Cal.com
+  category: scheduling
+  tagline: Open source Calendly alternative — self-host or cloud.
+  license: AGPL-3.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: [iOS, Android]
+  website: https://cal.com
+  github: https://github.com/calcom/cal.com
+  strengths:
+    - Feature-rich — routing, round-robin, teams.
+    - Rapidly developed open source community.
+    - Integrations with Zoom, Google Cal, Outlook.
+  weaknesses:
+    - Self-hosting has many env vars and OAuth apps.
+    - Upgrade path breaks occasionally.
+    - Some team features gated on cloud.
+
+- slug: rallly
+  name: Rallly
+  category: scheduling
+  tagline: Open source Doodle-style meeting poll.
+  license: AGPL-3.0
+  self_host_difficulty: 1
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://rallly.co
+  github: https://github.com/lukevella/rallly
+  strengths:
+    - Focused scope — just find a meeting time.
+    - Clean UI and fast.
+    - Simple docker deploy.
+  weaknesses:
+    - Not a full booking product.
+    - No recurring event support.
+    - Limited integrations.
+
+- slug: jellyfin
+  name: Jellyfin
+  category: media-streaming
+  tagline: Open source media server — stream your movies, shows and music.
+  license: GPL-2.0
+  self_host_difficulty: 2
+  hosted_cloud_option: false
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://jellyfin.org
+  github: https://github.com/jellyfin/jellyfin
+  strengths:
+    - 100% free — no accounts, no paywalled apps.
+    - Plays on virtually every platform.
+    - Active plugin and skin ecosystem.
+  weaknesses:
+    - Metadata scraping sometimes needs manual fixes.
+    - Transcoding requires hardware acceleration for 4K.
+    - Sharing with friends needs port-forwarding or a reverse proxy.
+
+- slug: navidrome
+  name: Navidrome
+  category: media-streaming
+  tagline: Self-hosted Spotify alternative — your music, your server.
+  license: GPL-3.0
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://www.navidrome.org
+  github: https://github.com/navidrome/navidrome
+  strengths:
+    - Single binary, minimal resource use.
+    - Subsonic-compatible — tons of third-party apps.
+    - Nice modern web UI.
+  weaknesses:
+    - No native streaming recommendations.
+    - You supply your own music library.
+    - No podcast support by default.
+
+- slug: immich
+  name: Immich
+  category: media-streaming
+  tagline: Open source Google Photos alternative with ML tagging.
+  license: AGPL-3.0
+  self_host_difficulty: 3
+  hosted_cloud_option: false
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://immich.app
+  github: https://github.com/immich-app/immich
+  strengths:
+    - AI face and object recognition — fully local.
+    - Mobile auto-upload that actually works.
+    - Fast, modern web UI.
+  weaknesses:
+    - Project explicitly marked "not production-ready" for critical data.
+    - GPU recommended for ML features.
+    - Ongoing breaking changes — frequent updates.
+
+- slug: photoprism
+  name: PhotoPrism
+  category: media-streaming
+  tagline: AI-powered photo library you can self-host.
+  license: AGPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: [iOS, Android]
+  website: https://photoprism.app
+  github: https://github.com/photoprism/photoprism
+  strengths:
+    - Mature, stable self-host option.
+    - ML tagging works on CPU (slowly) or GPU.
+    - Clean UI with maps and albums.
+  weaknesses:
+    - Mobile apps are third-party webview wrappers.
+    - Some power features in sponsor-only builds.
+    - Auto-upload flow is more manual than Immich.
+
+- slug: super-productivity
+  name: Super Productivity
+  category: task-management
+  tagline: Open source Todoist-style task tracker with time tracking.
+  license: MIT
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [Android]
+  website: https://super-productivity.com
+  github: https://github.com/johannesjo/super-productivity
+  strengths:
+    - Local-first — no account needed.
+    - Pomodoro and time tracking built in.
+    - Integrations with Jira, GitHub, GitLab.
+  weaknesses:
+    - No iOS app.
+    - Sync requires your own backend (Nextcloud, WebDAV).
+    - UI density can overwhelm new users.
+
+- slug: vikunja
+  name: Vikunja
+  category: task-management
+  tagline: Open source task manager with Kanban, lists and Gantt.
+  license: AGPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [Android]
+  website: https://vikunja.io
+  github: https://kolaente.dev/vikunja/vikunja
+  strengths:
+    - Multi-view — list, kanban, gantt, calendar.
+    - Single Go binary for self-host.
+    - CalDAV support.
+  weaknesses:
+    - iOS app is community-maintained.
+    - Smaller ecosystem.
+    - Team collaboration features still maturing.
+
+- slug: gitea
+  name: Gitea
+  category: code-hosting
+  tagline: Lightweight self-hosted Git service.
+  license: MIT
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://gitea.com
+  github: https://github.com/go-gitea/gitea
+  strengths:
+    - Single Go binary — minimal install.
+    - Familiar GitHub-style UI.
+    - Actions (CI/CD) and packages built in.
+  weaknesses:
+    - Governance tensions led to the Forgejo fork.
+    - Some enterprise features are paid.
+    - Smaller marketplace than GitLab/GitHub.
+
+- slug: forgejo
+  name: Forgejo
+  category: code-hosting
+  tagline: Community-driven Gitea fork prioritising open source.
+  license: MIT
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://forgejo.org
+  github: https://codeberg.org/forgejo/forgejo
+  strengths:
+    - 100% community governance (Codeberg-backed).
+    - Compatible with Gitea data and actions.
+    - Regular security releases.
+  weaknesses:
+    - Newer fork — ecosystem still consolidating.
+    - Third-party marketplace is smaller.
+    - Feature parity with Gitea varies by release.
+
+- slug: gitlab-ce
+  name: GitLab Community Edition
+  category: code-hosting
+  tagline: Full DevOps platform with CI/CD, registry and more.
+  license: MIT
+  self_host_difficulty: 4
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://about.gitlab.com
+  github: https://gitlab.com/gitlab-org/gitlab-foss
+  strengths:
+    - Integrated CI/CD, registry, issues, merge requests.
+    - Enterprise feature set in community edition.
+    - Strong compliance and security tooling.
+  weaknesses:
+    - Heavy install — multi-gigabyte RAM needs.
+    - Many features gated behind paid tiers.
+    - Upgrade paths can be finicky.
+
+- slug: prometheus-grafana
+  name: Prometheus + Grafana
+  category: monitoring
+  tagline: Open source metrics collection and dashboards.
+  license: Apache-2.0 / AGPL-3.0 (Grafana)
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://prometheus.io
+  github: https://github.com/prometheus/prometheus
+  strengths:
+    - De-facto standard metrics stack.
+    - Massive exporter ecosystem.
+    - Grafana dashboards are industry standard.
+  weaknesses:
+    - No built-in long-term storage by default.
+    - Alert routing requires Alertmanager learning.
+    - Not a turn-key APM — more assembly required.
+
+- slug: signoz
+  name: SigNoz
+  category: monitoring
+  tagline: Open source Datadog alternative — metrics, traces and logs in one.
+  license: Apache-2.0 (community) / commercial (cloud)
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://signoz.io
+  github: https://github.com/SigNoz/signoz
+  strengths:
+    - Unified metrics + traces + logs UI.
+    - OpenTelemetry native.
+    - Modern UI closer to Datadog.
+  weaknesses:
+    - Heavy resource requirements for full stack.
+    - Cloud tier pricing is newer.
+    - Smaller plugin ecosystem than Prometheus.
+
+- slug: uptime-kuma
+  name: Uptime Kuma
+  category: monitoring
+  tagline: Self-hosted uptime monitor — Pingdom alternative.
+  license: MIT
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://uptime.kuma.pet
+  github: https://github.com/louislam/uptime-kuma
+  strengths:
+    - Single container, minimal resources.
+    - Clean UI with status pages.
+    - Many notification integrations.
+  weaknesses:
+    - Not a full APM — simple uptime checks.
+    - Multi-node setup is harder.
+    - Data resides where you host it (single point).
+
+- slug: appsmith
+  name: Appsmith
+  category: internal-tools
+  tagline: Open source Retool alternative for internal admin panels.
+  license: Apache-2.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://appsmith.com
+  github: https://github.com/appsmithorg/appsmith
+  strengths:
+    - Drag-and-drop builder with JS scripting.
+    - Wide data source connectors.
+    - Self-host is free with no seat caps.
+  weaknesses:
+    - Resource-intensive install (Mongo, Redis, etc.).
+    - Complex apps can hit performance limits.
+    - UI for versioning still maturing.
+
+- slug: tooljet
+  name: ToolJet
+  category: internal-tools
+  tagline: Open source low-code builder for internal tools.
+  license: AGPL-3.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://tooljet.com
+  github: https://github.com/ToolJet/ToolJet
+  strengths:
+    - Modern UI and component library.
+    - Multi-database support out of the box.
+    - Git versioning for apps.
+  weaknesses:
+    - Self-host has several services.
+    - Some advanced features gated to cloud.
+    - Learning curve for JS transformations.
+
+- slug: budibase
+  name: Budibase
+  category: internal-tools
+  tagline: Open source internal tool platform with built-in database.
+  license: GPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://budibase.com
+  github: https://github.com/Budibase/budibase
+  strengths:
+    - Bundled BudibaseDB — no external DB required.
+    - Easy self-host via docker-compose.
+    - Forms, dashboards and workflows supported.
+  weaknesses:
+    - Pricing for cloud premium features.
+    - Smaller component library than Retool.
+    - Some external DB connectors still maturing.
+
+- slug: nocodb
+  name: NocoDB
+  category: internal-tools
+  tagline: Open source Airtable alternative — turn any DB into a spreadsheet UI.
+  license: AGPL-3.0
+  self_host_difficulty: 1
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://nocodb.com
+  github: https://github.com/nocodb/nocodb
+  strengths:
+    - Works on top of your existing SQL database.
+    - Quick docker deploy.
+    - Multi-view (grid, kanban, gallery).
+  weaknesses:
+    - UI polish lags Airtable.
+    - Advanced automation is in the paid tier.
+    - Occasional migration friction between releases.
+
+- slug: baserow
+  name: Baserow
+  category: internal-tools
+  tagline: Self-hosted open source Airtable alternative with workspaces.
+  license: MIT
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://baserow.io
+  github: https://gitlab.com/baserow/baserow
+  strengths:
+    - Clean UI with fast filtering and views.
+    - Plugins and formulas supported.
+    - Good docker deploy story.
+  weaknesses:
+    - Many premium features in "advanced" plugin.
+    - Automations are still maturing.
+    - Smaller formula library than Airtable.
+
+- slug: docuseal
+  name: DocuSeal
+  category: office-docs
+  tagline: Open source DocuSign alternative — e-sign your own PDFs.
+  license: AGPL-3.0
+  self_host_difficulty: 1
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://docuseal.co
+  github: https://github.com/docusealco/docuseal
+  strengths:
+    - Single-container docker install.
+    - Visual template builder.
+    - PDF audit trail included.
+  weaknesses:
+    - Newer project — features evolving.
+    - Mobile flow is web-only.
+    - No advanced compliance certifications yet.

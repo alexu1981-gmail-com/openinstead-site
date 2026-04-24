@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page_title }}</title>
+  <meta name="description" content="{{ meta_description }}" />
+  <link rel="canonical" href="{{ site_url }}{{ canonical_path }}" />
+
+  {# Open Graph #}
+  <meta property="og:title" content="{{ page_title }}" />
+  <meta property="og:description" content="{{ meta_description }}" />
+  <meta property="og:type" content="{{ og_type|default('website') }}" />
+  <meta property="og:url" content="{{ site_url }}{{ canonical_path }}" />
+  <meta property="og:site_name" content="{{ site_name }}" />
+  <meta name="twitter:card" content="summary" />
+
+  {# Structured data, if page provided it #}
+  {% if structured_data %}
+  <script type="application/ld+json">{{ structured_data | safe }}</script>
+  {% endif %}
+
+  <link rel="stylesheet" href="{{ static_prefix }}/css/style.css" />
+
+  {# AdSense slot — replace ca-pub-XXXX after approval. Safe to leave commented while unapproved. #}
+  {# <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> #}
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="{{ root_prefix }}/">Open<span>Instead</span></a>
+    <nav>
+      <a href="{{ root_prefix }}/">Home</a>
+      <a href="{{ root_prefix }}/categories/">Categories</a>
+      <a href="{{ root_prefix }}/about/">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  {% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <strong>OpenInstead</strong> — open source alternatives to the SaaS you already use. Updated {{ updated }}.<br>
+      <small>Disclaimer: licensing, features and pricing change. Verify each tool's current status on its official site before committing.</small>
+    </div>
+    <nav>
+      <a href="{{ root_prefix }}/about/">About</a>
+      <a href="{{ root_prefix }}/privacy/">Privacy</a>
+      <a href="{{ root_prefix }}/categories/">Browse</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

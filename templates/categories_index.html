@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="crumbs"><a href="{{ root_prefix }}/">Home</a> / Categories</div>
+  <div class="article-head">
+    <h1>All categories</h1>
+    <p class="lead">Every category we track, with the number of popular SaaS products and their open source alternatives.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="grid cols-3">
+      {% for cat in categories %}
+      <a class="card" href="{{ root_prefix }}/category/{{ cat.slug }}/">
+        <h3>{{ cat.icon }} {{ cat.name }}</h3>
+        <p class="sub">{{ cat.description }}</p>
+        <div class="meta">
+          <span class="tag">{{ cat.saas_count }} SaaS</span>
+          <span class="tag">{{ cat.oss_count }} alternatives</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

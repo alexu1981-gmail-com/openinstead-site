@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="crumbs">
+    <a href="{{ root_prefix }}/">Home</a> /
+    <a href="{{ root_prefix }}/category/{{ saas.category }}/">{{ category.name }}</a> /
+    Alternatives to {{ saas.name }}
+  </div>
+
+  <div class="article-head">
+    <h1>{{ alternatives|length }} open source alternatives to {{ saas.name }}</h1>
+    <p class="lead">{{ saas.tagline }} Here are the open source projects real teams use instead — ranked by fit, with honest pros and cons for each.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <h2>What people don't love about {{ saas.name }}</h2>
+    <ul>
+      {% for gripe in saas.common_gripes %}<li>{{ gripe }}</li>{% endfor %}
+    </ul>
+    <p><small>Current {{ saas.name }} pricing (for reference): {{ saas.pricing }}</small></p>
+  </div>
+</section>
+
+<div class="ad-slot slot-inline"><span>Ad slot — above comparison</span></div>
+
+<section class="section">
+  <div class="container">
+    <h2>Quick comparison</h2>
+    <div style="overflow-x:auto">
+    <table class="cmp">
+      <thead>
+        <tr>
+          <th>Alternative</th>
+          <th>Best for</th>
+          <th>License</th>
+          <th>Self-host</th>
+          <th>Hosted cloud?</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for a in alternatives %}
+        <tr>
+          <td>
+            <strong><a href="{{ root_prefix }}/open-source/{{ a.oss.slug }}/">{{ a.oss.name }}</a></strong><br>
+            <small>{{ a.oss.tagline }}</small>
+          </td>
+          <td>{{ a.best_for }}</td>
+          <td><span class="badge">{{ a.oss.license }}</span></td>
+          <td>{{ '★' * a.oss.self_host_difficulty }}{{ '☆' * (5 - a.oss.self_host_difficulty) }}</td>
+          <td>
+            {% if a.oss.hosted_cloud_option %}
+            <span class="badge ok">Yes</span>
+            {% else %}
+            <span class="badge warn">Self-host only</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+{% for a in alternatives %}
+<section class="section">
+  <div class="container">
+    <h2>{{ loop.index }}. {{ a.oss.name }} <small style="color:var(--text-dim); font-size:0.9rem">— {{ a.best_for }}</small></h2>
+    <p class="lead">{{ a.oss.tagline }}</p>
+
+    <div class="pc">
+      <div class="col pros">
+        <h4>Strengths</h4>
+        <ul>
+          {% for s in a.oss.strengths %}<li>{{ s }}</li>{% endfor %}
+        </ul>
+      </div>
+      <div class="col cons">
+        <h4>Weaknesses</h4>
+        <ul>
+          {% for w in a.oss.weaknesses %}<li>{{ w }}</li>{% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="meta" style="margin-top:0.5rem">
+      <span class="badge">License: {{ a.oss.license }}</span>
+      <span class="badge">Self-host difficulty: {{ a.oss.self_host_difficulty }}/5</span>
+      {% if a.oss.hosted_cloud_option %}<span class="badge ok">Hosted cloud option</span>{% endif %}
+      {% if a.oss.desktop_apps %}<span class="badge">Desktop: {{ a.oss.desktop_apps|join(', ') }}</span>{% endif %}
+      {% if a.oss.mobile_apps %}<span class="badge">Mobile: {{ a.oss.mobile_apps|join(', ') }}</span>{% endif %}
+    </div>
+
+    <p style="margin-top:1rem">
+      <a href="{{ a.oss.website }}" rel="nofollow noopener" target="_blank">{{ a.oss.name }} homepage</a> ·
+      {% if a.oss.github %}<a href="{{ a.oss.github }}" rel="nofollow noopener" target="_blank">Source on GitHub</a> ·{% endif %}
+      <a href="{{ root_prefix }}/vs/{{ saas.slug }}-vs-{{ a.oss.slug }}/">{{ saas.name }} vs {{ a.oss.name }} →</a>
+    </p>
+  </div>
+</section>
+{% endfor %}
+
+<div class="ad-slot slot-inline"><span>Ad slot — below body</span></div>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-box">
+      <h3>Not what you're looking for?</h3>
+      <p>Browse other tools in <a href="{{ root_prefix }}/category/{{ saas.category }}/">{{ category.name }}</a>, or check out open source projects by category on the <a href="{{ root_prefix }}/categories/">full category index</a>.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

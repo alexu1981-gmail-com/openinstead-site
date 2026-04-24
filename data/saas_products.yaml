@@ -1,0 +1,486 @@
+# Popular SaaS products people search alternatives for.
+# Each gets its own "Alternatives to {name}" page.
+
+- slug: notion
+  name: Notion
+  category: note-taking
+  tagline: All-in-one workspace for notes, docs and databases.
+  pricing: Free tier; paid from $10/user/month.
+  common_gripes:
+    - Data lives on someone else's server; sensitive notes feel exposed.
+    - Slow on large workspaces and offline support is limited.
+    - Export options for full workspaces are clunky.
+  homepage: https://www.notion.so
+
+- slug: evernote
+  name: Evernote
+  category: note-taking
+  tagline: Classic note-taking and web-clipper.
+  pricing: Free tier (now limited to 50 notes); Personal from $14.99/month.
+  common_gripes:
+    - Free tier has become heavily restricted.
+    - Price increases have frustrated long-time users.
+    - Syncing and search performance complaints.
+  homepage: https://evernote.com
+
+- slug: obsidian
+  name: Obsidian
+  category: note-taking
+  tagline: Local-first markdown knowledge base (closed source, free for personal use).
+  pricing: Free for personal use; Sync $5/month.
+  common_gripes:
+    - Not open source despite being free.
+    - Mobile app is limited compared to desktop.
+    - Sync requires paid add-on or custom setup.
+  homepage: https://obsidian.md
+
+- slug: slack
+  name: Slack
+  category: team-communication
+  tagline: Team messaging with channels, threads and integrations.
+  pricing: Free tier limited to 90 days of history; Pro from $7.25/user/month.
+  common_gripes:
+    - Free tier message history cap makes it unusable for serious teams.
+    - Data residency concerns for EU and regulated industries.
+    - Per-seat pricing scales expensively.
+  homepage: https://slack.com
+
+- slug: discord
+  name: Discord
+  category: team-communication
+  tagline: Voice, video and text chat — popular with gamers and communities.
+  pricing: Free with Nitro upgrades.
+  common_gripes:
+    - Closed ecosystem — you do not own your community data.
+    - Ads and promoted servers are growing.
+    - Moderation tooling can be limited for large communities.
+  homepage: https://discord.com
+
+- slug: whatsapp
+  name: WhatsApp
+  category: team-communication
+  tagline: Global mobile messaging.
+  pricing: Free.
+  common_gripes:
+    - Owned by Meta; metadata and backup privacy concerns.
+    - No federation — you are locked into the platform.
+    - Mandatory phone number for account.
+  homepage: https://whatsapp.com
+
+- slug: zoom
+  name: Zoom
+  category: video-conferencing
+  tagline: Video meetings, webinars and events.
+  pricing: Free tier with 40-min group call limit; Pro from $14.99/month.
+  common_gripes:
+    - Past security incidents and data-handling concerns.
+    - 40-minute limit on free tier.
+    - Data travels through Zoom cloud — unacceptable for some regulated use cases.
+  homepage: https://zoom.us
+
+- slug: google-meet
+  name: Google Meet
+  category: video-conferencing
+  tagline: Meetings embedded in Google Workspace.
+  pricing: Free (time-limited for groups); full access with Workspace.
+  common_gripes:
+    - Tied to Google account ecosystem.
+    - Free tier has 60-minute limit on group calls.
+    - Privacy concerns for non-Workspace users.
+  homepage: https://meet.google.com
+
+- slug: trello
+  name: Trello
+  category: project-management
+  tagline: Simple kanban boards.
+  pricing: Free tier; Standard from $5/user/month.
+  common_gripes:
+    - Power-ups add up fast once you need automation.
+    - Large boards get slow.
+    - No self-hosted option.
+  homepage: https://trello.com
+
+- slug: asana
+  name: Asana
+  category: project-management
+  tagline: Project and task management for teams.
+  pricing: Free tier for up to 10; Premium from $10.99/user/month.
+  common_gripes:
+    - Pricing jumps significantly beyond Basic tier.
+    - Steep learning curve for advanced features.
+    - Lock-in: exporting workflows is painful.
+  homepage: https://asana.com
+
+- slug: jira
+  name: Jira
+  category: project-management
+  tagline: Issue tracking and agile planning.
+  pricing: Free up to 10 users; Standard from $7.53/user/month.
+  common_gripes:
+    - Overly complex for small teams.
+    - Performance issues on large instances.
+    - Atlassian's pricing and cloud-migration controversies.
+  homepage: https://www.atlassian.com/software/jira
+
+- slug: monday
+  name: Monday.com
+  category: project-management
+  tagline: Work OS with flexible boards and automations.
+  pricing: Free trial; Basic from $9/user/month (3-seat minimum).
+  common_gripes:
+    - Minimum-seat pricing inflates costs for small teams.
+    - Can feel bloated.
+    - No self-hosted option.
+  homepage: https://monday.com
+
+- slug: dropbox
+  name: Dropbox
+  category: file-storage
+  tagline: File sync and sharing.
+  pricing: Free 2 GB; Plus from $11.99/month for 2 TB.
+  common_gripes:
+    - Expensive compared to self-hosted storage at scale.
+    - Desktop client resource usage.
+    - File history and version retention limits.
+  homepage: https://dropbox.com
+
+- slug: google-drive
+  name: Google Drive
+  category: file-storage
+  tagline: Google's cloud storage and productivity hub.
+  pricing: 15 GB free shared with Google account; paid from $1.99/month.
+  common_gripes:
+    - Data indexed by Google.
+    - 15 GB free tier is shared across Gmail, Photos and Drive.
+    - Locking in to Google ecosystem.
+  homepage: https://drive.google.com
+
+- slug: onedrive
+  name: OneDrive
+  category: file-storage
+  tagline: Microsoft's cloud storage integrated with Windows.
+  pricing: 5 GB free; 100 GB from $1.99/month.
+  common_gripes:
+    - Heavy integration with Windows — hard to disable.
+    - Privacy concerns around telemetry.
+    - Moving files away later is painful.
+  homepage: https://onedrive.com
+
+- slug: google-docs
+  name: Google Docs
+  category: office-docs
+  tagline: Collaborative word processor.
+  pricing: Free with Google account.
+  common_gripes:
+    - Data mined by Google.
+    - Offline support is limited.
+    - No self-hosted version for sensitive documents.
+  homepage: https://docs.google.com
+
+- slug: microsoft-365
+  name: Microsoft 365
+  category: office-docs
+  tagline: Office suite in the cloud — Word, Excel, PowerPoint.
+  pricing: Personal from $6.99/month.
+  common_gripes:
+    - Subscription-only model for full features.
+    - Heavy client, frequent updates.
+    - Cloud storage quota included but limited.
+  homepage: https://microsoft.com/microsoft-365
+
+- slug: figma
+  name: Figma
+  category: design-tools
+  tagline: Collaborative interface design in the browser.
+  pricing: Free tier; Professional from $15/editor/month.
+  common_gripes:
+    - Cloud-only — no self-hosted option for confidential work.
+    - Adobe acquisition (later abandoned) shook trust.
+    - Pricing jumps once teams grow.
+  homepage: https://figma.com
+
+- slug: canva
+  name: Canva
+  category: design-tools
+  tagline: Drag-and-drop graphic design for everyone.
+  pricing: Free tier; Pro from $14.99/month.
+  common_gripes:
+    - Watermarks on free templates and elements.
+    - Cloud-only workflow.
+    - Design ownership can feel ambiguous.
+  homepage: https://canva.com
+
+- slug: photoshop
+  name: Adobe Photoshop
+  category: design-tools
+  tagline: Industry-standard raster image editor.
+  pricing: From $22.99/month (single app).
+  common_gripes:
+    - Subscription pricing — you never own the software.
+    - Heavy install; requires powerful machine.
+    - Steep learning curve.
+  homepage: https://adobe.com/products/photoshop
+
+- slug: zapier
+  name: Zapier
+  category: automation
+  tagline: Connect thousands of apps with no-code automations.
+  pricing: Free tier (100 tasks/month); Starter from $19.99/month.
+  common_gripes:
+    - Pricing scales with task volume quickly.
+    - Data flows through Zapier cloud.
+    - Self-hosting not possible.
+  homepage: https://zapier.com
+
+- slug: make
+  name: Make (formerly Integromat)
+  category: automation
+  tagline: Visual automation builder.
+  pricing: Free tier; Core from $9/month.
+  common_gripes:
+    - Pricing based on operations, not tasks — confusing.
+    - Learning curve for complex scenarios.
+    - Not self-hostable.
+  homepage: https://make.com
+
+- slug: ifttt
+  name: IFTTT
+  category: automation
+  tagline: Consumer-focused automation for smart home and services.
+  pricing: Free tier (2 applets); Pro from $3.49/month.
+  common_gripes:
+    - Free tier is now very restricted.
+    - Many legacy integrations have been removed.
+    - Not suitable for business workflows.
+  homepage: https://ifttt.com
+
+- slug: 1password
+  name: 1Password
+  category: password-managers
+  tagline: Popular consumer and team password manager.
+  pricing: Individual from $2.99/month; Family from $4.99/month.
+  common_gripes:
+    - Subscription-only since 7.x — no standalone license.
+    - Cloud-only by default.
+    - Family sharing options have changed repeatedly.
+  homepage: https://1password.com
+
+- slug: lastpass
+  name: LastPass
+  category: password-managers
+  tagline: Password manager for individuals and businesses.
+  pricing: Free tier; Premium from $3/month.
+  common_gripes:
+    - Major security breaches in 2022 eroded trust.
+    - Free tier was restricted to one device type.
+    - Cloud-only, no self-hosted option.
+  homepage: https://lastpass.com
+
+- slug: google-analytics
+  name: Google Analytics
+  category: analytics
+  tagline: Google's free website and app analytics.
+  pricing: Free (GA4); Analytics 360 enterprise-priced.
+  common_gripes:
+    - Cookie consent and GDPR complexity.
+    - GA4 migration was rough.
+    - Data shared with Google.
+  homepage: https://marketingplatform.google.com/about/analytics/
+
+- slug: mixpanel
+  name: Mixpanel
+  category: analytics
+  tagline: Product analytics and funnels.
+  pricing: Free up to 20M events/month; Growth from $28/month.
+  common_gripes:
+    - Pricing grows steeply beyond free tier.
+    - No self-hosted option.
+    - Overkill for simple web traffic.
+  homepage: https://mixpanel.com
+
+- slug: hubspot-crm
+  name: HubSpot CRM
+  category: crm-sales
+  tagline: Marketing, sales and service in one platform.
+  pricing: Free tier; Starter Suite from $15/seat/month.
+  common_gripes:
+    - Upsell pressure across tiers.
+    - Hub add-ons stack up the bill.
+    - Not self-hostable.
+  homepage: https://hubspot.com
+
+- slug: salesforce
+  name: Salesforce
+  category: crm-sales
+  tagline: Enterprise CRM and customer platform.
+  pricing: From $25/user/month (Essentials) up to $300+.
+  common_gripes:
+    - Expensive and complex to configure.
+    - Consultants often required for setup.
+    - Vendor lock-in.
+  homepage: https://salesforce.com
+
+- slug: zendesk
+  name: Zendesk
+  category: helpdesk
+  tagline: Customer support ticketing and chat.
+  pricing: From $19/agent/month.
+  common_gripes:
+    - Pricing climbs fast with add-ons.
+    - Complexity for small support teams.
+    - No self-hosted option.
+  homepage: https://zendesk.com
+
+- slug: intercom
+  name: Intercom
+  category: helpdesk
+  tagline: Conversational support and marketing.
+  pricing: From $39/seat/month.
+  common_gripes:
+    - Heavy per-seat pricing.
+    - Data locked in Intercom cloud.
+    - Some features gated behind premium tiers.
+  homepage: https://intercom.com
+
+- slug: mailchimp
+  name: Mailchimp
+  category: email-marketing
+  tagline: Email marketing and automations.
+  pricing: Free up to 500 contacts; Essentials from $13/month.
+  common_gripes:
+    - Pricing scales by contact count.
+    - Deliverability has been patchy.
+    - Intuit acquisition changed direction for some users.
+  homepage: https://mailchimp.com
+
+- slug: convertkit
+  name: Kit (ConvertKit)
+  category: email-marketing
+  tagline: Creator-focused newsletter platform.
+  pricing: Free up to 10k subscribers; Creator from $15/month.
+  common_gripes:
+    - Tags/segments logic has a learning curve.
+    - Price scales by subscribers not emails sent.
+    - Cloud-only.
+  homepage: https://kit.com
+
+- slug: typeform
+  name: Typeform
+  category: forms-surveys
+  tagline: Conversational forms and surveys.
+  pricing: Free up to 10 responses/month; Basic from $29/month.
+  common_gripes:
+    - Free tier is painfully limited.
+    - Heavy JavaScript in embeds.
+    - Cloud-only.
+  homepage: https://typeform.com
+
+- slug: google-forms
+  name: Google Forms
+  category: forms-surveys
+  tagline: Free forms attached to Google Sheets.
+  pricing: Free.
+  common_gripes:
+    - Basic styling options.
+    - Data lives in Google cloud.
+    - Limited logic branching.
+  homepage: https://forms.google.com
+
+- slug: calendly
+  name: Calendly
+  category: scheduling
+  tagline: Appointment scheduling and meeting links.
+  pricing: Free tier; Standard from $10/seat/month.
+  common_gripes:
+    - Free tier is limited to one event type.
+    - Pricing grows with team size.
+    - No self-hosted option.
+  homepage: https://calendly.com
+
+- slug: netflix
+  name: Netflix
+  category: media-streaming
+  tagline: Subscription video streaming.
+  pricing: Standard from $15.49/month.
+  common_gripes:
+    - Library changes frequently.
+    - Password-sharing crackdown.
+    - No way to own a copy of content.
+  homepage: https://netflix.com
+
+- slug: spotify
+  name: Spotify
+  category: media-streaming
+  tagline: Music streaming and podcasts.
+  pricing: Free with ads; Premium from $10.99/month.
+  common_gripes:
+    - Artist royalty debates.
+    - Non-ownership of music you "buy".
+    - Library curation recommendations are hit-or-miss.
+  homepage: https://spotify.com
+
+- slug: google-photos
+  name: Google Photos
+  category: media-streaming
+  tagline: Photo backup and AI-organized albums.
+  pricing: 15 GB free shared with Google account.
+  common_gripes:
+    - Photos fed into Google's indexing.
+    - Free "high quality" upload ended in 2021.
+    - Export is slow.
+  homepage: https://photos.google.com
+
+- slug: todoist
+  name: Todoist
+  category: task-management
+  tagline: Cross-platform todo list and task manager.
+  pricing: Free tier; Pro from $4/month.
+  common_gripes:
+    - Free tier feature reductions over time.
+    - Reminder functionality locked behind paid tier.
+    - Cloud-only.
+  homepage: https://todoist.com
+
+- slug: github
+  name: GitHub
+  category: code-hosting
+  tagline: Code hosting with Actions, Copilot and Issues.
+  pricing: Free for public repos; Team from $4/user/month.
+  common_gripes:
+    - Microsoft acquisition; privacy/AI-training concerns.
+    - Private repo features can require paid tier.
+    - Centralization of open-source ecosystem.
+  homepage: https://github.com
+
+- slug: datadog
+  name: Datadog
+  category: monitoring
+  tagline: Infrastructure and application monitoring.
+  pricing: From $15/host/month (Infrastructure).
+  common_gripes:
+    - Notoriously expensive once volume grows.
+    - Bills can spike unexpectedly.
+    - Vendor lock-in with proprietary agents.
+  homepage: https://datadoghq.com
+
+- slug: retool
+  name: Retool
+  category: internal-tools
+  tagline: Build internal admin panels and tools fast.
+  pricing: Free up to 5 users; Team from $10/user/month + usage.
+  common_gripes:
+    - Per-user pricing adds up.
+    - Cloud-hosted by default; self-host only on higher tier.
+    - Lock-in to Retool's component model.
+  homepage: https://retool.com
+
+- slug: docusign
+  name: DocuSign
+  category: office-docs
+  tagline: Electronic signatures and contract workflow.
+  pricing: Personal from $10/month.
+  common_gripes:
+    - Pricing per envelope/user can stack up.
+    - Cloud-only storage of signed documents.
+    - Limited branding on lower tiers.
+  homepage: https://docusign.com

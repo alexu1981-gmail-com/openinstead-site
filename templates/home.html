@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+  <div class="container">
+    <h1>Open source alternatives<br>to every <span>SaaS</span> you pay for.</h1>
+    <p>Browse {{ total_saas }} popular cloud tools and see which self-hosted, free or open source projects can replace them. No fluff, no affiliate spam — just side-by-side facts.</p>
+    <div class="chips">
+      <span class="chip">{{ total_saas }} SaaS covered</span>
+      <span class="chip">{{ total_oss }} open source projects</span>
+      <span class="chip">{{ total_comparisons }} direct comparisons</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Browse by category</h2>
+    <p class="lead">Every tool is grouped by what it does. Pick the category, see the incumbents, and jump straight to open source replacements.</p>
+
+    <div class="grid cols-3">
+      {% for cat in categories %}
+      <a class="card" href="{{ root_prefix }}/category/{{ cat.slug }}/">
+        <h3>{{ cat.icon }} {{ cat.name }}</h3>
+        <p class="sub">{{ cat.description }}</p>
+        <div class="meta">
+          <span class="tag">{{ cat.saas_count }} SaaS</span>
+          <span class="tag">{{ cat.oss_count }} alternatives</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot slot-inline"><span>Ad slot — home middle</span></div>
+
+<section class="section">
+  <div class="container">
+    <h2>Most searched SaaS</h2>
+    <p class="lead">Click any product to see a curated list of open source alternatives, with honest pros and cons.</p>
+
+    <div class="grid cols-3">
+      {% for saas in featured_saas %}
+      <a class="card" href="{{ root_prefix }}/alternatives-to/{{ saas.slug }}/">
+        <h3>Alternatives to {{ saas.name }}</h3>
+        <p class="sub">{{ saas.tagline }}</p>
+        <div class="meta">
+          <span class="tag">{{ saas.alternative_count }} alternatives</span>
+          <span class="tag">{{ saas.category_name }}</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-box">
+      <h3>Why open source alternatives?</h3>
+      <p>Every SaaS you pay for is a monthly bill, a data-sharing decision and a vendor lock-in risk. Open source alternatives give you ownership: install on your own server, run forever without a subscription, and keep your data inside your walls. Some are drop-in; others ask you to learn new habits. We tell you which is which.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

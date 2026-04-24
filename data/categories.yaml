@@ -1,0 +1,102 @@
+# Categories for the directory
+# slug must be URL-safe (lowercase, hyphens)
+
+- slug: note-taking
+  name: Note-taking & Knowledge Base
+  description: Tools for personal notes, wikis, and knowledge management — replacing Notion, Evernote, and friends with self-hosted or open source alternatives.
+  icon: "\U0001F4D2"
+
+- slug: team-communication
+  name: Team Communication
+  description: Chat, messaging and voice platforms for teams — open source replacements for Slack, Discord, and WhatsApp.
+  icon: "\U0001F4AC"
+
+- slug: video-conferencing
+  name: Video Conferencing
+  description: Meetings, webinars and virtual classrooms — self-hosted alternatives to Zoom, Google Meet and Microsoft Teams.
+  icon: "\U0001F3A5"
+
+- slug: project-management
+  name: Project Management & Kanban
+  description: Task boards, sprints, roadmaps and issue tracking — open source alternatives to Asana, Jira, Trello and Monday.
+  icon: "\U0001F4CB"
+
+- slug: file-storage
+  name: File Storage & Sync
+  description: Cloud drive and file synchronization — replace Dropbox, Google Drive, and OneDrive with self-hosted options.
+  icon: "\u2601\uFE0F"
+
+- slug: office-docs
+  name: Office & Document Editing
+  description: Collaborative document, spreadsheet, and presentation editors — open source alternatives to Google Docs and Microsoft 365.
+  icon: "\U0001F4DD"
+
+- slug: design-tools
+  name: Design & Creative Tools
+  description: Graphic design, image editing, and vector tools — open source alternatives to Figma, Canva, Photoshop and Illustrator.
+  icon: "\U0001F3A8"
+
+- slug: automation
+  name: Automation & Workflows
+  description: Connect apps and automate repetitive tasks — self-hosted alternatives to Zapier, IFTTT and Make.
+  icon: "\U0001F916"
+
+- slug: password-managers
+  name: Password Managers
+  description: Secure credential storage — open source alternatives to 1Password and LastPass.
+  icon: "\U0001F512"
+
+- slug: analytics
+  name: Analytics & Product Tracking
+  description: Privacy-friendly web and product analytics — open source alternatives to Google Analytics, Mixpanel and Amplitude.
+  icon: "\U0001F4CA"
+
+- slug: crm-sales
+  name: CRM & Sales
+  description: Customer relationship management platforms — open source alternatives to HubSpot and Salesforce.
+  icon: "\U0001F91D"
+
+- slug: helpdesk
+  name: Helpdesk & Support
+  description: Ticketing, live chat and customer support — open source alternatives to Zendesk and Intercom.
+  icon: "\U0001F3AF"
+
+- slug: email-marketing
+  name: Email Marketing & Newsletters
+  description: Newsletter and marketing campaign platforms — open source alternatives to Mailchimp and ConvertKit.
+  icon: "\U0001F4E7"
+
+- slug: forms-surveys
+  name: Forms & Surveys
+  description: Build forms, surveys and questionnaires — open source alternatives to Typeform, Google Forms and SurveyMonkey.
+  icon: "\U0001F4CB"
+
+- slug: scheduling
+  name: Scheduling & Calendars
+  description: Meeting and appointment scheduling — open source alternatives to Calendly and Doodle.
+  icon: "\U0001F4C5"
+
+- slug: media-streaming
+  name: Media Streaming
+  description: Host and stream your own video, music and photos — open source alternatives to Netflix, Spotify and Google Photos.
+  icon: "\U0001F3AC"
+
+- slug: task-management
+  name: Personal Task Management
+  description: Individual todo and task apps — open source alternatives to Todoist, Any.do and TickTick.
+  icon: "\u2705"
+
+- slug: code-hosting
+  name: Code Hosting & DevOps
+  description: Git hosting, CI/CD and code review — open source alternatives to GitHub and Bitbucket.
+  icon: "\U0001F468\u200D\U0001F4BB"
+
+- slug: monitoring
+  name: Monitoring & Observability
+  description: Application performance, logs and uptime — open source alternatives to Datadog and New Relic.
+  icon: "\U0001F4C8"
+
+- slug: internal-tools
+  name: Internal Tools & Admin Panels
+  description: Build internal dashboards and admin UIs — open source alternatives to Retool and Bubble.
+  icon: "\U0001F6E0\uFE0F"

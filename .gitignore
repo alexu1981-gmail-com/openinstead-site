@@ -1,0 +1,22 @@
+# Build artifacts and caches
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+Thumbs.db
+
+# Preview/local artifacts
+openinstead-preview.zip
+
+# Don't ignore dist/ — we serve it directly from this repo on Cloudflare Pages / Netlify.
+# If you'd rather have Cloudflare build it on every commit, add `dist/` to this file
+# and remove it from the repo via `git rm -r --cached dist/`.

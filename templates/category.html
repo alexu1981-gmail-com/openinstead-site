@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="crumbs">
+    <a href="{{ root_prefix }}/">Home</a> / <a href="{{ root_prefix }}/categories/">Categories</a> / {{ category.name }}
+  </div>
+
+  <div class="article-head">
+    <h1>{{ category.icon }} {{ category.name }}</h1>
+    <p class="lead">{{ category.description }}</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <h2>Popular SaaS in this category</h2>
+    <p class="lead">Tap any tool to see curated open source alternatives with honest strengths and weaknesses.</p>
+    <div class="grid cols-3">
+      {% for s in saas_in_category %}
+      <a class="card" href="{{ root_prefix }}/alternatives-to/{{ s.slug }}/">
+        <h3>Alternatives to {{ s.name }}</h3>
+        <p class="sub">{{ s.tagline }}</p>
+        <div class="meta">
+          <span class="tag">{{ s.alternative_count }} alternatives</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot slot-inline"><span>Ad slot — category middle</span></div>
+
+<section class="section">
+  <div class="container">
+    <h2>Open source projects in this category</h2>
+    <div class="grid cols-3">
+      {% for o in oss_in_category %}
+      <a class="card" href="{{ root_prefix }}/open-source/{{ o.slug }}/">
+        <h3>{{ o.name }}</h3>
+        <p class="sub">{{ o.tagline }}</p>
+        <div class="meta">
+          <span class="tag">License: {{ o.license }}</span>
+          <span class="tag">Self-host: {{ '★' * o.self_host_difficulty }}{{ '☆' * (5 - o.self_host_difficulty) }}</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
