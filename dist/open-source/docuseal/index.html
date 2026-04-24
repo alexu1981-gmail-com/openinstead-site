@@ -17,17 +17,25 @@
 
   <link rel="stylesheet" href="/static/css/style.css" />
 
+
+  <script defer src="/static/js/search.js"></script>
 </head>
 <body>
 
 <header class="site-header">
   <div class="container">
     <a class="logo" href="/">Open<span>Instead</span></a>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/categories/">Categories</a>
-      <a href="/about/">About</a>
-    </nav>
+    <div class="header-right">
+      <div class="search-wrap">
+        <input id="search-input" type="search" placeholder="Search SaaS or OSS..." autocomplete="off" />
+        <div id="search-results" class="search-results" hidden></div>
+      </div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/categories/">Categories</a>
+        <a href="/articles/">Articles</a>
+      </nav>
+    </div>
   </div>
 </header>
 
@@ -80,6 +88,13 @@
       <a class="card" href="/alternatives-to/docusign/">
         <h3>DocuSign</h3>
         <p class="sub">Electronic signatures and contract workflow.</p>
+        <div class="meta">
+          <span class="tag">See all alternatives →</span>
+        </div>
+      </a>
+      <a class="card" href="/alternatives-to/hellosign/">
+        <h3>HelloSign (Dropbox Sign)</h3>
+        <p class="sub">E-signature from Dropbox.</p>
         <div class="meta">
           <span class="tag">See all alternatives →</span>
         </div>

@@ -100,3 +100,53 @@
   name: Internal Tools & Admin Panels
   description: Build internal dashboards and admin UIs — open source alternatives to Retool and Bubble.
   icon: "\U0001F6E0\uFE0F"
+
+- slug: whiteboards
+  name: Online Whiteboards & Diagramming
+  description: Virtual whiteboards for workshops, retros and diagrams — open source alternatives to Miro, Mural and InVision Freehand.
+  icon: "\U0001F4CF"
+
+- slug: screen-recording
+  name: Screen Recording & Video Capture
+  description: Record screens, make tutorials and share async videos — open source alternatives to Loom, Camtasia and Bandicam.
+  icon: "\U0001F4F9"
+
+- slug: writing-tools
+  name: Writing & Grammar Tools
+  description: Spell and grammar checkers, prose linters and style helpers — open source alternatives to Grammarly and Hemingway.
+  icon: "\u270D\uFE0F"
+
+- slug: rss-readers
+  name: RSS Readers & News Aggregators
+  description: Follow blogs, news and podcasts via open standards — self-hosted alternatives to Feedly and Inoreader.
+  icon: "\U0001F4F0"
+
+- slug: social-media
+  name: Social Media Management
+  description: Schedule posts across platforms and track engagement — open source alternatives to Buffer and Hootsuite.
+  icon: "\U0001F4E2"
+
+- slug: website-builders
+  name: Website Builders & CMS
+  description: Build sites without raw code — open source alternatives to Webflow, Wix and Squarespace.
+  icon: "\U0001F310"
+
+- slug: ecommerce
+  name: E-commerce Platforms
+  description: Sell online with full ownership of your store — open source alternatives to Shopify and BigCommerce.
+  icon: "\U0001F6D2"
+
+- slug: paas-hosting
+  name: App Hosting & PaaS
+  description: Deploy apps without managing servers — open source alternatives to Heroku, Vercel and Netlify.
+  icon: "\U0001F680"
+
+- slug: accounting
+  name: Accounting & Invoicing
+  description: Track invoices, expenses and finances — open source alternatives to QuickBooks, Xero and FreshBooks.
+  icon: "\U0001F4B3"
+
+- slug: ai-coding
+  name: AI Coding Assistants
+  description: Code completion and AI pair programming on your own infra — open source alternatives to GitHub Copilot and Cursor.
+  icon: "\U0001F9E0"

@@ -4,6 +4,42 @@ Persistent log, updated by Claude every session. Read from top-down.
 
 ---
 
+## 2026-04-24 — Session 1d: SITE LIVE ✅✅
+
+- [x] Cloudflare Pages/Workers deploy succeeded.
+- [x] **Live URL:** https://openinstead-site.alexu1981.workers.dev
+- [x] Visual verification by Alexandru: homepage OK, category cards OK, SaaS pages + comparison tables render correctly.
+- [x] Auto-deploy pipeline active: any future `git push` to main → rebuild in ~2 min.
+
+**Site is now LIVE.** Sprint 1 complete. Total cost so far: **0€**.
+
+**What's next (decisions pending for sprint 2):**
+- Expansion: +20 SaaS, +30 OSS, 5 long-form articles, search box.
+- OR: kick off a second property (utility tool #1 — concrete calculator has highest RPM in xlsx).
+- OR: domain + AdSense application planning (works.dev subdomain is NOT AdSense-eligible).
+
+**Security housekeeping:** PAT `github_pat_11BFD...` still active. If no updates needed in next 48h, Alexandru should revoke it at https://github.com/settings/tokens.
+
+---
+
+## 2026-04-24 — Session 1c: GitHub repo live ✅
+
+- [x] Repo created: **https://github.com/alexu1981-gmail-com/openinstead-site** (public).
+- [x] 280 files pushed on `main` branch, commit `b2b0ab0`.
+- [x] 258 HTML pages in `dist/` pushed and visible on GitHub.
+- [x] Verified clone pulls everything back correctly.
+
+**How push was done (so future sessions can repeat):**
+- User provided a Fine-grained PAT.
+- Note: `api.github.com` is blocked in Claude's sandbox egress list, so I cannot create repos via REST API from here — user had to create the empty repo via web UI (github.com/new).
+- `git push` to `github.com` WORKS (github.com is allowed). Push flow: copy project to `/tmp` (avoid Drive permission issues with `.git/`), `git init`, commit, `git remote add origin https://x-access-token:TOKEN@github.com/USER/REPO.git`, `git push -u origin main`. Done.
+
+**Security note:** PAT lives only in conversation context, not in memory or any file. When Alexandru finishes with this project, he should revoke the token at https://github.com/settings/tokens.
+
+**Next step for Alexandru (5 min):** connect the repo to Cloudflare Pages via [dash.cloudflare.com](https://dash.cloudflare.com) → Workers & Pages → Create → Pages → Connect to Git → select `openinstead-site` → Build output: `dist`. Site live at `openinstead-site.pages.dev` in ~2 min.
+
+---
+
 ## 2026-04-24 — Session 1b: Deploy-prep (added)
 
 Alexandru wants to preview the site before buying a domain. Added:

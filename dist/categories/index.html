@@ -17,17 +17,25 @@
 
   <link rel="stylesheet" href="/static/css/style.css" />
 
+
+  <script defer src="/static/js/search.js"></script>
 </head>
 <body>
 
 <header class="site-header">
   <div class="container">
     <a class="logo" href="/">Open<span>Instead</span></a>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/categories/">Categories</a>
-      <a href="/about/">About</a>
-    </nav>
+    <div class="header-right">
+      <div class="search-wrap">
+        <input id="search-input" type="search" placeholder="Search SaaS or OSS..." autocomplete="off" />
+        <div id="search-results" class="search-results" hidden></div>
+      </div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/categories/">Categories</a>
+        <a href="/articles/">Articles</a>
+      </nav>
+    </div>
   </div>
 </header>
 
@@ -55,7 +63,7 @@
         <h3>💬 Team Communication</h3>
         <p class="sub">Chat, messaging and voice platforms for teams — open source replacements for Slack, Discord, and WhatsApp.</p>
         <div class="meta">
-          <span class="tag">3 SaaS</span>
+          <span class="tag">4 SaaS</span>
           <span class="tag">5 alternatives</span>
         </div>
       </a>
@@ -63,7 +71,7 @@
         <h3>🎥 Video Conferencing</h3>
         <p class="sub">Meetings, webinars and virtual classrooms — self-hosted alternatives to Zoom, Google Meet and Microsoft Teams.</p>
         <div class="meta">
-          <span class="tag">2 SaaS</span>
+          <span class="tag">3 SaaS</span>
           <span class="tag">2 alternatives</span>
         </div>
       </a>
@@ -71,8 +79,8 @@
         <h3>📋 Project Management &amp; Kanban</h3>
         <p class="sub">Task boards, sprints, roadmaps and issue tracking — open source alternatives to Asana, Jira, Trello and Monday.</p>
         <div class="meta">
-          <span class="tag">4 SaaS</span>
-          <span class="tag">6 alternatives</span>
+          <span class="tag">7 SaaS</span>
+          <span class="tag">8 alternatives</span>
         </div>
       </a>
       <a class="card" href="/category/file-storage/">
@@ -87,7 +95,7 @@
         <h3>📝 Office &amp; Document Editing</h3>
         <p class="sub">Collaborative document, spreadsheet, and presentation editors — open source alternatives to Google Docs and Microsoft 365.</p>
         <div class="meta">
-          <span class="tag">3 SaaS</span>
+          <span class="tag">4 SaaS</span>
           <span class="tag">5 alternatives</span>
         </div>
       </a>
@@ -95,7 +103,7 @@
         <h3>🎨 Design &amp; Creative Tools</h3>
         <p class="sub">Graphic design, image editing, and vector tools — open source alternatives to Figma, Canva, Photoshop and Illustrator.</p>
         <div class="meta">
-          <span class="tag">3 SaaS</span>
+          <span class="tag">4 SaaS</span>
           <span class="tag">5 alternatives</span>
         </div>
       </a>
@@ -199,8 +207,88 @@
         <h3>🛠️ Internal Tools &amp; Admin Panels</h3>
         <p class="sub">Build internal dashboards and admin UIs — open source alternatives to Retool and Bubble.</p>
         <div class="meta">
+          <span class="tag">2 SaaS</span>
+          <span class="tag">6 alternatives</span>
+        </div>
+      </a>
+      <a class="card" href="/category/whiteboards/">
+        <h3>📏 Online Whiteboards &amp; Diagramming</h3>
+        <p class="sub">Virtual whiteboards for workshops, retros and diagrams — open source alternatives to Miro, Mural and InVision Freehand.</p>
+        <div class="meta">
+          <span class="tag">2 SaaS</span>
+          <span class="tag">2 alternatives</span>
+        </div>
+      </a>
+      <a class="card" href="/category/screen-recording/">
+        <h3>📹 Screen Recording &amp; Video Capture</h3>
+        <p class="sub">Record screens, make tutorials and share async videos — open source alternatives to Loom, Camtasia and Bandicam.</p>
+        <div class="meta">
           <span class="tag">1 SaaS</span>
+          <span class="tag">2 alternatives</span>
+        </div>
+      </a>
+      <a class="card" href="/category/writing-tools/">
+        <h3>✍️ Writing &amp; Grammar Tools</h3>
+        <p class="sub">Spell and grammar checkers, prose linters and style helpers — open source alternatives to Grammarly and Hemingway.</p>
+        <div class="meta">
+          <span class="tag">1 SaaS</span>
+          <span class="tag">1 alternatives</span>
+        </div>
+      </a>
+      <a class="card" href="/category/rss-readers/">
+        <h3>📰 RSS Readers &amp; News Aggregators</h3>
+        <p class="sub">Follow blogs, news and podcasts via open standards — self-hosted alternatives to Feedly and Inoreader.</p>
+        <div class="meta">
+          <span class="tag">2 SaaS</span>
+          <span class="tag">4 alternatives</span>
+        </div>
+      </a>
+      <a class="card" href="/category/social-media/">
+        <h3>📢 Social Media Management</h3>
+        <p class="sub">Schedule posts across platforms and track engagement — open source alternatives to Buffer and Hootsuite.</p>
+        <div class="meta">
+          <span class="tag">2 SaaS</span>
+          <span class="tag">2 alternatives</span>
+        </div>
+      </a>
+      <a class="card" href="/category/website-builders/">
+        <h3>🌐 Website Builders &amp; CMS</h3>
+        <p class="sub">Build sites without raw code — open source alternatives to Webflow, Wix and Squarespace.</p>
+        <div class="meta">
+          <span class="tag">2 SaaS</span>
           <span class="tag">5 alternatives</span>
+        </div>
+      </a>
+      <a class="card" href="/category/ecommerce/">
+        <h3>🛒 E-commerce Platforms</h3>
+        <p class="sub">Sell online with full ownership of your store — open source alternatives to Shopify and BigCommerce.</p>
+        <div class="meta">
+          <span class="tag">1 SaaS</span>
+          <span class="tag">3 alternatives</span>
+        </div>
+      </a>
+      <a class="card" href="/category/paas-hosting/">
+        <h3>🚀 App Hosting &amp; PaaS</h3>
+        <p class="sub">Deploy apps without managing servers — open source alternatives to Heroku, Vercel and Netlify.</p>
+        <div class="meta">
+          <span class="tag">2 SaaS</span>
+          <span class="tag">3 alternatives</span>
+        </div>
+      </a>
+      <a class="card" href="/category/accounting/">
+        <h3>💳 Accounting &amp; Invoicing</h3>
+        <p class="sub">Track invoices, expenses and finances — open source alternatives to QuickBooks, Xero and FreshBooks.</p>
+        <div class="meta">
+          <span class="tag">2 SaaS</span>
+          <span class="tag">3 alternatives</span>
+        </div>
+      </a>
+      <a class="card" href="/category/ai-coding/">
+        <h3>🧠 AI Coding Assistants</h3>
+        <p class="sub">Code completion and AI pair programming on your own infra — open source alternatives to GitHub Copilot and Cursor.</p>
+        <div class="meta">
+          <span class="tag">1 SaaS</span>
+          <span class="tag">3 alternatives</span>
         </div>
       </a>
     </div>

@@ -375,3 +375,203 @@
   alternatives:
     - slug: docuseal
       best_for: Self-hosted e-signature in a single container.
+
+- saas: microsoft-teams
+  alternatives:
+    - slug: mattermost
+      best_for: Enterprise teams needing Teams-like structure with compliance controls.
+    - slug: element
+      best_for: Federation plus end-to-end encryption for regulated industries.
+    - slug: rocket-chat
+      best_for: Large organizations with omnichannel and complex permissions.
+    - slug: zulip
+      best_for: Async-heavy teams that want topic-based threading.
+
+- saas: webex
+  alternatives:
+    - slug: jitsi-meet
+      best_for: Simple, privacy-friendly meetings you can self-host.
+    - slug: bigbluebutton
+      best_for: Training, classrooms and structured webinars.
+
+- saas: clickup
+  alternatives:
+    - slug: plane
+      best_for: Modern teams wanting cycles, modules and Linear-style ergonomics.
+    - slug: openproject
+      best_for: When you need Gantt, roadmaps and enterprise governance.
+    - slug: vikunja
+      best_for: Individuals and small teams wanting multi-view task management.
+    - slug: focalboard
+      best_for: Notion-meets-Trello self-hosted without the ClickUp sprawl.
+
+- saas: linear
+  alternatives:
+    - slug: plane
+      best_for: The closest drop-in for Linear's modern issue-tracking feel.
+    - slug: taiga
+      best_for: Scrum-first teams that want a focused agile workflow.
+    - slug: openproject
+      best_for: Regulated teams needing audit trails and compliance.
+
+- saas: basecamp
+  alternatives:
+    - slug: kanboard
+      best_for: Minimalist project boards without Basecamp's opinionated flows.
+    - slug: redmine
+      best_for: Teams wanting a mature, long-established alternative.
+    - slug: openproject
+      best_for: When you outgrow Basecamp and need Gantt and budgets.
+
+- saas: miro
+  alternatives:
+    - slug: excalidraw
+      best_for: Quick sketchy wireframes and brainstorms with zero setup.
+    - slug: drawpile
+      best_for: Real-time collaborative drawing on a shared canvas.
+    - slug: openboard
+      best_for: Teachers and classrooms wanting a purpose-built whiteboard.
+
+- saas: invision
+  alternatives:
+    - slug: penpot
+      best_for: The InVision replacement for design and prototyping.
+    - slug: excalidraw
+      best_for: Quick wireframes when you don't need high-fidelity prototypes.
+
+- saas: sketch
+  alternatives:
+    - slug: penpot
+      best_for: The open source interface design tool — SVG-native.
+    - slug: inkscape
+      best_for: Vector design with precision and a huge community.
+    - slug: gimp
+      best_for: Photo-heavy or raster-based design tasks.
+
+- saas: loom
+  alternatives:
+    - slug: obs-studio
+      best_for: Professional recording with scenes, effects and streaming.
+    - slug: sharex
+      best_for: Windows users wanting quick screen clips and GIFs.
+
+- saas: grammarly
+  alternatives:
+    - slug: languagetool
+      best_for: Grammar and style checking that can run fully offline on your server.
+
+- saas: pocket
+  alternatives:
+    - slug: wallabag
+      best_for: Self-hosted Pocket replacement with full-text article archive.
+    - slug: linkace
+      best_for: Bookmark-oriented users who don't need full article capture.
+
+- saas: feedly
+  alternatives:
+    - slug: freshrss
+      best_for: PHP-friendly hosts who want themes and extensions.
+    - slug: miniflux
+      best_for: Minimalists who want a single Go binary and a keyboard-driven UI.
+    - slug: wallabag
+      best_for: When you also want to save articles for offline reading, not just subscribe.
+
+- saas: buffer
+  alternatives:
+    - slug: mixpost
+      best_for: Self-hosted scheduler with modern UX and multi-platform preview.
+    - slug: postiz
+      best_for: AI-assisted social media scheduling with a Next.js stack.
+
+- saas: hootsuite
+  alternatives:
+    - slug: mixpost
+      best_for: Mid-size teams that want Hootsuite-style multi-network posting.
+    - slug: postiz
+      best_for: Teams that want AI caption help plus social scheduling.
+
+- saas: airtable
+  alternatives:
+    - slug: nocodb
+      best_for: Put a spreadsheet UI on top of your existing SQL database.
+    - slug: baserow
+      best_for: Clean Airtable-style UX with workspaces and plugins.
+    - slug: teable
+      best_for: Teams that need real Postgres power behind an Airtable view.
+
+- saas: webflow
+  alternatives:
+    - slug: silex
+      best_for: Visual website builder that exports static HTML you can host anywhere.
+    - slug: grapesjs
+      best_for: Developers who want to embed a drag-and-drop builder in their app.
+    - slug: wordpress
+      best_for: When you want a real CMS plus visual builders like Elementor.
+
+- saas: wix
+  alternatives:
+    - slug: wordpress
+      best_for: The time-tested open alternative — themes, plugins, unlimited hosts.
+    - slug: ghost
+      best_for: Writers and publications wanting a modern editor and memberships.
+    - slug: hugo
+      best_for: Tech-comfortable users wanting blazing-fast static sites.
+
+- saas: shopify
+  alternatives:
+    - slug: woocommerce
+      best_for: Store owners already on WordPress or wanting maximum plugin choice.
+    - slug: medusa
+      best_for: JavaScript-first teams wanting a modern headless commerce stack.
+    - slug: saleor
+      best_for: GraphQL-native teams building custom commerce experiences.
+
+- saas: hellosign
+  alternatives:
+    - slug: docuseal
+      best_for: Simple, self-hosted e-signatures for small teams.
+
+- saas: heroku
+  alternatives:
+    - slug: dokku
+      best_for: Heroku-style git-push deploys on your own single VPS.
+    - slug: coolify
+      best_for: UI-driven self-hosted PaaS with modern multi-server support.
+    - slug: caprover
+      best_for: Clean web UI on top of Docker Swarm for solo or small teams.
+
+- saas: vercel
+  alternatives:
+    - slug: coolify
+      best_for: Self-hosted Vercel alternative with a proper web UI.
+    - slug: caprover
+      best_for: Simpler alternative when you just need to deploy containers.
+    - slug: dokku
+      best_for: CLI-comfortable developers deploying from git.
+
+- saas: xero
+  alternatives:
+    - slug: akaunting
+      best_for: Small businesses that want clean cloud-style accounting, self-hosted.
+    - slug: erpnext
+      best_for: When you want accounting plus CRM, inventory and HR in one stack.
+    - slug: invoiceplane
+      best_for: Freelancers who just need clean invoicing.
+
+- saas: quickbooks
+  alternatives:
+    - slug: akaunting
+      best_for: QuickBooks-style usability on your own server.
+    - slug: erpnext
+      best_for: Growing SMBs needing full ERP, not just accounting.
+    - slug: invoiceplane
+      best_for: Contractors needing straightforward invoicing without ERP weight.
+
+- saas: github-copilot
+  alternatives:
+    - slug: continue-dev
+      best_for: Keep using Copilot-style IDE assistance with any LLM of your choice.
+    - slug: aider
+      best_for: Terminal power users who want AI edits and auto-commits.
+    - slug: tabby
+      best_for: Teams that need fully self-hosted completions on their own GPU.

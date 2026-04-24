@@ -17,17 +17,25 @@
 
   <link rel="stylesheet" href="/static/css/style.css" />
 
+
+  <script defer src="/static/js/search.js"></script>
 </head>
 <body>
 
 <header class="site-header">
   <div class="container">
     <a class="logo" href="/">Open<span>Instead</span></a>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/categories/">Categories</a>
-      <a href="/about/">About</a>
-    </nav>
+    <div class="header-right">
+      <div class="search-wrap">
+        <input id="search-input" type="search" placeholder="Search SaaS or OSS..." autocomplete="off" />
+        <div id="search-results" class="search-results" hidden></div>
+      </div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/categories/">Categories</a>
+        <a href="/articles/">Articles</a>
+      </nav>
+    </div>
   </div>
 </header>
 
@@ -53,6 +61,13 @@
         <p class="sub">Build internal admin panels and tools fast.</p>
         <div class="meta">
           <span class="tag">4 alternatives</span>
+        </div>
+      </a>
+      <a class="card" href="/alternatives-to/airtable/">
+        <h3>Alternatives to Airtable</h3>
+        <p class="sub">Spreadsheet-database hybrid with rich field types and views.</p>
+        <div class="meta">
+          <span class="tag">3 alternatives</span>
         </div>
       </a>
     </div>
@@ -102,6 +117,14 @@
         <p class="sub">Self-hosted open source Airtable alternative with workspaces.</p>
         <div class="meta">
           <span class="tag">License: MIT</span>
+          <span class="tag">Self-host: ★★☆☆☆</span>
+        </div>
+      </a>
+      <a class="card" href="/open-source/teable/">
+        <h3>Teable</h3>
+        <p class="sub">Postgres-backed Airtable alternative.</p>
+        <div class="meta">
+          <span class="tag">License: AGPL-3.0</span>
           <span class="tag">Self-host: ★★☆☆☆</span>
         </div>
       </a>

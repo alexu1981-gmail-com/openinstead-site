@@ -17,17 +17,25 @@
 
   <link rel="stylesheet" href="/static/css/style.css" />
 
+
+  <script defer src="/static/js/search.js"></script>
 </head>
 <body>
 
 <header class="site-header">
   <div class="container">
     <a class="logo" href="/">Open<span>Instead</span></a>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/categories/">Categories</a>
-      <a href="/about/">About</a>
-    </nav>
+    <div class="header-right">
+      <div class="search-wrap">
+        <input id="search-input" type="search" placeholder="Search SaaS or OSS..." autocomplete="off" />
+        <div id="search-results" class="search-results" hidden></div>
+      </div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/categories/">Categories</a>
+        <a href="/articles/">Articles</a>
+      </nav>
+    </div>
   </div>
 </header>
 
@@ -80,6 +88,20 @@
       <a class="card" href="/alternatives-to/figma/">
         <h3>Figma</h3>
         <p class="sub">Collaborative interface design in the browser.</p>
+        <div class="meta">
+          <span class="tag">See all alternatives →</span>
+        </div>
+      </a>
+      <a class="card" href="/alternatives-to/miro/">
+        <h3>Miro</h3>
+        <p class="sub">Online whiteboard for workshops, retros and diagrams.</p>
+        <div class="meta">
+          <span class="tag">See all alternatives →</span>
+        </div>
+      </a>
+      <a class="card" href="/alternatives-to/invision/">
+        <h3>InVision</h3>
+        <p class="sub">Design collaboration, prototyping and whiteboards.</p>
         <div class="meta">
           <span class="tag">See all alternatives →</span>
         </div>

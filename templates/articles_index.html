@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="crumbs"><a href="{{ root_prefix }}/">Home</a> / Articles</div>
+  <div class="article-head">
+    <h1>Articles</h1>
+    <p class="lead">Long-form essays on self-hosting, open source evaluation and SaaS migration, written without hype.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="grid cols-2">
+      {% for a in articles %}
+      <a class="card" href="{{ root_prefix }}/article/{{ a.slug }}/">
+        <h3>{{ a.title }}</h3>
+        <p class="sub">{{ a.description }}</p>
+        <div class="meta">
+          <span class="tag">{{ a.category }}</span>
+          <span class="tag">{{ a.date }}</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

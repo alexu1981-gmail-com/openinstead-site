@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="crumbs">
+    <a href="{{ root_prefix }}/">Home</a> /
+    <a href="{{ root_prefix }}/articles/">Articles</a> /
+    {{ article.title }}
+  </div>
+
+  <div class="article-head">
+    <h1>{{ article.title }}</h1>
+    <p class="lead">{{ article.description }}</p>
+    <div class="meta">
+      <span class="badge">{{ article.category }}</span>
+      <span class="badge">{{ article.date }}</span>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container" style="max-width:780px">
+    <div class="article-body">
+      {{ body | safe }}
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot slot-inline"><span>Ad slot — article end</span></div>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-box">
+      <h3>Browse more</h3>
+      <p>See all <a href="{{ root_prefix }}/articles/">articles</a> or explore the full <a href="{{ root_prefix }}/categories/">directory of open source alternatives</a>.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

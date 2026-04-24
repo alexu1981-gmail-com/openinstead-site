@@ -1361,3 +1361,623 @@
     - Newer project — features evolving.
     - Mobile flow is web-only.
     - No advanced compliance certifications yet.
+
+- slug: kanboard
+  name: Kanboard
+  category: project-management
+  tagline: Minimalist PHP-based kanban project manager.
+  license: MIT
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://kanboard.org
+  github: https://github.com/kanboard/kanboard
+  strengths:
+    - Runs on plain LAMP — no containers needed.
+    - Minimal, focused kanban experience.
+    - Stable, long-running project.
+  weaknesses:
+    - UI is utilitarian, not fancy.
+    - Feature set narrower than Planka or Focalboard.
+    - No native mobile app.
+
+- slug: redmine
+  name: Redmine
+  category: project-management
+  tagline: Classic Rails-based issue tracker used for decades.
+  license: GPL-2.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: [iOS, Android]
+  website: https://redmine.org
+  github: https://github.com/redmine/redmine
+  strengths:
+    - Very mature — rock solid reliability.
+    - Plugin ecosystem for almost anything.
+    - Multi-project with roles and workflows.
+  weaknesses:
+    - UI feels dated.
+    - Rails deployment is heavier than Go/Node alternatives.
+    - Community is slower than modern competitors.
+
+- slug: openboard
+  name: OpenBoard
+  category: whiteboards
+  tagline: Interactive whiteboard designed for teaching.
+  license: GPL-3.0
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: []
+  website: https://openboard.ch
+  github: https://github.com/OpenBoard-org/OpenBoard
+  strengths:
+    - Purpose-built for teachers and classrooms.
+    - Desktop-first — no server needed.
+    - Stylus and tablet friendly.
+  weaknesses:
+    - Not a real-time multi-user whiteboard.
+    - Desktop-only; no cloud collaboration.
+    - Smaller community than Excalidraw.
+
+- slug: drawpile
+  name: Drawpile
+  category: whiteboards
+  tagline: Collaborative drawing and painting in real time.
+  license: GPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [Android]
+  website: https://drawpile.net
+  github: https://github.com/drawpile/Drawpile
+  strengths:
+    - Real-time multi-user drawing.
+    - Self-host your own session server.
+    - Natural feel for artists and designers.
+  weaknesses:
+    - More painting-focused than diagramming.
+    - No sticky notes / Miro-style UX.
+    - Limited integrations.
+
+- slug: obs-studio
+  name: OBS Studio
+  category: screen-recording
+  tagline: Professional open source screen and stream recorder.
+  license: GPL-2.0
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: []
+  website: https://obsproject.com
+  github: https://github.com/obsproject/obs-studio
+  strengths:
+    - Industry-standard for streamers and creators.
+    - Unlimited scenes, sources and effects.
+    - No subscription, no cloud dependency.
+  weaknesses:
+    - Heavier learning curve than Loom.
+    - Recording-only — no built-in async video sharing.
+    - Requires manual upload to share videos.
+
+- slug: sharex
+  name: ShareX
+  category: screen-recording
+  tagline: Windows-only screen capture and file sharing.
+  license: GPL-3.0
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: [Windows]
+  mobile_apps: []
+  website: https://getsharex.com
+  github: https://github.com/ShareX/ShareX
+  strengths:
+    - Huge feature set for screenshots, GIFs and recordings.
+    - Custom uploader destinations (including self-hosted).
+    - Free forever.
+  weaknesses:
+    - Windows only.
+    - UI is dense and intimidating for newcomers.
+    - No built-in cloud sharing service.
+
+- slug: languagetool
+  name: LanguageTool
+  category: writing-tools
+  tagline: Open source grammar, spelling and style checker.
+  license: LGPL-2.1
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: []
+  website: https://languagetool.org
+  github: https://github.com/languagetool-org/languagetool
+  strengths:
+    - Supports 25+ languages.
+    - Self-hostable — your text never leaves your server.
+    - Browser extensions and editor integrations.
+  weaknesses:
+    - Grammar feel less polished than Grammarly on edge cases.
+    - Premium rules require paid tier or self-host config.
+    - Java-based deployment footprint.
+
+- slug: wallabag
+  name: Wallabag
+  category: rss-readers
+  tagline: Self-hosted read-it-later and article archiver.
+  license: MIT
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: [iOS, Android]
+  website: https://wallabag.org
+  github: https://github.com/wallabag/wallabag
+  strengths:
+    - Mature Pocket-style experience.
+    - Browser extensions for all major browsers.
+    - Full-text archival of saved articles.
+  weaknesses:
+    - UI polish lags commercial competitors.
+    - Setup requires PHP stack.
+    - Mobile apps rely on your self-hosted instance.
+
+- slug: linkace
+  name: LinkAce
+  category: rss-readers
+  tagline: Open source bookmark manager.
+  license: GPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://linkace.org
+  github: https://github.com/Kovah/LinkAce
+  strengths:
+    - Clean, modern bookmark UI.
+    - Tag organization and private/public distinction.
+    - Browser extension available.
+  weaknesses:
+    - No mobile app.
+    - Not a full read-later flow.
+    - Backups / import tooling is improving.
+
+- slug: freshrss
+  name: FreshRSS
+  category: rss-readers
+  tagline: Lightweight self-hosted RSS feed aggregator.
+  license: AGPL-3.0
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: [iOS, Android]
+  website: https://freshrss.org
+  github: https://github.com/FreshRSS/FreshRSS
+  strengths:
+    - Easy PHP install or docker.
+    - Multiple themes and extensions.
+    - API for mobile apps (Nextcloud News, Reeder via plugin).
+  weaknesses:
+    - No first-party mobile apps — uses Fever or Google Reader API.
+    - Feed discovery weaker than Feedly.
+    - Requires PHP web server.
+
+- slug: miniflux
+  name: Miniflux
+  category: rss-readers
+  tagline: Minimalist Go-based RSS reader.
+  license: Apache-2.0
+  self_host_difficulty: 1
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: [iOS, Android]
+  website: https://miniflux.app
+  github: https://github.com/miniflux/v2
+  strengths:
+    - Single Go binary — trivial deploy.
+    - Clean keyboard-driven UI.
+    - Paid hosted option if you don't want to self-host.
+  weaknesses:
+    - Intentionally minimal — no AI filters or enrichment.
+    - Fewer themes than FreshRSS.
+    - No native mobile app (uses Fever/Google Reader protocol).
+
+- slug: mixpost
+  name: Mixpost
+  category: social-media
+  tagline: Self-hosted social media scheduler.
+  license: MIT (lite) / commercial (Pro)
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://mixpost.app
+  github: https://github.com/inovector/MixPost
+  strengths:
+    - Modern UI with preview across platforms.
+    - Supports Twitter/X, LinkedIn, Facebook, Mastodon, etc.
+    - Free self-host tier (lite).
+  weaknesses:
+    - Advanced features (team workflows, analytics) in paid Pro.
+    - Laravel stack — PHP install.
+    - Smaller integration list than Buffer.
+
+- slug: postiz
+  name: Postiz
+  category: social-media
+  tagline: Ultimate AI social media scheduling tool, open source.
+  license: AGPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://postiz.com
+  github: https://github.com/gitroomhq/postiz-app
+  strengths:
+    - Built with modern Next.js stack.
+    - AI-assisted caption generation.
+    - Team collaboration on scheduling.
+  weaknesses:
+    - Younger project — features evolving.
+    - Self-host has multiple services (DB, Redis, queue).
+    - Some AI features gated on cloud plans.
+
+- slug: teable
+  name: Teable
+  category: internal-tools
+  tagline: Postgres-backed Airtable alternative.
+  license: AGPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://teable.io
+  github: https://github.com/teableio/teable
+  strengths:
+    - Built on Postgres — real database power.
+    - Real-time collaboration and Airtable-style views.
+    - Active development with frequent releases.
+  weaknesses:
+    - Newer than NocoDB / Baserow.
+    - Advanced features still shipping.
+    - Smaller extension library.
+
+- slug: grapesjs
+  name: GrapesJS
+  category: website-builders
+  tagline: Open source drag-and-drop visual builder framework.
+  license: BSD-3-Clause
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://grapesjs.com
+  github: https://github.com/GrapesJS/grapesjs
+  strengths:
+    - Framework-agnostic — embeddable in any app.
+    - Active community and plugins.
+    - Exports clean HTML/CSS.
+  weaknesses:
+    - Not a turn-key CMS — you integrate it into your app.
+    - No built-in hosting.
+    - Documentation is developer-focused.
+
+- slug: silex
+  name: Silex
+  category: website-builders
+  tagline: Free and open source website builder in the browser.
+  license: AGPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: []
+  website: https://www.silex.me
+  github: https://github.com/silexlabs/Silex
+  strengths:
+    - Works in browser or desktop.
+    - Exports static HTML — host anywhere.
+    - No vendor lock-in.
+  weaknesses:
+    - Smaller template library than Wix.
+    - Project maturity varies by area.
+    - Occasional upgrade friction.
+
+- slug: wordpress
+  name: WordPress (self-hosted)
+  category: website-builders
+  tagline: The world's most used open source CMS.
+  license: GPL-2.0
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: [iOS, Android]
+  website: https://wordpress.org
+  github: https://github.com/WordPress/WordPress
+  strengths:
+    - Largest theme and plugin ecosystem anywhere.
+    - Battle-tested for 20+ years.
+    - Any host works — pick your own provider.
+  weaknesses:
+    - Plugin sprawl drives attack surface and bloat.
+    - Performance depends heavily on caching setup.
+    - Gutenberg vs classic editor divide persists.
+
+- slug: ghost
+  name: Ghost (self-hosted)
+  category: website-builders
+  tagline: Modern open source publishing platform with paid newsletters.
+  license: MIT
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://ghost.org
+  github: https://github.com/TryGhost/Ghost
+  strengths:
+    - Clean, writer-first editor.
+    - Built-in newsletter and memberships.
+    - Self-host or paid managed hosting.
+  weaknesses:
+    - Smaller plugin ecosystem than WordPress.
+    - Themes require handlebars knowledge.
+    - Self-host requires Node.js + MySQL setup.
+
+- slug: hugo
+  name: Hugo
+  category: website-builders
+  tagline: Blazing-fast static site generator in Go.
+  license: Apache-2.0
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: []
+  website: https://gohugo.io
+  github: https://github.com/gohugoio/hugo
+  strengths:
+    - Thousands of pages built in seconds.
+    - No runtime dependencies on the server.
+    - Huge theme library.
+  weaknesses:
+    - No visual editor — Markdown and templates.
+    - Content updates require re-build.
+    - Steep learning curve for Go template syntax.
+
+- slug: woocommerce
+  name: WooCommerce
+  category: ecommerce
+  tagline: E-commerce plugin on top of WordPress.
+  license: GPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: [iOS, Android]
+  website: https://woocommerce.com
+  github: https://github.com/woocommerce/woocommerce
+  strengths:
+    - Huge extension marketplace.
+    - Mature — powers millions of stores.
+    - Full ownership of code and data.
+  weaknesses:
+    - Performance tuning required at scale.
+    - Extension costs can add up.
+    - Depends on WordPress stack.
+
+- slug: saleor
+  name: Saleor
+  category: ecommerce
+  tagline: GraphQL-first headless commerce.
+  license: BSD-3-Clause
+  self_host_difficulty: 4
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://saleor.io
+  github: https://github.com/saleor/saleor
+  strengths:
+    - Headless architecture — any frontend stack.
+    - GraphQL API first.
+    - Multi-channel and multi-warehouse built in.
+  weaknesses:
+    - Complex self-host (Postgres + Redis + search + worker).
+    - Python + JavaScript teams needed to extend.
+    - Steep learning curve.
+
+- slug: medusa
+  name: Medusa
+  category: ecommerce
+  tagline: Open source alternative to Shopify for developers.
+  license: MIT
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://medusajs.com
+  github: https://github.com/medusajs/medusa
+  strengths:
+    - Node.js-native — familiar for JS teams.
+    - Modular — plug in any storefront.
+    - Rapid community growth.
+  weaknesses:
+    - Younger ecosystem than Saleor/WooCommerce.
+    - Some modules still maturing.
+    - Plugins community-driven.
+
+- slug: erpnext
+  name: ERPNext
+  category: accounting
+  tagline: Full ERP with accounting, HR, CRM and inventory.
+  license: GPL-3.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: [iOS, Android]
+  website: https://erpnext.com
+  github: https://github.com/frappe/erpnext
+  strengths:
+    - End-to-end ERP for SMBs.
+    - Multi-currency and multi-company built in.
+    - Strong customization via Frappe framework.
+  weaknesses:
+    - Self-hosting Frappe stack is non-trivial.
+    - UI can feel busy for simple needs.
+    - Documentation varies in quality.
+
+- slug: akaunting
+  name: Akaunting
+  category: accounting
+  tagline: Online accounting software for small businesses.
+  license: GPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: [iOS, Android]
+  website: https://akaunting.com
+  github: https://github.com/akaunting/akaunting
+  strengths:
+    - Approachable for non-accountants.
+    - Paid app store for advanced modules.
+    - Decent docker self-host.
+  weaknesses:
+    - Some advanced features behind paid apps.
+    - Smaller accountant community than QuickBooks.
+    - Multi-currency handling can lag in edge cases.
+
+- slug: invoiceplane
+  name: InvoicePlane
+  category: accounting
+  tagline: Simple invoicing for freelancers and consultants.
+  license: MIT
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://invoiceplane.com
+  github: https://github.com/InvoicePlane/InvoicePlane
+  strengths:
+    - Runs on cheap PHP/MySQL hosting.
+    - Focused on the invoicing workflow.
+    - Great for solo freelancers.
+  weaknesses:
+    - Development pace has slowed in recent years.
+    - Feature set narrower than Akaunting.
+    - UI is functional, not modern.
+
+- slug: dokku
+  name: Dokku
+  category: paas-hosting
+  tagline: Self-hosted mini-Heroku on a single server.
+  license: MIT
+  self_host_difficulty: 2
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://dokku.com
+  github: https://github.com/dokku/dokku
+  strengths:
+    - Deploy via git push, just like Heroku.
+    - Works on any Linux VPS.
+    - Plugin ecosystem for databases, SSL, etc.
+  weaknesses:
+    - Single-host — limited scaling story.
+    - Requires Linux sysadmin comfort.
+    - UI is CLI-first.
+
+- slug: coolify
+  name: Coolify
+  category: paas-hosting
+  tagline: Open source Vercel/Heroku/Netlify alternative with a UI.
+  license: Apache-2.0
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://coolify.io
+  github: https://github.com/coollabsio/coolify
+  strengths:
+    - Slick web UI — no CLI required.
+    - Multi-server support and one-click deploys for common stacks.
+    - Active, fast-moving development.
+  weaknesses:
+    - Rapid updates occasionally break setups.
+    - Some quirks on older Linux distributions.
+    - Paid cloud is new.
+
+- slug: caprover
+  name: CapRover
+  category: paas-hosting
+  tagline: Free, self-hosted PaaS with a clean UI.
+  license: Apache-2.0
+  self_host_difficulty: 2
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://caprover.com
+  github: https://github.com/caprover/caprover
+  strengths:
+    - One-command install on any Ubuntu/Debian box.
+    - Web UI for managing apps, volumes and domains.
+    - Strong one-click app library (databases, etc.).
+  weaknesses:
+    - Docker Swarm under the hood — not Kubernetes.
+    - Smaller team behind it.
+    - Scaling across many nodes is limited.
+
+- slug: continue-dev
+  name: Continue
+  category: ai-coding
+  tagline: Open source alternative to GitHub Copilot — run any model.
+  license: Apache-2.0
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: []
+  website: https://continue.dev
+  github: https://github.com/continuedev/continue
+  strengths:
+    - Works with VS Code and JetBrains IDEs.
+    - Bring your own model — OpenAI, Anthropic, Ollama, etc.
+    - Keeps code local — no required cloud.
+  weaknesses:
+    - Requires you to manage model access/keys.
+    - Cold-start setup takes effort compared to Copilot.
+    - Community plugins still stabilizing.
+
+- slug: aider
+  name: Aider
+  category: ai-coding
+  tagline: AI pair programming in your terminal.
+  license: Apache-2.0
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: []
+  website: https://aider.chat
+  github: https://github.com/Aider-AI/aider
+  strengths:
+    - Git-aware — edits files and commits for you.
+    - Works with any OpenAI-compatible model.
+    - Lightweight — runs as a CLI.
+  weaknesses:
+    - Terminal-based — no GUI for editors.
+    - Model API usage costs can climb on large repos.
+    - Not a code-completion tool (different UX from Copilot).
+
+- slug: tabby
+  name: Tabby
+  category: ai-coding
+  tagline: Self-hosted AI coding assistant you can run on your own GPU.
+  license: Apache-2.0 (community) / commercial (enterprise)
+  self_host_difficulty: 3
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://tabby.tabbyml.com
+  github: https://github.com/TabbyML/tabby
+  strengths:
+    - Fully self-hosted code completion.
+    - VS Code, IntelliJ, vim extensions.
+    - Runs on consumer GPUs with quantized models.
+  weaknesses:
+    - GPU strongly recommended for good latency.
+    - Larger install footprint.
+    - Enterprise features gated.

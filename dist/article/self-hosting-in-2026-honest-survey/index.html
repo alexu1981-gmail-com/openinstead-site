@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Self-hosting in 2026: the honest survey · OpenInstead</title>
+  <meta name="description" content="An honest look at what self-hosting actually costs in 2026 — time, money, attention — and who should and shouldn&#39;t do it." />
+  <link rel="canonical" href="https://openinstead.dev/article/self-hosting-in-2026-honest-survey/" />
+
+  <meta property="og:title" content="Self-hosting in 2026: the honest survey · OpenInstead" />
+  <meta property="og:description" content="An honest look at what self-hosting actually costs in 2026 — time, money, attention — and who should and shouldn&#39;t do it." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://openinstead.dev/article/self-hosting-in-2026-honest-survey/" />
+  <meta property="og:site_name" content="OpenInstead" />
+  <meta name="twitter:card" content="summary" />
+
+
+  <link rel="stylesheet" href="/static/css/style.css" />
+
+
+  <script defer src="/static/js/search.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="/">Open<span>Instead</span></a>
+    <div class="header-right">
+      <div class="search-wrap">
+        <input id="search-input" type="search" placeholder="Search SaaS or OSS..." autocomplete="off" />
+        <div id="search-results" class="search-results" hidden></div>
+      </div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/categories/">Categories</a>
+        <a href="/articles/">Articles</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="container">
+  <div class="crumbs">
+    <a href="/">Home</a> /
+    <a href="/articles/">Articles</a> /
+    Self-hosting in 2026: the honest survey
+  </div>
+
+  <div class="article-head">
+    <h1>Self-hosting in 2026: the honest survey</h1>
+    <p class="lead">An honest look at what self-hosting actually costs in 2026 — time, money, attention — and who should and shouldn&#39;t do it.</p>
+    <div class="meta">
+      <span class="badge">Opinion</span>
+      <span class="badge">2026-04-24</span>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container" style="max-width:780px">
+    <div class="article-body">
+      <p>
+For the past few years, "self-host everything" has been having a moment. Meta's TOS scares, LastPass breaches, Notion pricing climbs — every incident nudges another cohort into a weekend of Docker Compose files and subdomain juggling. If you're reading this, you're probably somewhere on that gradient yourself.
+</p>
+<p>
+This piece tries to be useful in a different way from the usual self-hosting content. We won't promise freedom. We'll count hours. The goal is to help you decide, clear-eyed, whether self-hosting any given service is the right move for you in 2026 — or whether you should keep paying.
+</p>
+<h2>The two mental models of self-hosting</h2>
+<p>
+People self-host for two different reasons, and they lead to different setups.
+</p>
+<p>
+<strong>Model A: "I want the bill to stop."</strong> You looked at the Notion/Slack/Dropbox line on your credit card and did the math: $240 a year, $420 a year, $1,200 a year. Twelve services later, you're burning through $3,000+ annually on subscriptions for things that, physically, could all run on a $15/month VPS.
+</p>
+<p>
+<strong>Model B: "I want my data out of there."</strong> You work in healthcare, law, journalism, or you live in a jurisdiction where data residency matters. The question isn't cost — it's custody.
+</p>
+<p>
+These two models produce different decisions. The Model A person should probably self-host for their <strong>consumer-facing personal data</strong> (photos, files, notes, RSS) and <strong>keep paying</strong> for their team's productivity suite, because the hours per month to run a self-hosted Slack for a five-person team exceed what Slack Pro costs them. The Model B person should do the opposite: self-host the crown jewels (docs, email, chat) and not sweat the photo library.
+</p>
+<p>
+Most people try to do both simultaneously, and end up overwhelmed. Pick a model before you pick a stack.
+</p>
+<h2>The real costs nobody talks about</h2>
+<p>
+<strong>Hosting hardware.</strong> A 4 GB / 2 vCPU VPS runs you $5–10/month at Hetzner, $12–25/month at DigitalOcean or Linode. That's enough to run Nextcloud + one or two light services. If you want to run Immich with ML tagging, a Plausible instance, and a Matrix server, you're now at $20–40/month for a bigger box. Plus 2 TB of object storage for backups (another $5–10). Call it <strong>$25–50/month all in</strong> for a serious personal setup.
+</p>
+<p>
+<strong>Domains.</strong> If you self-host, you want your own domain so nothing feels like an ad URL. $10–15/year per domain. Most people end up with two or three.
+</p>
+<p>
+<strong>Backups.</strong> This is where 90% of self-hosters silently fail. The cost isn't the tool (Restic, Borg, Duplicati are all free) — it's the testing. You need to actually restore from a backup at least twice a year or you don't have backups, you have a feelings file. Budget four hours a year here. One of those hours will involve crying.
+</p>
+<p>
+<strong>Time.</strong> This is the big one. Initial install of a mature project (Nextcloud, Jellyfin) on a fresh VPS: 1–3 hours if things go well, 5–10 if you hit a wall. Monthly maintenance (updates, monitoring alerts, fixing what broke): 1–3 hours per service. Backup rehearsal: 1–2 hours a year. A catastrophic recovery (VPS dies, disk corrupts, upgrade destroys config): 4–8 hours, once every 18–36 months.
+</p>
+<p>
+For a personal stack of four or five services, a realistic time budget is <strong>10–20 hours a year</strong> on top of initial setup. That's one Saturday every 3–6 months. For many people this is cheaper than the subscriptions. For others, it's five Saturdays they can't spare.
+</p>
+<h2>Who self-hosting is genuinely great for</h2>
+<ul>
+<li><strong>You already have a home server or homelab.</strong> The marginal cost of adding one more container is near zero. You have the skills.</li>
+<li><strong>You own a small agency or studio and bill for your time.</strong> Self-hosting internal tooling saves real money at the scale of 5–15 seats, where per-user SaaS pricing stings worst.</li>
+<li><strong>You're in a data-sensitive profession.</strong> Legal, medical, journalism. Self-hosting isn't a preference, it's a compliance requirement — and the budget reflects that.</li>
+<li><strong>You enjoy running services.</strong> This is the honest one. If the weekend of tinkering is the point, go.</li>
+</ul>
+<h2>Who self-hosting is a trap for</h2>
+<ul>
+<li><strong>Solo professionals whose time is scarce.</strong> Twenty hours a year is half a workweek. Very few SaaS bills justify half a workweek of sysadmin, even at consultant rates.</li>
+<li><strong>Teams that need uptime SLAs.</strong> Self-hosted means you're the oncall, and most people quietly burn out on that within a year.</li>
+<li><strong>People who want to "replace Gmail."</strong> Self-hosting email is its own category of suffering in 2026. Deliverability to Gmail and Outlook from a fresh VPS IP is awful. Use Proton or Fastmail instead; put your energy elsewhere.</li>
+</ul>
+<h2>The sane hybrid most people land on</h2>
+<p>
+After watching friends do this for years, here's the pattern that tends to work:
+</p>
+<p>
+<strong>Self-host:</strong> files and sync (Nextcloud or Seafile), photos (Immich or PhotoPrism), media (Jellyfin), RSS (Miniflux), bookmarks (Wallabag or LinkAce), password manager (Vaultwarden — because Bitwarden clients are polished and Vaultwarden is tiny).
+</p>
+<p>
+<strong>Pay for:</strong> email (Proton or Fastmail), team chat (Slack or Discord for the small team, unless compliance demands otherwise), video meetings (a pay-per-minute option, because Jitsi is fine but not rock-solid at scale), source code hosting (GitHub for small public projects, plus Forgejo or Gitea only if your team is big enough).
+</p>
+<p>
+<strong>The logic:</strong> self-host the things that are one-person, stateful, private, and infrequently trafficked. Pay for things that are team-facing, real-time, and where an outage means someone is blocked.
+</p>
+<h2>Before you go hunting for alternatives</h2>
+<p>
+A gentle nudge. Look at our directory of <a href="/categories/">open source alternatives by category</a>, but before you pick any of them, ask three questions of the SaaS you're leaving:
+</p>
+<ol>
+<li>Is the thing that's bothering me about this service actually going to be solved by switching? Or am I trading one set of problems for another?</li>
+<li>How much will I actually save — in a year, net of hosting, net of time?</li>
+<li>Is there a middle-ground plan (self-host the personal slice, keep the team slice) that captures 80% of the benefit with 20% of the work?</li>
+</ol>
+<p>
+If the answers are honest yes / meaningful savings / no middle ground, go. Otherwise, keep reading before you pull the plug.
+</p>
+<hr>
+<p>
+Self-hosting is more accessible than it's ever been — Docker Compose files you can copy-paste, installation scripts that work, documentation that's actually good. But "easier to install" is not the same as "easier to own." Ownership is a subscription paid in your own time. Pick your services the way you pick any subscription: based on what it buys you, not what it costs someone else.
+</p>
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot slot-inline"><span>Ad slot — article end</span></div>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-box">
+      <h3>Browse more</h3>
+      <p>See all <a href="/articles/">articles</a> or explore the full <a href="/categories/">directory of open source alternatives</a>.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <strong>OpenInstead</strong> — open source alternatives to the SaaS you already use. Updated April 2026.<br>
+      <small>Disclaimer: licensing, features and pricing change. Verify each tool's current status on its official site before committing.</small>
+    </div>
+    <nav>
+      <a href="/about/">About</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/categories/">Browse</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

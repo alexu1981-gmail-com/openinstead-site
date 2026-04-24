@@ -17,17 +17,25 @@
 
   <link rel="stylesheet" href="/static/css/style.css" />
 
+
+  <script defer src="/static/js/search.js"></script>
 </head>
 <body>
 
 <header class="site-header">
   <div class="container">
     <a class="logo" href="/">Open<span>Instead</span></a>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/categories/">Categories</a>
-      <a href="/about/">About</a>
-    </nav>
+    <div class="header-right">
+      <div class="search-wrap">
+        <input id="search-input" type="search" placeholder="Search SaaS or OSS..." autocomplete="off" />
+        <div id="search-results" class="search-results" hidden></div>
+      </div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/categories/">Categories</a>
+        <a href="/articles/">Articles</a>
+      </nav>
+    </div>
   </div>
 </header>
 
@@ -94,6 +102,13 @@
       <a class="card" href="/alternatives-to/whatsapp/">
         <h3>WhatsApp</h3>
         <p class="sub">Global mobile messaging.</p>
+        <div class="meta">
+          <span class="tag">See all alternatives →</span>
+        </div>
+      </a>
+      <a class="card" href="/alternatives-to/microsoft-teams/">
+        <h3>Microsoft Teams</h3>
+        <p class="sub">Video, chat and collaboration bundled with Microsoft 365.</p>
         <div class="meta">
           <span class="tag">See all alternatives →</span>
         </div>

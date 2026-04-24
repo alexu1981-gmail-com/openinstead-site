@@ -11,6 +11,7 @@ Usage:
 
 import json
 import os
+import re
 import shutil
 import sys
 from datetime import datetime, timezone
@@ -44,6 +45,158 @@ env = Environment(
 def load_yaml(name):
     with open(DATA / name, "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
+
+
+def load_articles():
+    """Read all markdown files in data/articles/ and parse frontmatter."""
+    art_dir = DATA / "articles"
+    if not art_dir.exists():
+        return []
+    articles = []
+    for md in sorted(art_dir.glob("*.md")):
+        raw = md.read_text(encoding="utf-8")
+        fm = {}
+        body = raw
+        if raw.startswith("---"):
+            _, fm_block, body = raw.split("---", 2)
+            for line in fm_block.strip().splitlines():
+                if ":" in line:
+                    k, v = line.split(":", 1)
+                    fm[k.strip()] = v.strip().strip('"')
+        articles.append({
+            "slug": md.stem,
+            "title": fm.get("title", md.stem),
+            "description": fm.get("description", ""),
+            "date": fm.get("date", ""),
+            "category": fm.get("category", ""),
+            "body_md": body.strip(),
+        })
+    # Most recent first by ISO date
+    articles.sort(key=lambda a: a.get("date", ""), reverse=True)
+    return articles
+
+
+def md_to_html(md: str) -> str:
+    """Minimal Markdown → HTML converter. Handles headings, paragraphs,
+    ordered/unordered lists, links, inline code, bold and italic, hr and blockquotes."""
+    lines = md.split("\n")
+    out = []
+    in_list = None  # 'ul' or 'ol'
+    in_para = False
+    in_bq = False
+    in_code = False
+
+    def close_list():
+        nonlocal in_list
+        if in_list:
+            out.append(f"</{in_list}>")
+            in_list = None
+
+    def close_para():
+        nonlocal in_para
+        if in_para:
+            out.append("</p>")
+            in_para = False
+
+    def close_bq():
+        nonlocal in_bq
+        if in_bq:
+            out.append("</blockquote>")
+            in_bq = False
+
+    def inline(s: str) -> str:
+        # Code spans
+        s = re.sub(r"`([^`]+)`", r"<code>\1</code>", s)
+        # Bold
+        s = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", s)
+        # Italic (underscore avoids clashing with **bold**)
+        s = re.sub(r"(?<!\*)\*(?!\*)([^*\n]+)\*(?!\*)", r"<em>\1</em>", s)
+        # Links  [text](url)
+        s = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', s)
+        return s
+
+    for raw in lines:
+        line = raw.rstrip()
+
+        # fenced code (```)
+        if line.startswith("```"):
+            if in_code:
+                out.append("</code></pre>")
+                in_code = False
+            else:
+                close_para(); close_list(); close_bq()
+                out.append("<pre><code>")
+                in_code = True
+            continue
+        if in_code:
+            out.append(line)
+            continue
+
+        stripped = line.strip()
+
+        if not stripped:
+            close_para(); close_list(); close_bq()
+            continue
+
+        # Headings
+        m = re.match(r"^(#{1,4})\s+(.*)$", stripped)
+        if m:
+            close_para(); close_list(); close_bq()
+            level = len(m.group(1))
+            out.append(f"<h{level}>{inline(m.group(2))}</h{level}>")
+            continue
+
+        # HR
+        if re.match(r"^-{3,}$", stripped) or re.match(r"^\*{3,}$", stripped):
+            close_para(); close_list(); close_bq()
+            out.append("<hr>")
+            continue
+
+        # Blockquote
+        if stripped.startswith("> "):
+            close_para(); close_list()
+            if not in_bq:
+                out.append("<blockquote>")
+                in_bq = True
+            out.append(f"<p>{inline(stripped[2:])}</p>")
+            continue
+        else:
+            close_bq()
+
+        # Ordered list
+        om = re.match(r"^\d+\.\s+(.*)$", stripped)
+        if om:
+            close_para()
+            if in_list != "ol":
+                close_list()
+                out.append("<ol>")
+                in_list = "ol"
+            out.append(f"<li>{inline(om.group(1))}</li>")
+            continue
+
+        # Unordered list
+        if stripped.startswith(("- ", "* ")):
+            close_para()
+            if in_list != "ul":
+                close_list()
+                out.append("<ul>")
+                in_list = "ul"
+            out.append(f"<li>{inline(stripped[2:])}</li>")
+            continue
+
+        # Paragraph
+        close_list()
+        if not in_para:
+            out.append("<p>")
+            in_para = True
+        else:
+            out.append(" ")
+        out.append(inline(stripped))
+
+    close_para(); close_list(); close_bq()
+    if in_code:
+        out.append("</code></pre>")
+    return "\n".join(out)
 
 
 def ensure_dir(path: Path):
@@ -92,7 +245,7 @@ def build():
 
     # Copy static assets.
     print("[build] copying static assets")
-    shutil.copytree(STATIC, DIST / "static")
+    shutil.copytree(STATIC, DIST / "static", dirs_exist_ok=True)
 
     # Load data.
     print("[build] loading YAML data")
@@ -278,6 +431,96 @@ def build():
             add_url(f"/vs/{saas['slug']}-vs-{oss['slug']}/", 0.6, "monthly")
             comparison_count += 1
     print(f"         {comparison_count} comparison pages")
+
+    # -------------------------------------------------------------------
+    # Articles (long-form essays)
+    # -------------------------------------------------------------------
+    articles = load_articles()
+    print(f"[build] {len(articles)} articles")
+    for art in articles:
+        body_html = md_to_html(art["body_md"])
+        html = render(
+            "article.html",
+            page_title=f"{art['title']} · {SITE_NAME}",
+            meta_description=art["description"],
+            canonical_path=f"/article/{art['slug']}/",
+            article=art,
+            body=body_html,
+            og_type="article",
+        )
+        write_page(DIST / "article" / art["slug"] / "index.html", html)
+        add_url(f"/article/{art['slug']}/", 0.7, "monthly")
+
+    # Articles index
+    html = render(
+        "articles_index.html",
+        page_title=f"Articles · {SITE_NAME}",
+        meta_description="Long-form essays on self-hosting, open source evaluation and SaaS migration.",
+        canonical_path="/articles/",
+        articles=articles,
+    )
+    write_page(DIST / "articles" / "index.html", html)
+    add_url("/articles/", 0.7, "monthly")
+
+    # -------------------------------------------------------------------
+    # Search index (for client-side search)
+    # -------------------------------------------------------------------
+    print("[build] search-index.json")
+    search_index = []
+
+    for s in saas_products:
+        search_index.append({
+            "title": f"Alternatives to {s['name']}",
+            "url": f"/alternatives-to/{s['slug']}/",
+            "type": "saas",
+            "typeLabel": f"SaaS · {s['category_name']}",
+            "tags": f"{s['name']} {s['tagline']} {s['category_name']}",
+        })
+
+    for o in oss_alternatives:
+        search_index.append({
+            "title": o["name"],
+            "url": f"/open-source/{o['slug']}/",
+            "type": "oss",
+            "typeLabel": f"Open source · {categories_by_slug[o['category']]['name']}",
+            "tags": f"{o['name']} {o['tagline']} {o['license']}",
+        })
+
+    for cat in categories:
+        search_index.append({
+            "title": cat["name"],
+            "url": f"/category/{cat['slug']}/",
+            "type": "category",
+            "typeLabel": "Category",
+            "tags": f"{cat['name']} {cat['description']}",
+        })
+
+    for saas_slug, alts in mappings_by_saas.items():
+        saas = saas_by_slug[saas_slug]
+        for a in alts:
+            oss = oss_by_slug.get(a["slug"])
+            if not oss:
+                continue
+            search_index.append({
+                "title": f"{saas['name']} vs {oss['name']}",
+                "url": f"/vs/{saas['slug']}-vs-{oss['slug']}/",
+                "type": "comparison",
+                "typeLabel": "Comparison",
+                "tags": f"{saas['name']} {oss['name']}",
+            })
+
+    for art in articles:
+        search_index.append({
+            "title": art["title"],
+            "url": f"/article/{art['slug']}/",
+            "type": "article",
+            "typeLabel": f"Article · {art.get('category', '')}",
+            "tags": f"{art['title']} {art['description']}",
+        })
+
+    with open(DIST / "search-index.json", "w", encoding="utf-8") as f:
+        json.dump(search_index, f, separators=(",", ":"))
+    print(f"         {len(search_index)} entries")
 
     # -------------------------------------------------------------------
     # Static content pages (About, Privacy)

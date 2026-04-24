@@ -484,3 +484,267 @@
     - Cloud-only storage of signed documents.
     - Limited branding on lower tiers.
   homepage: https://docusign.com
+
+- slug: microsoft-teams
+  name: Microsoft Teams
+  category: team-communication
+  tagline: Video, chat and collaboration bundled with Microsoft 365.
+  pricing: Included in Microsoft 365 from $6.99/month; Teams Essentials from $4/user/month standalone.
+  common_gripes:
+    - Deeply tied to Microsoft ecosystem.
+    - Resource-heavy desktop client.
+    - Chat and meeting features sprawl across tabs.
+  homepage: https://www.microsoft.com/microsoft-teams
+
+- slug: webex
+  name: Cisco Webex
+  category: video-conferencing
+  tagline: Enterprise video meetings and webinars from Cisco.
+  pricing: Free tier limited; Business from $14.50/user/month.
+  common_gripes:
+    - Aging UX compared to Zoom and Meet.
+    - Enterprise licensing can be opaque.
+    - Webinar features gated to higher tiers.
+  homepage: https://webex.com
+
+- slug: clickup
+  name: ClickUp
+  category: project-management
+  tagline: One-app-to-replace-them-all workspace for tasks, docs and goals.
+  pricing: Free Forever; Unlimited from $7/user/month.
+  common_gripes:
+    - Feature overload — steep learning curve for new users.
+    - Performance can slow on large workspaces.
+    - Frequent UI changes disrupt muscle memory.
+  homepage: https://clickup.com
+
+- slug: linear
+  name: Linear
+  category: project-management
+  tagline: Streamlined issue tracking built for software teams.
+  pricing: Free up to 10 users; Standard from $8/user/month.
+  common_gripes:
+    - Opinionated — if Linear's model doesn't fit, there's friction.
+    - Cloud-only — no self-host option at any price.
+    - Minimal customization compared to Jira.
+  homepage: https://linear.app
+
+- slug: basecamp
+  name: Basecamp
+  category: project-management
+  tagline: Flat-fee project management and team coordination.
+  pricing: Basecamp Pro Unlimited $299/month for unlimited users.
+  common_gripes:
+    - Opinionated workflow — not for every team.
+    - No native Gantt or sprint features.
+    - Cloud-only.
+  homepage: https://basecamp.com
+
+- slug: miro
+  name: Miro
+  category: whiteboards
+  tagline: Online whiteboard for workshops, retros and diagrams.
+  pricing: Free up to 3 boards; Starter from $8/user/month.
+  common_gripes:
+    - Pricing scales with boards and seats.
+    - Cloud-only — no self-host for confidential workshops.
+    - Large boards can lag in the browser.
+  homepage: https://miro.com
+
+- slug: invision
+  name: InVision
+  category: whiteboards
+  tagline: Design collaboration, prototyping and whiteboards.
+  pricing: Freehand Basic free; Pro from $4.95/user/month (limited availability 2024+).
+  common_gripes:
+    - InVision shuttered its core prototyping product in late 2024.
+    - Users are actively searching for replacements.
+    - Data export and migration were messy.
+  homepage: https://invisionapp.com
+
+- slug: sketch
+  name: Sketch
+  category: design-tools
+  tagline: Mac-first interface design tool.
+  pricing: Standard from $10/editor/month.
+  common_gripes:
+    - Mac-only desktop app.
+    - Collaboration lags behind Figma.
+    - Subscription shift disappointed long-time buyers.
+  homepage: https://sketch.com
+
+- slug: loom
+  name: Loom
+  category: screen-recording
+  tagline: Quick screen and webcam video recordings for async updates.
+  pricing: Free up to 25 videos; Business from $15/user/month.
+  common_gripes:
+    - Free tier heavily gated.
+    - Videos live on Loom cloud — privacy-sensitive content exposed.
+    - Recording length limits on lower tiers.
+  homepage: https://loom.com
+
+- slug: grammarly
+  name: Grammarly
+  category: writing-tools
+  tagline: AI-powered grammar, spelling and tone checker.
+  pricing: Free tier; Premium from $12/month.
+  common_gripes:
+    - Cloud-based — your writing is sent to Grammarly servers.
+    - Premium features are paywalled aggressively.
+    - Browser extension can feel invasive.
+  homepage: https://grammarly.com
+
+- slug: pocket
+  name: Pocket
+  category: rss-readers
+  tagline: Save and read articles later (Mozilla).
+  pricing: Free with Premium from $44.99/year.
+  common_gripes:
+    - Future uncertain after ownership transitions at Mozilla.
+    - Limited export formats for your saves.
+    - Cloud-only — losing the service means losing the library.
+  homepage: https://getpocket.com
+
+- slug: feedly
+  name: Feedly
+  category: rss-readers
+  tagline: Modern RSS reader with AI filtering.
+  pricing: Free tier; Pro from $8/month.
+  common_gripes:
+    - Pricing has climbed steeply for Pro features.
+    - Cloud-only — your feed list and saved items live in their silo.
+    - Recently leaned heavily into AI filtering for higher tiers.
+  homepage: https://feedly.com
+
+- slug: buffer
+  name: Buffer
+  category: social-media
+  tagline: Schedule social media posts across networks.
+  pricing: Free up to 3 channels; Essentials from $6/channel/month.
+  common_gripes:
+    - Per-channel pricing adds up fast.
+    - Lost features over years as it trimmed scope.
+    - Cloud-only.
+  homepage: https://buffer.com
+
+- slug: hootsuite
+  name: Hootsuite
+  category: social-media
+  tagline: Enterprise social media management suite.
+  pricing: Professional from $99/month.
+  common_gripes:
+    - Aggressive pricing increases in recent years.
+    - Bloated UI — feature overload.
+    - No self-host option.
+  homepage: https://hootsuite.com
+
+- slug: airtable
+  name: Airtable
+  category: internal-tools
+  tagline: Spreadsheet-database hybrid with rich field types and views.
+  pricing: Free tier; Team from $20/user/month.
+  common_gripes:
+    - Price jumps put it out of reach for many teams.
+    - API and automation quotas are restrictive.
+    - Exporting large bases is cumbersome.
+  homepage: https://airtable.com
+
+- slug: webflow
+  name: Webflow
+  category: website-builders
+  tagline: Visual website builder with CMS and hosting.
+  pricing: Free trial; CMS plan from $23/month.
+  common_gripes:
+    - Hosting is required — you cannot self-host sites you build.
+    - Pricing tiers can feel confusing.
+    - Export gives static HTML, losing CMS features.
+  homepage: https://webflow.com
+
+- slug: wix
+  name: Wix
+  category: website-builders
+  tagline: Template-driven website builder.
+  pricing: Free with Wix ads; Light from $17/month ad-free.
+  common_gripes:
+    - Exporting your site elsewhere is not straightforward.
+    - Site performance can suffer from bloated code.
+    - Ongoing subscription for continued hosting.
+  homepage: https://wix.com
+
+- slug: shopify
+  name: Shopify
+  category: ecommerce
+  tagline: Hosted e-commerce platform for online stores.
+  pricing: Basic from $29/month plus transaction fees.
+  common_gripes:
+    - App ecosystem pushes costs higher than advertised.
+    - Transaction fees if you skip Shopify Payments.
+    - Checkout customization is limited on lower plans.
+  homepage: https://shopify.com
+
+- slug: hellosign
+  name: HelloSign (Dropbox Sign)
+  category: office-docs
+  tagline: E-signature from Dropbox.
+  pricing: From $20/month.
+  common_gripes:
+    - Cloud-only signing flow.
+    - Pricing scales per sender and template.
+    - Deep Dropbox integration is a pro or a con depending on your stack.
+  homepage: https://www.hellosign.com
+
+- slug: heroku
+  name: Heroku
+  category: paas-hosting
+  tagline: App hosting platform as a service by Salesforce.
+  pricing: Eco dynos from $5/month; production tiers from $25.
+  common_gripes:
+    - Free tier removed in 2022.
+    - Pricing grew sharply for small projects.
+    - Vendor lock-in with buildpacks and add-ons.
+  homepage: https://heroku.com
+
+- slug: vercel
+  name: Vercel
+  category: paas-hosting
+  tagline: Frontend cloud with edge deploys for Next.js and more.
+  pricing: Hobby free; Pro from $20/user/month.
+  common_gripes:
+    - Bandwidth and function invocation pricing can spike.
+    - Proprietary build ecosystem.
+    - Tight coupling to Next.js ergonomics.
+  homepage: https://vercel.com
+
+- slug: xero
+  name: Xero
+  category: accounting
+  tagline: Cloud accounting for small businesses.
+  pricing: Starter from $15/month.
+  common_gripes:
+    - Subscription-only — no one-time purchase.
+    - Data lives in Xero cloud.
+    - Multi-currency restricted to higher plans.
+  homepage: https://xero.com
+
+- slug: quickbooks
+  name: QuickBooks Online
+  category: accounting
+  tagline: Accounting and invoicing from Intuit.
+  pricing: Simple Start from $30/month.
+  common_gripes:
+    - Price increases each renewal.
+    - Cloud-only (desktop version is being phased out).
+    - Add-on upsells for payroll and time tracking.
+  homepage: https://quickbooks.intuit.com
+
+- slug: github-copilot
+  name: GitHub Copilot
+  category: ai-coding
+  tagline: AI pair programmer trained on public code.
+  pricing: Individual $10/month; Business $19/user/month.
+  common_gripes:
+    - Code sent to Microsoft/OpenAI for completions.
+    - Subscription-only.
+    - Licensing questions around training data still unresolved for some teams.
+  homepage: https://github.com/features/copilot
