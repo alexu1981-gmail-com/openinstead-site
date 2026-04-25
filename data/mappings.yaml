@@ -575,3 +575,183 @@
       best_for: Terminal power users who want AI edits and auto-commits.
     - slug: tabby
       best_for: Teams that need fully self-hosted completions on their own GPU.
+
+- saas: okta
+  alternatives:
+    - slug: keycloak
+      best_for: The enterprise-grade replacement when you need SAML, OIDC and LDAP in one place.
+    - slug: authentik
+      best_for: A modern admin UX and flow-based policies without the Keycloak learning curve.
+    - slug: zitadel
+      best_for: Multi-tenant B2B SaaS builders who want event-sourced identity.
+    - slug: authelia
+      best_for: Smaller setups that want SSO on top of a reverse proxy like Traefik or nginx.
+
+- saas: nordvpn
+  alternatives:
+    - slug: wireguard
+      best_for: Running your own fast VPN tunnel on a $5 VPS with minimal moving parts.
+    - slug: openvpn
+      best_for: Situations where you need TCP/443 obfuscation to punch through restrictive firewalls.
+
+- saas: expressvpn
+  alternatives:
+    - slug: wireguard
+      best_for: When all you really wanted was an encrypted tunnel you fully control.
+    - slug: openvpn
+      best_for: Connecting legacy clients that don't support WireGuard natively.
+
+- saas: sendgrid
+  alternatives:
+    - slug: postal
+      best_for: Running a full transactional mail server with a web UI and per-server tracking.
+    - slug: listmonk
+      best_for: Newsletters and bulk sends where SendGrid's per-email pricing hurts.
+    - slug: mautic
+      best_for: Marketing sequences and drip campaigns on your own infrastructure.
+
+- saas: mailgun
+  alternatives:
+    - slug: postal
+      best_for: A batteries-included self-hosted replacement for the Mailgun SMTP relay.
+    - slug: haraka
+      best_for: Scriptable SMTP on Node.js for teams that want a custom mail pipeline.
+    - slug: mautic
+      best_for: When you need marketing automation on top of transactional sending.
+
+- saas: netlify
+  alternatives:
+    - slug: coolify
+      best_for: A self-hosted Heroku/Netlify-style PaaS with Git deploys and SSL automation.
+    - slug: caprover
+      best_for: Deploying static sites and apps on your own VPS via a simple web UI.
+    - slug: dokku
+      best_for: Heroku buildpacks and a tiny footprint on a single cheap server.
+
+- saas: render
+  alternatives:
+    - slug: coolify
+      best_for: The closest Render-style experience you can self-host today.
+    - slug: caprover
+      best_for: Teams that want one-click apps on a single server without a control plane cost.
+    - slug: dokku
+      best_for: Ops-minded teams who want to stay close to Heroku-compatible buildpacks.
+
+- saas: railway
+  alternatives:
+    - slug: coolify
+      best_for: Replacing Railway with a Git-based deploy UI on infrastructure you own.
+    - slug: caprover
+      best_for: Deploying any Dockerfile-based app on a VPS without per-second billing surprises.
+    - slug: dokku
+      best_for: Minimal-ops teams happy with Heroku-style buildpacks and a CLI-first workflow.
+
+- saas: pipedrive
+  alternatives:
+    - slug: twenty-crm
+      best_for: A modern CRM UI with a Linear-like feel and a flexible data model.
+    - slug: espocrm
+      best_for: Lightweight, customizable CRM that runs on any PHP host.
+    - slug: suitecrm
+      best_for: SugarCRM heritage with opportunity, forecast and workflow features out of the box.
+
+- saas: freshdesk
+  alternatives:
+    - slug: chatwoot
+      best_for: Multi-channel support with live chat, WhatsApp and email in one inbox.
+    - slug: zammad
+      best_for: Traditional helpdesk ticketing with SLAs, shared mailboxes and KB.
+    - slug: freescout
+      best_for: Lean teams wanting a Help Scout-style shared inbox on a cheap VPS.
+    - slug: osticket
+      best_for: Battle-tested PHP ticketing when you just need a stable issue queue.
+
+- saas: box
+  alternatives:
+    - slug: nextcloud
+      best_for: The closest Box replacement with sharing, granular permissions and integrations.
+    - slug: seafile
+      best_for: Teams that prioritize fast sync and large-file throughput over app ecosystem.
+    - slug: cryptpad
+      best_for: When confidential documents must stay encrypted end-to-end in the browser.
+
+- saas: confluence
+  alternatives:
+    - slug: bookstack
+      best_for: The opinionated, hierarchy-first Confluence replacement for ops and ops-adjacent teams.
+    - slug: outline
+      best_for: Teams that care about UI polish and real-time collaboration on par with Confluence Cloud.
+    - slug: wikijs
+      best_for: Git-backed wikis where Ops and Devs already version their docs.
+    - slug: docusaurus
+      best_for: Engineering orgs happy treating docs as code with PR review.
+
+- saas: gitbook
+  alternatives:
+    - slug: docusaurus
+      best_for: Docs-as-code for product and developer documentation, versioned in Git.
+    - slug: mkdocs
+      best_for: Minimal-config docs sites that ops teams can set up in one afternoon.
+    - slug: bookstack
+      best_for: When you need a wiki-style editor for non-technical contributors.
+
+- saas: toggl
+  alternatives:
+    - slug: kimai
+      best_for: Full time tracking plus invoicing on your own server.
+    - slug: super-productivity
+      best_for: Solo consultants who want pomodoro-style tracking without a server.
+
+- saas: harvest
+  alternatives:
+    - slug: kimai
+      best_for: The closest self-hosted match for Harvest's timesheet-plus-invoicing workflow.
+    - slug: invoiceplane
+      best_for: Pairing simple time tracking with solid invoicing for contractors.
+
+- saas: statuspage
+  alternatives:
+    - slug: cachet
+      best_for: A dedicated public status page with markdown incidents and subscribers.
+    - slug: gatus
+      best_for: Engineering teams that want monitoring and a status page in one binary.
+    - slug: uptime-kuma
+      best_for: Good-looking uptime monitoring with status page built in, deployed in one command.
+
+- saas: tableau
+  alternatives:
+    - slug: superset
+      best_for: Enterprise-scale dashboards when you're ready for real ops investment.
+    - slug: metabase
+      best_for: Teams that want BI non-analysts will actually use.
+    - slug: redash
+      best_for: SQL-first workflows where engineers schedule queries and alerts.
+
+- saas: power-bi
+  alternatives:
+    - slug: superset
+      best_for: Power BI-scale dashboards without the Microsoft licensing maze.
+    - slug: metabase
+      best_for: Fast, pragmatic dashboards when you don't need a full data-platform migration.
+    - slug: redash
+      best_for: Alerts and scheduled queries for data-heavy product teams.
+
+- saas: dashlane
+  alternatives:
+    - slug: bitwarden
+      best_for: A direct commercial-backed open source replacement with all the clients Dashlane ships.
+    - slug: vaultwarden
+      best_for: Running a Bitwarden-compatible server on a $5 VPS for personal or family use.
+    - slug: passbolt
+      best_for: Team-first workflows where sharing model and audit matter more than personal polish.
+    - slug: keepassxc
+      best_for: Die-hard local-first users who never wanted a cloud vault in the first place.
+
+- saas: substack
+  alternatives:
+    - slug: ghost
+      best_for: Paid newsletters and members with a polished editor and native Stripe billing.
+    - slug: listmonk
+      best_for: High-volume, low-cost sends when you're happy wiring up your own signup and billing.
+    - slug: writefreely
+      best_for: Writers who want a minimalist, federated blog and happy to send emails via Listmonk.

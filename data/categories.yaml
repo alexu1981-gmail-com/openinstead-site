@@ -150,3 +150,43 @@
   name: AI Coding Assistants
   description: Code completion and AI pair programming on your own infra — open source alternatives to GitHub Copilot and Cursor.
   icon: "\U0001F9E0"
+
+- slug: identity-sso
+  name: Identity & SSO
+  description: Single sign-on, OAuth and identity providers you can self-host — open source alternatives to Okta, Auth0 and Azure AD.
+  icon: "\U0001F510"
+
+- slug: vpn
+  name: VPN & Private Networks
+  description: Encrypted tunnels and mesh VPNs on infrastructure you control — open source alternatives to NordVPN, ExpressVPN and commercial mesh services.
+  icon: "\U0001F6E1"
+
+- slug: transactional-email
+  name: Transactional Email
+  description: Send password resets, receipts and alerts from your own mail infra — open source alternatives to SendGrid, Mailgun and Postmark.
+  icon: "\U0001F4EC"
+
+- slug: wiki-docs
+  name: Wikis & Documentation
+  description: Team wikis, handbooks and product docs you own — open source alternatives to Confluence, GitBook and Notion docs.
+  icon: "\U0001F4DA"
+
+- slug: time-tracking
+  name: Time Tracking
+  description: Log hours, invoice clients and monitor billable time — open source alternatives to Toggl, Harvest and Clockify.
+  icon: "\u23F1"
+
+- slug: status-pages
+  name: Status Pages & Uptime
+  description: Public status pages and uptime monitoring on your own domain — open source alternatives to Statuspage and Better Uptime.
+  icon: "\U0001F7E2"
+
+- slug: business-intelligence
+  name: Business Intelligence
+  description: Dashboards, SQL explorers and embedded analytics — open source alternatives to Tableau, Power BI and Looker.
+  icon: "\U0001F4CA"
+
+- slug: newsletters
+  name: Newsletters & Paid Publishing
+  description: Write, send and monetize newsletters you own — open source alternatives to Substack, Beehiiv and Revue.
+  icon: "\U0001F4E8"

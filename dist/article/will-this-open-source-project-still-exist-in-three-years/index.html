@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Will the open source project you depend on still exist in three years? · OpenInstead</title>
+  <meta name="description" content="Bus factor, maintainer burnout, funding models, and the signals that separate OSS projects that survive from those that quietly decay." />
+  <link rel="canonical" href="https://openinstead.dev/article/will-this-open-source-project-still-exist-in-three-years/" />
+
+  <meta property="og:title" content="Will the open source project you depend on still exist in three years? · OpenInstead" />
+  <meta property="og:description" content="Bus factor, maintainer burnout, funding models, and the signals that separate OSS projects that survive from those that quietly decay." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://openinstead.dev/article/will-this-open-source-project-still-exist-in-three-years/" />
+  <meta property="og:site_name" content="OpenInstead" />
+  <meta property="og:image" content="https://openinstead.dev/og/article-will-this-open-source-project-still-exist-in-three-years.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Will the open source project you depend on still exist in three years? · OpenInstead" />
+  <meta name="twitter:description" content="Bus factor, maintainer burnout, funding models, and the signals that separate OSS projects that survive from those that quietly decay." />
+  <meta name="twitter:image" content="https://openinstead.dev/og/article-will-this-open-source-project-still-exist-in-three-years.png" />
+
+
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+
+
+  <script defer src="/static/js/search.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="/">Open<span>Instead</span></a>
+    <div class="header-right">
+      <div class="search-wrap">
+        <input id="search-input" type="search" placeholder="Search SaaS or OSS..." autocomplete="off" />
+        <div id="search-results" class="search-results" hidden></div>
+      </div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/categories/">Categories</a>
+        <a href="/articles/">Articles</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="container">
+  <div class="crumbs">
+    <a href="/">Home</a> /
+    <a href="/articles/">Articles</a> /
+    Will the open source project you depend on still exist in three years?
+  </div>
+
+  <div class="article-head">
+    <h1>Will the open source project you depend on still exist in three years?</h1>
+    <p class="lead">Bus factor, maintainer burnout, funding models, and the signals that separate OSS projects that survive from those that quietly decay.</p>
+    <div class="meta">
+      <span class="badge">Opinion</span>
+      <span class="badge">2026-04-25</span>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container" style="max-width:780px">
+    <div class="article-body">
+      <p>
+You're evaluating an open source alternative to some SaaS tool. It looks great. The demo is polished, the features are there, the license is permissive, the community on GitHub feels alive. You migrate over.
+</p>
+<p>
+Two years later, you hit a bug that nobody is fixing. The last commit on main was four months ago. The single maintainer's social accounts have gone quiet. The two pull requests you opened are sitting there, unreviewed. Your data is locked inside a thing that isn't really going anywhere anymore.
+</p>
+<p>
+This is not a rare story. It's the single biggest risk of adopting open source software, and we almost never talk about it until it's too late.
+</p>
+<p>
+This piece is a framework for asking, before you adopt something, whether it's going to be there when you need it to be.
+</p>
+<h2>Why "open" doesn't mean "forever"</h2>
+<p>
+People assume open source is automatically durable. The logic runs: the code is public, so if the original maintainer disappears, someone can fork it. This is true in principle and often false in practice.
+</p>
+<p>
+Forks happen when three things line up: the project is valuable enough to fork, there are qualified engineers willing to maintain the fork, and those engineers can coordinate. Plenty of beloved projects have died not because the code became useless, but because no fork cohered around them. The maintainers drifted, the fork attempts never reached critical mass, and the codebase rotted.
+</p>
+<p>
+"It's open source, someone will keep it going" is a hope, not a plan. If you're choosing software to depend on, you need to do better than hope.
+</p>
+<h2>The signals that actually matter</h2>
+<p>
+We've watched enough projects grow, plateau, and decline to have opinions. Here are the signals that predict durability — ordered roughly by how much they matter.
+</p>
+<h3>How many humans pay attention to this repo every week</h3>
+<p>
+Open up the repo and look at the last four weeks of activity. Count distinct human authors across commits, PR reviews, and substantive issue comments. If the answer is one person, that's a bus factor of one. If it's three or four, better. If it's ten or more, you're in a different category of durability entirely.
+</p>
+<p>
+This is easier to assess than it looks. GitHub's "Insights → Contributors" graph shows you recent activity. The pattern you want is: steady, distributed contributions, not a spiky graph that's all one person.
+</p>
+<h3>Whether someone is being paid to work on it</h3>
+<p>
+Unpaid volunteer maintainers burn out. Not every one of them, not always, but often enough that you should weight paid contribution heavily when you're picking a dependency.
+</p>
+<p>
+Look for: a sponsoring company (Sentry for Symfony, Percona for MySQL forks, Grafana Labs for Grafana); a foundation (Apache Software Foundation, CNCF, Linux Foundation); a commercial entity behind the open source version (Metabase, Mattermost, Chatwoot); a healthy GitHub Sponsors or Open Collective balance that actually funds someone's hours.
+</p>
+<p>
+A project with zero paid contribution isn't doomed, but it's running on pure volunteer energy, and volunteer energy is finite.
+</p>
+<h3>Release cadence over the last twelve months</h3>
+<p>
+A healthy project ships releases. Not necessarily major versions — point releases, bug fixes, security patches. Open the releases page and look at the last year. A handful of thoughtful releases is better than a flurry of unstable ones or a silent stretch.
+</p>
+<p>
+Watch out for the "big rewrite in progress" pattern, where the maintainer has announced that v2 is coming and v1 is in maintenance-only mode. Sometimes v2 ships and is great. More often v2 takes three years and demoralizes the v1 community in the meantime. Ask yourself whether you're willing to be the user who sits on v1 while the big rewrite happens elsewhere.
+</p>
+<h3>Issue-closure behaviour</h3>
+<p>
+This one is subtle. Open the issue tracker and sort by "recently updated." Are maintainers responding to issues within days? Triaging, labeling, asking clarifying questions? Or are issues piling up unanswered, sorted into stale buckets?
+</p>
+<p>
+The pattern you want isn't "every issue gets solved" (that's unrealistic) — it's "issues get acknowledged." A project where maintainers respond to users is a project that respects the users. A project where issues go into a silent pit is a project that's lost its connection to the people depending on it.
+</p>
+<h3>The license and its drift risk</h3>
+<p>
+Open source licenses are not neutral. They shape what the project can become later.
+</p>
+<p>
+Genuinely open licenses (MIT, Apache-2.0, BSD, GPL family) protect users over time — even if the original project gets acquired or the maintainers pivot, the last open release stays available and forkable.
+</p>
+<p>
+Source-available licenses (BSL, SSPL, Elastic License, Commons Clause) do not offer that guarantee. They allow the company behind them to restrict use in ways a classic OSS license wouldn't. We've watched several beloved tools (Redis, Elastic, HashiCorp's stack) relicense under source-available terms, forcing downstream users and cloud providers to fork or migrate.
+</p>
+<p>
+If the license isn't an OSI-approved one, factor in: what happens when this project gets acquired or pivots? Usually the answer is "we relicense, and your use case might not survive the change."
+</p>
+<h3>Whether the core maintainers talk about burnout</h3>
+<p>
+Read the maintainers' public writing. Their blog posts, their social-media accounts, their conference talks, their commit messages. Are they excited about the project? Frustrated? Tired?
+</p>
+<p>
+Burnout is the single largest killer of one-person and two-person OSS projects. A maintainer who is publicly exhausted is a maintainer who may not be maintaining the project in eighteen months. This isn't a judgment — burnout is deeply human and often justified. It's a data point for you, the user, about the durability of the thing you're about to depend on.
+</p>
+<h2>The checklist we use</h2>
+<p>
+Before adopting anything for real work, we run through this quickly:
+</p>
+<ol>
+<li><strong>Recent activity.</strong> At least three distinct human contributors in the last thirty days.</li>
+<li><strong>Paid contribution.</strong> Someone's full or partial salary depends on this project continuing. Ideally, more than one someone.</li>
+<li><strong>Releases.</strong> At least one release in the last three months, with release notes that aren't just "bug fixes."</li>
+<li><strong>Issue hygiene.</strong> Maintainers respond to new issues within a week on average, even if just to triage.</li>
+<li><strong>License.</strong> OSI-approved. If it's source-available, treat it as a commercial dependency with extra steps.</li>
+<li><strong>Bus factor.</strong> If the top committer left tomorrow, could the project continue? At what velocity?</li>
+<li><strong>Roadmap honesty.</strong> Is the roadmap public, up to date, and realistic? Or is it aspirational wishlist that hasn't been touched since launch?</li>
+</ol>
+<p>
+A project that hits five of seven is probably safe to depend on. A project that hits three or fewer is one you should adopt only if you're comfortable being the one who might have to fork it someday.
+</p>
+<h2>What to do when you spot risk but love the tool anyway</h2>
+<p>
+Sometimes the answer is "yes, the bus factor is one, and yes, I'm going to use it anyway." That's fine. Just do it with eyes open.
+</p>
+<p>
+Two habits help:
+</p>
+<p>
+<strong>Keep your data portable.</strong> If the project dies tomorrow, you shouldn't be trapped. Pick tools whose data formats are open (SQLite, plain markdown, standard protocols) over tools that lock your data into a custom binary format only the vendor's software reads. Export regularly. Store exports somewhere the project itself can't write over.
+</p>
+<p>
+<strong>Contribute defensively.</strong> If you're depending on a small project, contribute to it proportionally. Not because you owe the maintainer — though if they're solo and unpaid, you kind of do — but because being part of the contributor pool means you have a say if the project needs a fork or a handoff later.
+</p>
+<h2>The landscape we actually live in</h2>
+<p>
+Most open source projects in this directory, most projects anywhere, are maintained by small teams with narrow budgets. That's not a problem; it's the model. But it means the thing you're adopting today may not be the thing running in 2029.
+</p>
+<p>
+The projects that <em>do</em> make it that long share patterns. They have more than one maintainer. Someone gets paid. Releases ship. Issues get answered. The license protects users, not just the vendor. And the maintainers sound, in their writing, like people who still like working on the project after several years.
+</p>
+<p>
+We weight our recommendations by these signals. We don't always get it right, but we try not to recommend anything we wouldn't be comfortable depending on for three years. If you spot a project in our directory that's showing the warning signs above — stale commits, unanswered issues, pivoting license — tell us. We update entries when the reality changes.
+</p>
+<p>
+The goal isn't to be cynical about open source. It's to be honest about it. Open source, when it works, is the most durable software in existence. When it doesn't work, it fails quietly, over years, and the users who depended on it are the last to know.
+</p>
+<p>
+Choose like you'll still be running the choice three years from now. Because often, you will be.
+</p>
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot slot-inline"><span>Ad slot — article end</span></div>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-box">
+      <h3>Browse more</h3>
+      <p>See all <a href="/articles/">articles</a> or explore the full <a href="/categories/">directory of open source alternatives</a>.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <strong>OpenInstead</strong> — open source alternatives to the SaaS you already use. Updated April 2026.<br>
+      <small>Disclaimer: licensing, features and pricing change. Verify each tool's current status on its official site before committing.</small>
+    </div>
+    <nav>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/categories/">Browse</a>
+      <a href="/articles/rss.xml">RSS</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

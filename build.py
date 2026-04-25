@@ -20,6 +20,12 @@ from pathlib import Path
 import yaml
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+try:
+    from PIL import Image, ImageDraw, ImageFont
+    PIL_OK = True
+except Exception:
+    PIL_OK = False
+
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
@@ -30,6 +36,142 @@ DATA = ROOT / "data"
 TEMPLATES = ROOT / "templates"
 STATIC = ROOT / "static"
 DIST = ROOT / "dist"
+
+# OG image generation (sprint 4 — social share surface)
+OG_DIR_NAME = "og"
+OG_BG = (14, 17, 22)          # #0e1116 — matches site dark theme
+OG_TITLE_COLOR = (240, 246, 252)
+OG_SUB_COLOR = (139, 148, 158)
+OG_ACCENT = (63, 185, 80)     # #3fb950 — green accent used across site
+OG_BADGE_BG = (22, 27, 34)    # subtly lighter dark for badge chip
+OG_CARD_BORDER = (48, 54, 61)
+OG_W, OG_H = 1200, 630
+
+# Try common font paths that exist across Linux/macOS — all graceful fallback
+FONT_CANDIDATES_BOLD = [
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+    "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+    "/Library/Fonts/Arial Bold.ttf",
+]
+FONT_CANDIDATES_REG = [
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+    "/System/Library/Fonts/Supplemental/Arial.ttf",
+    "/Library/Fonts/Arial.ttf",
+]
+
+
+def _font(candidates, size):
+    for path in candidates:
+        if os.path.exists(path):
+            try:
+                return ImageFont.truetype(path, size)
+            except Exception:
+                pass
+    return ImageFont.load_default()
+
+
+def _wrap_text(draw, text, font, max_width):
+    """Greedy word-wrap against max pixel width."""
+    words = text.split()
+    lines = []
+    line = ""
+    for w in words:
+        test = (line + " " + w).strip()
+        bbox = draw.textbbox((0, 0), test, font=font)
+        if bbox[2] - bbox[0] <= max_width:
+            line = test
+        else:
+            if line:
+                lines.append(line)
+            line = w
+    if line:
+        lines.append(line)
+    return lines
+
+
+def generate_og_image(title: str, kicker: str, out_path: Path):
+    """Render a 1200x630 OG card: dark bg, green accent bar, kicker chip, big title,
+    OpenInstead wordmark bottom-right. Safe no-op if PIL isn't available."""
+    if not PIL_OK:
+        return False
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    img = Image.new("RGB", (OG_W, OG_H), OG_BG)
+    draw = ImageDraw.Draw(img)
+
+    # Green accent bar on the left — signature brand mark
+    draw.rectangle([0, 0, 14, OG_H], fill=OG_ACCENT)
+
+    # Card border (subtle) — echoes site cards
+    draw.rectangle([60, 60, OG_W - 60, OG_H - 60], outline=OG_CARD_BORDER, width=2)
+
+    pad_x = 100
+    y = 120
+
+    # Kicker / category chip
+    if kicker:
+        kicker_text = kicker.upper()
+        kf = _font(FONT_CANDIDATES_BOLD, 22)
+        kb = draw.textbbox((0, 0), kicker_text, font=kf)
+        kw = kb[2] - kb[0]
+        kh = kb[3] - kb[1]
+        chip_pad = 18
+        chip_h = kh + chip_pad
+        draw.rounded_rectangle(
+            [pad_x, y, pad_x + kw + chip_pad * 2, y + chip_h],
+            radius=int(chip_h / 2),
+            fill=OG_BADGE_BG,
+            outline=OG_ACCENT,
+            width=2,
+        )
+        draw.text((pad_x + chip_pad, y + chip_pad / 2 - 2), kicker_text, font=kf, fill=OG_ACCENT)
+        y += chip_h + 46
+
+    # Title — greedy wrap, pick largest size that fits in 3 lines
+    title_max_w = OG_W - pad_x * 2
+    title_font = None
+    lines = []
+    for size in (84, 76, 68, 60, 52, 46):
+        f = _font(FONT_CANDIDATES_BOLD, size)
+        ls = _wrap_text(draw, title, f, title_max_w)
+        if len(ls) <= 3:
+            title_font = f
+            lines = ls
+            break
+    if title_font is None:
+        title_font = _font(FONT_CANDIDATES_BOLD, 46)
+        lines = _wrap_text(draw, title, title_font, title_max_w)[:3]
+
+    line_gap = 14
+    bbox_h = draw.textbbox((0, 0), "Ay", font=title_font)
+    line_h = bbox_h[3] - bbox_h[1] + line_gap
+    for line in lines:
+        draw.text((pad_x, y), line, font=title_font, fill=OG_TITLE_COLOR)
+        y += line_h
+
+    # Bottom wordmark: OpenInstead (right-aligned) + tagline (left)
+    wm_font = _font(FONT_CANDIDATES_BOLD, 34)
+    tag_font = _font(FONT_CANDIDATES_REG, 24)
+    wm_y = OG_H - 110
+    # Left tagline
+    draw.text(
+        (pad_x, wm_y + 6),
+        "Open source alternatives to popular SaaS",
+        font=tag_font,
+        fill=OG_SUB_COLOR,
+    )
+    # Right wordmark
+    wm_text_open = "Open"
+    wm_text_inst = "Instead"
+    bo = draw.textbbox((0, 0), wm_text_open, font=wm_font)
+    bi = draw.textbbox((0, 0), wm_text_inst, font=wm_font)
+    total_w = (bo[2] - bo[0]) + (bi[2] - bi[0])
+    wm_x = OG_W - pad_x - total_w
+    draw.text((wm_x, wm_y), wm_text_open, font=wm_font, fill=OG_TITLE_COLOR)
+    draw.text((wm_x + (bo[2] - bo[0]), wm_y), wm_text_inst, font=wm_font, fill=OG_ACCENT)
+
+    img.save(out_path, format="PNG", optimize=True)
+    return True
 
 env = Environment(
     loader=FileSystemLoader(str(TEMPLATES)),
@@ -247,6 +389,14 @@ def build():
     print("[build] copying static assets")
     shutil.copytree(STATIC, DIST / "static", dirs_exist_ok=True)
 
+    # OG image output dir
+    og_dir = DIST / OG_DIR_NAME
+    og_dir.mkdir(parents=True, exist_ok=True)
+    og_generated = 0
+
+    def og_url(slug: str) -> str:
+        return f"{SITE_URL}/{OG_DIR_NAME}/{slug}.png"
+
     # Load data.
     print("[build] loading YAML data")
     categories = load_yaml("categories.yaml")
@@ -281,6 +431,12 @@ def build():
     print("[build] home page")
     featured_saas = sorted(saas_products, key=lambda s: -s["alternative_count"])[:18]
     total_comparisons = sum(len(v) for v in mappings_by_saas.values())
+    if generate_og_image(
+        "Open source alternatives to popular SaaS",
+        "",
+        og_dir / "home.png",
+    ):
+        og_generated += 1
     html = render(
         "home.html",
         page_title=f"Open source alternatives to popular SaaS · {SITE_NAME}",
@@ -289,6 +445,7 @@ def build():
             f"open source alternatives. Honest pros, cons and self-host notes."
         ),
         canonical_path="/",
+        og_image=og_url("home"),
         categories=categories,
         featured_saas=featured_saas,
         total_saas=len(saas_products),
@@ -319,11 +476,19 @@ def build():
     for cat in categories:
         saas_in_cat = [s for s in saas_products if s["category"] == cat["slug"]]
         oss_in_cat = [o for o in oss_alternatives if o["category"] == cat["slug"]]
+        og_slug = f"category-{cat['slug']}"
+        if generate_og_image(
+            f"{cat['name']} — open source alternatives",
+            "Category",
+            og_dir / f"{og_slug}.png",
+        ):
+            og_generated += 1
         html = render(
             "category.html",
             page_title=f"{cat['name']} — open source alternatives · {SITE_NAME}",
             meta_description=cat["description"],
             canonical_path=f"/category/{cat['slug']}/",
+            og_image=og_url(og_slug),
             category=cat,
             saas_in_category=saas_in_cat,
             oss_in_category=oss_in_cat,
@@ -361,6 +526,13 @@ def build():
             ],
         }
 
+        og_slug = f"saas-{saas['slug']}"
+        if generate_og_image(
+            f"{len(alternatives)} open source alternatives to {saas['name']}",
+            saas["category_name"],
+            og_dir / f"{og_slug}.png",
+        ):
+            og_generated += 1
         html = render(
             "saas_page.html",
             page_title=f"{len(alternatives)} open source alternatives to {saas['name']} ({datetime.now().year}) · {SITE_NAME}",
@@ -370,6 +542,7 @@ def build():
                 + ". Honest pros, cons, licenses and self-host difficulty."
             ),
             canonical_path=f"/alternatives-to/{saas['slug']}/",
+            og_image=og_url(og_slug),
             saas=saas,
             category=categories_by_slug[saas["category"]],
             alternatives=alternatives,
@@ -439,11 +612,19 @@ def build():
     print(f"[build] {len(articles)} articles")
     for art in articles:
         body_html = md_to_html(art["body_md"])
+        og_slug = f"article-{art['slug']}"
+        if generate_og_image(
+            art["title"],
+            art.get("category") or "Article",
+            og_dir / f"{og_slug}.png",
+        ):
+            og_generated += 1
         html = render(
             "article.html",
             page_title=f"{art['title']} · {SITE_NAME}",
             meta_description=art["description"],
             canonical_path=f"/article/{art['slug']}/",
+            og_image=og_url(og_slug),
             article=art,
             body=body_html,
             og_type="article",
@@ -655,6 +836,7 @@ def build():
     print(f"[build] DONE — {total_pages} pages in {DIST}")
     print(f"        home 1 · categories {len(categories) + 1} · saas {len(saas_products)} · "
           f"oss {len(oss_alternatives)} · vs {comparison_count} · static 2")
+    print(f"        OG images generated: {og_generated} (in {og_dir})")
 
 
 if __name__ == "__main__":

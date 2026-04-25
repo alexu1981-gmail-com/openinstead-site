@@ -1981,3 +1981,463 @@
     - GPU strongly recommended for good latency.
     - Larger install footprint.
     - Enterprise features gated.
+
+- slug: keycloak
+  name: Keycloak
+  category: identity-sso
+  tagline: Enterprise-grade identity and access management from Red Hat.
+  license: Apache-2.0
+  self_host_difficulty: 4
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://www.keycloak.org
+  github: https://github.com/keycloak/keycloak
+  strengths:
+    - SAML, OIDC, OAuth2, LDAP federation — the full kit.
+    - Fine-grained RBAC, scopes and client management.
+    - Backed by Red Hat with a mature release cadence.
+  weaknesses:
+    - Admin console is complex — real operational learning curve.
+    - Memory-hungry under load; not trivial to right-size.
+    - Upgrades between major versions require careful migration.
+
+- slug: authentik
+  name: Authentik
+  category: identity-sso
+  tagline: Modern identity provider with a polished admin UI.
+  license: MIT
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://goauthentik.io
+  github: https://github.com/goauthentik/authentik
+  strengths:
+    - SAML, OIDC, LDAP, proxy-auth flows in one binary.
+    - Flow-based policies make complex auth readable.
+    - Active development and friendly docs.
+  weaknesses:
+    - Newer than Keycloak — fewer integrations in the wild.
+    - Some enterprise features are Enterprise-tier only.
+    - Postgres + Redis + worker — still multi-service to operate.
+
+- slug: authelia
+  name: Authelia
+  category: identity-sso
+  tagline: Single sign-on portal designed for reverse proxies.
+  license: Apache-2.0
+  self_host_difficulty: 2
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://www.authelia.com
+  github: https://github.com/authelia/authelia
+  strengths:
+    - Lightweight Go binary; pairs cleanly with nginx, Traefik, Caddy.
+    - Good 2FA flows out of the box (TOTP, WebAuthn).
+    - Config is YAML — easy to version-control.
+  weaknesses:
+    - Not a full identity provider — best when fronting existing auth.
+    - SAML support lags OIDC/proxy use cases.
+    - Smaller community than Keycloak.
+
+- slug: zitadel
+  name: Zitadel
+  category: identity-sso
+  tagline: Cloud-native identity platform built in Go with event sourcing.
+  license: Apache-2.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://zitadel.com
+  github: https://github.com/zitadel/zitadel
+  strengths:
+    - Multi-tenant from day one — good for B2B SaaS builders.
+    - Event-sourced audit trail for compliance.
+    - Swiss hosted option if you prefer managed.
+  weaknesses:
+    - Younger than Keycloak — integration guides are thinner.
+    - Operational model differs from traditional IAM.
+    - Advanced features (actions, custom flows) still maturing.
+
+- slug: wireguard
+  name: WireGuard
+  category: vpn
+  tagline: Modern VPN tunnel protocol with a tiny code base.
+  license: GPL-2.0
+  self_host_difficulty: 2
+  hosted_cloud_option: false
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://www.wireguard.com
+  github: https://github.com/WireGuard
+  strengths:
+    - Fast, auditable (4k LoC) and shipped in Linux kernel.
+    - Trivial config once you understand keys and peers.
+    - Runs on anything from a VPS to a Raspberry Pi.
+  weaknesses:
+    - No built-in user management — you manage keys yourself.
+    - No obfuscation — firewalls can detect and block it.
+    - You're accountable for the exit IP's reputation.
+
+- slug: openvpn
+  name: OpenVPN Community
+  category: vpn
+  tagline: The veteran open source VPN with TLS and broad client support.
+  license: GPL-2.0
+  self_host_difficulty: 3
+  hosted_cloud_option: false
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://openvpn.net/community
+  github: https://github.com/OpenVPN/openvpn
+  strengths:
+    - Runs through firewalls via TCP/443 when needed.
+    - Mature ecosystem of GUIs and Access Server add-ons.
+    - Flexible auth — certs, user/pass, MFA plugins.
+  weaknesses:
+    - Slower than WireGuard on comparable hardware.
+    - Config is more verbose; cert management is non-trivial.
+    - Commercial Access Server is a different licence.
+
+- slug: postal
+  name: Postal
+  category: transactional-email
+  tagline: Self-hosted mail server for sending transactional and bulk email.
+  license: MIT
+  self_host_difficulty: 4
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://postalserver.io
+  github: https://github.com/postalserver/postal
+  strengths:
+    - Web UI, SMTP and HTTP API out of the box.
+    - Per-server tracking (opens, clicks, bounces).
+    - Modular MariaDB + RabbitMQ architecture.
+  weaknesses:
+    - Running a real mail server is a deliverability project, not an install.
+    - IP warm-up and SPF/DKIM/DMARC on you.
+    - Many cloud providers block outbound :25 entirely.
+
+- slug: haraka
+  name: Haraka
+  category: transactional-email
+  tagline: High-performance Node.js SMTP server used by big senders.
+  license: MIT
+  self_host_difficulty: 4
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://haraka.github.io
+  github: https://github.com/haraka/Haraka
+  strengths:
+    - Plugin-based — you shape the flow in JavaScript.
+    - Async core handles high connection counts.
+    - Runs outbound relay and inbound MX workloads.
+  weaknesses:
+    - Not a batteries-included product — you build on top.
+    - Documentation assumes SMTP fluency.
+    - No baked-in UI for campaign management.
+
+- slug: twenty-crm
+  name: Twenty
+  category: crm-sales
+  tagline: Open source CRM positioned as a Salesforce alternative.
+  license: AGPL-3.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://twenty.com
+  github: https://github.com/twentyhq/twenty
+  strengths:
+    - Modern UI that feels like Linear for sales.
+    - Customizable data model via GraphQL metadata.
+    - Rapid release cadence backed by full-time team.
+  weaknesses:
+    - Young — feature gaps versus Salesforce or HubSpot remain.
+    - Integration ecosystem still small.
+    - AGPL scares some commercial vendors off embedding.
+
+- slug: osticket
+  name: osTicket
+  category: helpdesk
+  tagline: Classic open source support ticket system used by many SMBs.
+  license: GPL-2.0
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://osticket.com
+  github: https://github.com/osTicket/osTicket
+  strengths:
+    - Straightforward PHP/MySQL stack — runs on any LAMP host.
+    - Mature — stable for over a decade.
+    - Hosted SaaS available if you want support revenue funded.
+  weaknesses:
+    - UI feels dated compared to Zendesk or newer entrants.
+    - No native multi-channel (live chat, social) without plugins.
+    - Development pace is slower than rivals.
+
+- slug: bookstack
+  name: BookStack
+  category: wiki-docs
+  tagline: Opinionated team wiki organized as books, chapters and pages.
+  license: MIT
+  self_host_difficulty: 2
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://www.bookstackapp.com
+  github: https://github.com/BookStackApp/BookStack
+  strengths:
+    - Hierarchy prevents the page-graveyard problem Confluence has.
+    - WYSIWYG + markdown editing side by side.
+    - PHP/MySQL stack is easy to host and back up.
+  weaknesses:
+    - Book/chapter structure is rigid if you want tag-first organization.
+    - Fewer rich embeds than Notion or GitBook.
+    - API is present but not as full as some competitors.
+
+- slug: wikijs
+  name: Wiki.js
+  category: wiki-docs
+  tagline: Modern wiki engine with Git sync and a rich editor.
+  license: AGPL-3.0
+  self_host_difficulty: 3
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://js.wiki
+  github: https://github.com/Requarks/wiki
+  strengths:
+    - Storage backends include Git, S3, local disk and cloud providers.
+    - Multiple authentication sources out of the box.
+    - Polished editor with markdown, WYSIWYG and code modes.
+  weaknesses:
+    - v3 rewrite slowed 2.x feature additions.
+    - AGPL-3.0 may block some commercial vendors.
+    - Node.js + Postgres requires more ops than PHP stacks.
+
+- slug: outline
+  name: Outline
+  category: wiki-docs
+  tagline: Beautiful team knowledge base with real-time collaboration.
+  license: BSL 1.1 (source-available)
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: [macOS, Windows, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://www.getoutline.com
+  github: https://github.com/outline/outline
+  strengths:
+    - Clean UI that competes with Notion on polish.
+    - Slack, Google, SAML logins supported.
+    - Real-time collaborative editing.
+  weaknesses:
+    - BSL source-available, not strictly open source — check your policy.
+    - Self-host ops (Postgres, Redis, S3) aren't one-click.
+    - Fewer templates than Notion for non-engineering teams.
+
+- slug: docusaurus
+  name: Docusaurus
+  category: wiki-docs
+  tagline: Meta's static site generator for product and developer docs.
+  license: MIT
+  self_host_difficulty: 2
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://docusaurus.io
+  github: https://github.com/facebook/docusaurus
+  strengths:
+    - Purpose-built for versioned product docs.
+    - MDX lets you mix React components into content.
+    - Deploys to any static host (Netlify, Cloudflare Pages, GitHub Pages).
+  weaknesses:
+    - Not a wiki — writers need a PR workflow or web editor bolt-on.
+    - Search requires Algolia or a DIY index for big sites.
+    - Upgrades between major versions can break custom themes.
+
+- slug: mkdocs
+  name: MkDocs
+  category: wiki-docs
+  tagline: Python static-site generator beloved by ops and infra teams.
+  license: BSD-2-Clause
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://www.mkdocs.org
+  github: https://github.com/mkdocs/mkdocs
+  strengths:
+    - Zero framework fuss — markdown files in, HTML out.
+    - Material for MkDocs theme is docs-industry standard.
+    - Ships with a local dev server and built-in search.
+  weaknesses:
+    - Not collaborative — you need a Git workflow.
+    - Limited versioning compared to Docusaurus.
+    - Plugin discovery is fragmented across GitHub.
+
+- slug: kimai
+  name: Kimai
+  category: time-tracking
+  tagline: Self-hosted time tracker with invoicing and reports.
+  license: AGPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: [iOS, Android]
+  website: https://www.kimai.org
+  github: https://github.com/kimai/kimai
+  strengths:
+    - Teams, projects, customers and invoices in one tool.
+    - REST API plus mobile clients.
+    - Easy PHP/MySQL deployment on any VPS.
+  weaknesses:
+    - UI is functional rather than polished.
+    - Some reports need the paid plugins or plugin-store extensions.
+    - Smaller ecosystem of integrations than Toggl.
+
+- slug: cachet
+  name: Cachet
+  category: status-pages
+  tagline: Open source status page system for outages and scheduled maintenance.
+  license: BSD-3-Clause
+  self_host_difficulty: 2
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://cachethq.io
+  github: https://github.com/cachethq/cachet
+  strengths:
+    - Markdown incident updates with timeline support.
+    - Subscribable via email and webhooks.
+    - Simple PHP/MySQL stack.
+  weaknesses:
+    - Project has had stop-start maintenance cycles over the years.
+    - Metrics features are thin versus paid status pages.
+    - UI lacks the polish of hosted competitors.
+
+- slug: gatus
+  name: Gatus
+  category: status-pages
+  tagline: Lightweight uptime monitoring with a built-in status dashboard.
+  license: Apache-2.0
+  self_host_difficulty: 1
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://gatus.io
+  github: https://github.com/TwiN/gatus
+  strengths:
+    - Single Go binary, config-as-YAML, Docker-ready.
+    - HTTP, TCP, ICMP, DNS, TLS cert checks.
+    - Great for ops teams that want monitoring + public page in one.
+  weaknesses:
+    - Not a full incident-management product.
+    - No baked-in SLA reports.
+    - Alert integrations are config-file driven, not a UI.
+
+- slug: superset
+  name: Apache Superset
+  category: business-intelligence
+  tagline: Modern data exploration and dashboarding platform from Airbnb/Apache.
+  license: Apache-2.0
+  self_host_difficulty: 4
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://superset.apache.org
+  github: https://github.com/apache/superset
+  strengths:
+    - Connects to 40+ SQL engines out of the box.
+    - Rich visualizations, row-level security and dashboards.
+    - Mature role/permission model for enterprise deployments.
+  weaknesses:
+    - Non-trivial to operate (Celery workers, caches, metadata DB).
+    - Python-heavy customization; not plug-and-play for non-engineers.
+    - Embedded analytics requires care around auth.
+
+- slug: metabase
+  name: Metabase
+  category: business-intelligence
+  tagline: Friendly BI tool aimed at non-SQL users asking questions of data.
+  license: AGPL-3.0 (Community) / commercial (Enterprise, Pro)
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://www.metabase.com
+  github: https://github.com/metabase/metabase
+  strengths:
+    - Single JAR install — runs on a laptop or a server.
+    - Questions, dashboards and alerts usable by non-analysts.
+    - Large integration catalog.
+  weaknesses:
+    - Community edition lacks some features (SSO, audit, data sandboxing).
+    - AGPL is a sticking point for commercial embedding.
+    - Performance on very complex models lags dedicated analytics engines.
+
+- slug: redash
+  name: Redash
+  category: business-intelligence
+  tagline: SQL-first analytics platform with dashboards and alerts.
+  license: BSD-2-Clause
+  self_host_difficulty: 3
+  hosted_cloud_option: false
+  desktop_apps: []
+  mobile_apps: []
+  website: https://redash.io
+  github: https://github.com/getredash/redash
+  strengths:
+    - SQL editor plus query scheduling and caching.
+    - Connects to dozens of sources, including NoSQL and APIs.
+    - Alerts on query results, not just dashboards.
+  weaknesses:
+    - Development slowed after Databricks acquisition in 2020.
+    - Self-host stack is heavier than Metabase.
+    - UI shows its age next to newer BI entrants.
+
+- slug: passbolt
+  name: Passbolt
+  category: password-managers
+  tagline: Team-first password manager designed for collaboration.
+  license: AGPL-3.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: [Windows, macOS, Linux]
+  mobile_apps: [iOS, Android]
+  website: https://www.passbolt.com
+  github: https://github.com/passbolt
+  strengths:
+    - Fine-grained sharing between users and groups.
+    - PGP-based end-to-end encryption model.
+    - Active audits and security roadmap.
+  weaknesses:
+    - Onboarding involves PGP key setup per user.
+    - Enterprise features (SSO, SCIM, audit log) are paid-tier.
+    - Smaller ecosystem than Bitwarden.
+
+- slug: writefreely
+  name: WriteFreely
+  category: newsletters
+  tagline: Minimalist open-source publishing platform for writers.
+  license: AGPL-3.0
+  self_host_difficulty: 2
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: [iOS, Android]
+  website: https://writefreely.org
+  github: https://github.com/writefreely/writefreely
+  strengths:
+    - Deliberately simple — no trackers, no analytics, no bloat.
+    - ActivityPub support, so posts federate into Mastodon.
+    - Runs as a single Go binary.
+  weaknesses:
+    - Not a full newsletter tool — pair with Listmonk for email sends.
+    - No paid-subscription or Stripe integration out of the box.
+    - Theming options are intentionally limited.

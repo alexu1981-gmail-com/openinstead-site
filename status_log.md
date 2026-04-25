@@ -4,6 +4,62 @@ Persistent log, updated by Claude every session. Read from top-down.
 
 ---
 
+## 2026-04-25 — Session 4: Reddit-ready maturity sprint ✅
+
+**Goal:** mature site înainte de Reddit launch (r/selfhosted + r/opensource).
+
+**Total pages now: 508** (up from 394 — +114 pages, +29%).
+**OG share images: 135** (homepage + 38 categorii + 88 SaaS + 8 articole), 1200×630 PNG.
+
+Added:
+- [x] **Pillow-based OG image generator** în build.py (`generate_og_image()`): dark `#0e1116`, accent verde `#3fb950`, kicker chip pentru categorie, titlu mare cu greedy-wrap, OpenInstead wordmark bottom-right. ~135 PNG generate la fiecare build.
+- [x] **base.html upgrade:** `og:image` + `og:image:width/height` + `twitter:card=summary_large_image` + `twitter:image`. Previous era doar `summary` text card.
+- [x] **+8 categorii noi:** identity-sso, vpn, transactional-email, wiki-docs, time-tracking, status-pages, business-intelligence, newsletters.
+- [x] **+20 SaaS produse:** Okta, NordVPN, ExpressVPN, SendGrid, Mailgun, Netlify, Render, Railway, Pipedrive, Freshdesk, Box, Confluence, GitBook, Toggl, Harvest, Statuspage, Tableau, Power BI, Dashlane, Substack.
+- [x] **+23 OSS profiles noi:** Keycloak, Authentik, Authelia, Zitadel, WireGuard, OpenVPN, Postal, Haraka, Twenty CRM, osTicket, BookStack, Wiki.js, Outline, Docusaurus, MkDocs, Kimai, Cachet, Gatus, Apache Superset, Metabase, Redash, Passbolt, WriteFreely.
+- [x] **+20 mappings** (toate cele 20 SaaS noi → OSS alternatives, best-fit ordered).
+- [x] **+2 long-form articles:**
+  - "When self-hosting goes wrong: seven failure modes and how to avoid them" (~2400 words, Reddit-bait honest retrospective)
+  - "Will the open source project you depend on still exist in three years?" (~2400 words, bus-factor checklist)
+- [x] **+60 comparison pages** (185 → 245).
+- [x] Build re-run clean: 0 warnings, 0 errors, 501 search-index entries.
+
+Sanity check după rebuild:
+- HTML pages: 508 ✓
+- OG PNGs: 135 ✓ (1+38+88+8)
+- Sitemap URLs: 507 ✓
+- Toate paginile au `og:image` absolute URL în meta + `twitter:card=summary_large_image`.
+
+**Next steps (ale tale, după push):**
+- [ ] Așteaptă ~2 min Cloudflare Pages rebuild → verifică https://openinstead.dev (homepage + un articol nou + un SaaS nou).
+- [ ] **Test OG card pe Twitter/X:** [cards-dev.twitter.com/validator](https://cards-dev.twitter.com/validator) cu URL `https://openinstead.dev/article/when-self-hosting-goes-wrong-seven-failure-modes/`.
+- [ ] **Test OG card pe LinkedIn:** [linkedin.com/post-inspector](https://www.linkedin.com/post-inspector/).
+- [ ] **Test pe Facebook:** [developers.facebook.com/tools/debug](https://developers.facebook.com/tools/debug/) — forțează refresh dacă a fost cached.
+- [ ] **Reddit pre-launch:** alege un articol-anchor pentru r/selfhosted (probabil failure-modes), vezi DISTRIBUTION_PLAN.md pentru timing.
+
+---
+
+## 2026-04-25 — Session 3: Domain live ✅🌐
+
+**Pushed:** commit `7e29712` pe main. Cloudflare Pages rebuild automat în ~2 min.
+
+**Site live pe domeniu propriu:** https://openinstead.dev
+
+Added:
+- [x] `SITE_URL = https://openinstead.dev` în build.py (confirmat, era deja default — bine că l-am pus așa din sprint 1).
+- [x] Favicon SVG (monogram "OI" pe fond dark cu accent verde) — elimina 404 pentru /favicon.ico.
+- [x] `<link rel="icon">` în base template.
+- [x] Toate 395 pagini rebuilded cu canonical URL corect către openinstead.dev.
+- [x] Sitemap.xml actualizat cu noul domeniu.
+
+Pending Alexandru (acum e timpul):
+- [ ] **Google Search Console** — add property `openinstead.dev`, verify via DNS (1 click pe Cloudflare), submit sitemap `https://openinstead.dev/sitemap.xml`. Link: https://search.google.com/search-console
+- [ ] **Bing Webmaster Tools** — https://www.bing.com/webmasters
+- [ ] **Cloudflare Web Analytics** — dash.cloudflare.com → Analytics → Web Analytics → Add site.
+- [ ] **Redirect `www.openinstead.dev` → `openinstead.dev`** (sau invers, pick one) — în Cloudflare Pages → Custom domains, sau via Page Rule.
+
+---
+
 ## 2026-04-25 — Session 2.1: Distribution strategy + AdSense prep ✅
 
 **Pushed:** commit `13ae462` pe main.

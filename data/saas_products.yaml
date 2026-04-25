@@ -748,3 +748,223 @@
     - Subscription-only.
     - Licensing questions around training data still unresolved for some teams.
   homepage: https://github.com/features/copilot
+
+- slug: okta
+  name: Okta
+  category: identity-sso
+  tagline: Enterprise identity, SSO and MFA cloud.
+  pricing: SSO from $2/user/month; MFA, Lifecycle Management tiers climb quickly.
+  common_gripes:
+    - Per-user per-feature pricing balloons past 200 seats.
+    - Every outage takes down everything your team signs into.
+    - Breach history has eroded trust for security-conscious teams.
+  homepage: https://www.okta.com
+
+- slug: nordvpn
+  name: NordVPN
+  category: vpn
+  tagline: Consumer VPN subscription with a large server network.
+  pricing: From $3.99/month on 2-year plans; renewal rates are higher.
+  common_gripes:
+    - You still have to trust the provider with your traffic.
+    - Apps on some platforms lag behind others on features.
+    - Aggressive auto-renew pricing catches people out.
+  homepage: https://nordvpn.com
+
+- slug: expressvpn
+  name: ExpressVPN
+  category: vpn
+  tagline: Premium consumer VPN known for streaming reliability.
+  pricing: From $6.67/month on 12-month plans.
+  common_gripes:
+    - Among the most expensive consumer VPNs.
+    - Acquired by Kape Technologies in 2021 — some users reassessed trust.
+    - Closed-source apps on some platforms until recent audits.
+  homepage: https://www.expressvpn.com
+
+- slug: sendgrid
+  name: SendGrid
+  category: transactional-email
+  tagline: Transactional email API for apps, now Twilio SendGrid.
+  pricing: Free 100/day; paid from $19.95/month for 50k emails.
+  common_gripes:
+    - Pricing escalates sharply once you outgrow the starter tier.
+    - Shared-IP deliverability issues when neighbours spam.
+    - Support response times complaints on mid-tier plans.
+  homepage: https://sendgrid.com
+
+- slug: mailgun
+  name: Mailgun
+  category: transactional-email
+  tagline: Developer-focused transactional email and SMTP relay.
+  pricing: Flex pay-as-you-go from $0.80/1000 emails; Foundation from $15/month.
+  common_gripes:
+    - Deliverability varies heavily by region and plan.
+    - Validation and inbound parsing are separate paid add-ons.
+    - Log retention is limited on lower tiers.
+  homepage: https://www.mailgun.com
+
+- slug: netlify
+  name: Netlify
+  category: paas-hosting
+  tagline: Jamstack hosting with Git-based deploys, functions and forms.
+  pricing: Free tier; Pro from $19/user/month; bandwidth overages sting.
+  common_gripes:
+    - Bandwidth and build-minute overages on viral spikes.
+    - Edge functions and large media have extra per-request costs.
+    - Roadmap keeps shifting toward higher-tier enterprise features.
+  homepage: https://www.netlify.com
+
+- slug: render
+  name: Render
+  category: paas-hosting
+  tagline: Heroku-style PaaS for web services, workers and databases.
+  pricing: Free static sites; paid services from $7/month; managed Postgres priced per plan.
+  common_gripes:
+    - Free tier spins down after inactivity (cold starts).
+    - Managed Postgres pricing is higher than running your own.
+    - Limited regions compared to AWS or GCP.
+  homepage: https://render.com
+
+- slug: railway
+  name: Railway
+  category: paas-hosting
+  tagline: Developer-friendly platform to deploy any stack from Git.
+  pricing: $5/month starter; usage-based billing on top.
+  common_gripes:
+    - Usage pricing can surprise on memory-hungry workloads.
+    - Removed a generous free tier for new accounts in 2023.
+    - Smaller ecosystem than Heroku or Render for one-click add-ons.
+  homepage: https://railway.app
+
+- slug: pipedrive
+  name: Pipedrive
+  category: crm-sales
+  tagline: Sales pipeline CRM for small and mid-market teams.
+  pricing: Essential from $14/user/month; Advanced from $29; Power and Enterprise higher.
+  common_gripes:
+    - Feature unlocks sit on higher tiers (automation, reports).
+    - Add-ons for LeadBooster, Campaigns and Projects add up.
+    - Customization limits frustrate teams with complex pipelines.
+  homepage: https://www.pipedrive.com
+
+- slug: freshdesk
+  name: Freshdesk
+  category: helpdesk
+  tagline: Customer support ticketing and omnichannel helpdesk.
+  pricing: Free up to 10 agents; Growth from $15/agent/month; Pro and Enterprise higher.
+  common_gripes:
+    - Mailbox sending limits on lower tiers.
+    - Key automation and SLA tools gated to Pro+.
+    - Many features feel bolted on via the Freshworks suite.
+  homepage: https://www.freshworks.com/freshdesk
+
+- slug: box
+  name: Box
+  category: file-storage
+  tagline: Enterprise cloud content management with compliance controls.
+  pricing: Business from $15/user/month; per-feature pricing for Governance and Shield.
+  common_gripes:
+    - Pricing climbs fast once compliance modules are needed.
+    - Consumer-grade UX on mobile despite enterprise positioning.
+    - Export options for full accounts are painful.
+  homepage: https://www.box.com
+
+- slug: confluence
+  name: Confluence
+  category: wiki-docs
+  tagline: Atlassian's team wiki and knowledge base.
+  pricing: Standard from $5.75/user/month; Premium and Enterprise higher.
+  common_gripes:
+    - Search quality degrades as workspaces grow.
+    - Permissions model is hard to reason about.
+    - Tightly coupled to the Atlassian suite lifecycle.
+  homepage: https://www.atlassian.com/software/confluence
+
+- slug: gitbook
+  name: GitBook
+  category: wiki-docs
+  tagline: Modern docs platform with Git sync and AI search.
+  pricing: Free for open source; paid from $8/editor/month; AI features gated.
+  common_gripes:
+    - Pricing pivots have frustrated long-time users.
+    - Migration export is limited for complex spaces.
+    - Custom domains and SSO sit behind higher tiers.
+  homepage: https://www.gitbook.com
+
+- slug: toggl
+  name: Toggl Track
+  category: time-tracking
+  tagline: Lightweight time tracker for freelancers and teams.
+  pricing: Free up to 5; Starter from $9/user/month; Premium from $18.
+  common_gripes:
+    - Reporting depth is gated to higher tiers.
+    - Invoicing is a separate product (Toggl + Plan).
+    - Historical data exports not friendly for self-hosted analytics.
+  homepage: https://toggl.com/track
+
+- slug: harvest
+  name: Harvest
+  category: time-tracking
+  tagline: Time tracking with invoicing built in.
+  pricing: Free for 1 user; Pro $10.80/user/month.
+  common_gripes:
+    - Project structure is rigid for complex agencies.
+    - Integrations feel dated compared to newer entrants.
+    - Invoicing is basic — many teams pair it with a second tool.
+  homepage: https://www.getharvest.com
+
+- slug: statuspage
+  name: Statuspage
+  category: status-pages
+  tagline: Atlassian's hosted public status pages.
+  pricing: Free up to 100 subscribers; paid from $29/month; Enterprise far higher.
+  common_gripes:
+    - Subscriber pricing doesn't scale well for consumer apps.
+    - Branded/white-label features locked behind Business+.
+    - Feels neglected compared to other Atlassian products.
+  homepage: https://www.atlassian.com/software/statuspage
+
+- slug: tableau
+  name: Tableau
+  category: business-intelligence
+  tagline: Salesforce-owned enterprise BI and visualization platform.
+  pricing: Creator $75/user/month; Explorer $42; Viewer $15; Server adds more.
+  common_gripes:
+    - Per-seat pricing is brutal for read-only consumers.
+    - Salesforce acquisition has slowed independent roadmap.
+    - Requires a trained analyst; not self-service for non-analysts.
+  homepage: https://www.tableau.com
+
+- slug: power-bi
+  name: Microsoft Power BI
+  category: business-intelligence
+  tagline: Microsoft's BI suite bundled with Fabric and M365.
+  pricing: Pro $14/user/month; Premium per-user $24; Fabric capacity priced separately.
+  common_gripes:
+    - Licensing is a maze between Pro, Premium, Fabric and E5.
+    - Vendor lock-in to Azure and Microsoft identity.
+    - Performance degrades on complex models without premium capacity.
+  homepage: https://www.microsoft.com/power-platform/products/power-bi
+
+- slug: dashlane
+  name: Dashlane
+  category: password-managers
+  tagline: Password manager with built-in VPN and dark-web monitoring.
+  pricing: Premium $4.99/month; Friends & Family plans; Business $8/seat/month.
+  common_gripes:
+    - Desktop apps replaced by web-only in 2022 — long-time users grumbled.
+    - VPN and monitoring bundle can feel upsell-heavy.
+    - Closed-source — you trust the vendor's claims.
+  homepage: https://www.dashlane.com
+
+- slug: substack
+  name: Substack
+  category: newsletters
+  tagline: Hosted newsletter platform with paid subscriptions built in.
+  pricing: Free to start; Substack takes 10% of subscription revenue plus Stripe fees.
+  common_gripes:
+    - 10% revenue cut is expensive at scale vs. self-hosted Ghost or Listmonk.
+    - Content moderation policies have pushed some creators off-platform.
+    - You don't own your mailing list the same way you would on your own infra.
+  homepage: https://substack.com

@@ -7,6 +7,20 @@
   <description>Long-form essays on self-hosting, open source evaluation and SaaS migration.</description>
   <language>en-us</language>
   <item>
+    <title>When self-hosting goes wrong: seven failure modes and how to avoid them</title>
+    <link>https://openinstead.dev/article/when-self-hosting-goes-wrong-seven-failure-modes/</link>
+    <guid>https://openinstead.dev/article/when-self-hosting-goes-wrong-seven-failure-modes/</guid>
+    <description><![CDATA[An honest retrospective on the ways self-hosted setups break — not in theory, but in practice — and the small habits that prevent most of them.]]></description>
+    <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>Will the open source project you depend on still exist in three years?</title>
+    <link>https://openinstead.dev/article/will-this-open-source-project-still-exist-in-three-years/</link>
+    <guid>https://openinstead.dev/article/will-this-open-source-project-still-exist-in-three-years/</guid>
+    <description><![CDATA[Bus factor, maintainer burnout, funding models, and the signals that separate OSS projects that survive from those that quietly decay.]]></description>
+    <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
+  </item>
+  <item>
     <title>From SaaS to self-hosted: a 30-day migration playbook</title>
     <link>https://openinstead.dev/article/30-day-saas-to-self-hosted-migration-playbook/</link>
     <guid>https://openinstead.dev/article/30-day-saas-to-self-hosted-migration-playbook/</guid>
