@@ -49,4 +49,21 @@
     </div>
   </div>
 </section>
+
+{% if siblings %}
+<section class="section">
+  <div class="container">
+    <h2>Other categories you might like</h2>
+    <div class="grid cols-3">
+      {% for s in siblings %}
+      <a class="card" href="{{ root_prefix }}/category/{{ s.slug }}/">
+        <h3>{{ s.icon }} {{ s.name }}</h3>
+        <p class="sub">{{ s.description }}</p>
+      </a>
+      {% endfor %}
+    </div>
+    <p style="margin-top:1.5rem"><a href="{{ root_prefix }}/categories/">Browse all categories →</a></p>
+  </div>
+</section>
+{% endif %}
 {% endblock %}

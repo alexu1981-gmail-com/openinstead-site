@@ -101,4 +101,36 @@
     </div>
   </div>
 </section>
+
+{% if related_comparisons %}
+<section class="section">
+  <div class="container">
+    <h2>Other comparisons</h2>
+    <div class="grid cols-3">
+      {% for r in related_comparisons %}
+      <a class="card" href="{{ root_prefix }}/vs/{{ r.saas_slug }}-vs-{{ r.oss_slug }}/">
+        <h3>{{ r.saas_name }} vs {{ r.oss_name }}</h3>
+        <p class="sub">{{ r.subline }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if related_articles %}
+<section class="section">
+  <div class="container">
+    <h2>Recommended reading</h2>
+    <div class="grid cols-2">
+      {% for a in related_articles %}
+      <a class="card" href="{{ root_prefix }}/article/{{ a.slug }}/">
+        <h3>{{ a.title }}</h3>
+        <p class="sub">{{ a.description }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
 {% endblock %}

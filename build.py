@@ -345,6 +345,121 @@ def ensure_dir(path: Path):
     path.mkdir(parents=True, exist_ok=True)
 
 
+# ---------------------------------------------------------------------------
+# JSON-LD schema helpers
+# ---------------------------------------------------------------------------
+def jsonld(obj) -> str:
+    """Serialize a dict to a compact JSON-LD string."""
+    return json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
+
+
+def schema_organization() -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": SITE_NAME,
+        "url": SITE_URL,
+        "logo": f"{SITE_URL}/static/favicon.svg",
+        "description": "Open source alternatives to popular SaaS — curated and editorial.",
+        "sameAs": [],
+        "contactPoint": [{
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "contact@openinstead.dev",
+        }],
+    }
+
+
+def schema_website() -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": SITE_NAME,
+        "url": SITE_URL,
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": f"{SITE_URL}/?q={{search_term_string}}",
+            },
+            "query-input": "required name=search_term_string",
+        },
+    }
+
+
+def schema_breadcrumb(items) -> dict:
+    """items = [(name, path), ...]   path '' or '/' allowed for home."""
+    elements = []
+    for i, (name, path) in enumerate(items, start=1):
+        elements.append({
+            "@type": "ListItem",
+            "position": i,
+            "name": name,
+            "item": f"{SITE_URL}{path or '/'}",
+        })
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": elements,
+    }
+
+
+def schema_article(art, og_image_url, body_text) -> dict:
+    """Build an Article schema from an article dict + computed OG image + body text."""
+    word_count = len(body_text.split())
+    obj = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": art["title"],
+        "description": art.get("description", ""),
+        "image": [og_image_url] if og_image_url else [],
+        "url": f"{SITE_URL}/article/{art['slug']}/",
+        "wordCount": word_count,
+        "author": {
+            "@type": "Organization",
+            "name": SITE_NAME,
+            "url": SITE_URL,
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": SITE_NAME,
+            "url": SITE_URL,
+            "logo": {
+                "@type": "ImageObject",
+                "url": f"{SITE_URL}/static/favicon.svg",
+            },
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": f"{SITE_URL}/article/{art['slug']}/",
+        },
+    }
+    if art.get("date"):
+        obj["datePublished"] = art["date"]
+        obj["dateModified"] = art["date"]
+    return obj
+
+
+def schema_software_application(oss, category_name) -> dict:
+    obj = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": oss["name"],
+        "description": oss.get("tagline", ""),
+        "applicationCategory": category_name,
+        "url": oss.get("website", ""),
+        "operatingSystem": ", ".join(oss.get("desktop_apps", []) or ["Web"]),
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+        },
+    }
+    if oss.get("license"):
+        obj["license"] = oss["license"]
+    return obj
+
+
 def write_page(out_path: Path, html: str):
     ensure_dir(out_path.parent)
     with open(out_path, "w", encoding="utf-8") as f:
@@ -425,6 +540,43 @@ def build():
     def add_url(path: str, priority: float = 0.5, changefreq: str = "monthly"):
         sitemap_urls.append((path, priority, changefreq))
 
+    # Pre-load articles so we can build "related articles" rails on hub pages.
+    # Articles are loaded again later for actual rendering — this is a cheap pre-pass.
+    pre_articles = load_articles()
+
+    # Crude topical map from article slug → keywords used to match SaaS/OSS/category pages.
+    # Editorial rather than ML — simple keyword set per article.
+    article_topics = {
+        "self-hosting-in-2026-honest-survey": {
+            "selfhost", "self-hosting", "general",
+        },
+        "why-your-team-cant-ditch-slack-yet": {"team-communication", "slack", "selfhost"},
+        "real-monthly-cost-of-notion-workspace-at-scale": {"note-taking", "notion", "selfhost"},
+        "evaluating-open-source-alternatives-framework": {"general", "selfhost", "evaluation"},
+        "30-day-saas-to-self-hosted-migration-playbook": {"general", "selfhost", "migration"},
+        "avoiding-mega-incumbents-oss-alternatives": {"general", "selfhost"},
+        "when-self-hosting-goes-wrong-seven-failure-modes": {"general", "selfhost", "ops"},
+        "will-this-open-source-project-still-exist-in-three-years": {
+            "general", "evaluation", "sustainability",
+        },
+    }
+
+    def related_articles_for(category_slug: str, limit: int = 3) -> list:
+        """Return up to N article dicts whose topics match the given category, with
+        'general' articles as fallback."""
+        scored = []
+        for a in pre_articles:
+            topics = article_topics.get(a["slug"], {"general"})
+            score = 0
+            if category_slug in topics:
+                score += 3
+            if "general" in topics:
+                score += 1
+            if score:
+                scored.append((score, a))
+        scored.sort(key=lambda x: -x[0])
+        return [a for _, a in scored[:limit]]
+
     # -------------------------------------------------------------------
     # Home page
     # -------------------------------------------------------------------
@@ -437,6 +589,10 @@ def build():
         og_dir / "home.png",
     ):
         og_generated += 1
+    home_jsonld = [
+        jsonld(schema_organization()),
+        jsonld(schema_website()),
+    ]
     html = render(
         "home.html",
         page_title=f"Open source alternatives to popular SaaS · {SITE_NAME}",
@@ -446,6 +602,7 @@ def build():
         ),
         canonical_path="/",
         og_image=og_url("home"),
+        structured_data=home_jsonld,
         categories=categories,
         featured_saas=featured_saas,
         total_saas=len(saas_products),
@@ -459,11 +616,16 @@ def build():
     # Categories index
     # -------------------------------------------------------------------
     print("[build] categories index")
+    cat_index_breadcrumb = jsonld(schema_breadcrumb([
+        ("Home", "/"),
+        ("Categories", "/categories/"),
+    ]))
     html = render(
         "categories_index.html",
         page_title=f"All categories · {SITE_NAME}",
         meta_description="Browse every category of SaaS tools and the open source alternatives we track.",
         canonical_path="/categories/",
+        structured_data=[cat_index_breadcrumb],
         categories=categories,
     )
     write_page(DIST / "categories" / "index.html", html)
@@ -483,15 +645,26 @@ def build():
             og_dir / f"{og_slug}.png",
         ):
             og_generated += 1
+        cat_breadcrumb = jsonld(schema_breadcrumb([
+            ("Home", "/"),
+            ("Categories", "/categories/"),
+            (cat["name"], f"/category/{cat['slug']}/"),
+        ]))
+        # 3 sibling categories (same alphabetic order, wrap-around) for "related" rail
+        cat_idx = next((i for i, c in enumerate(categories) if c["slug"] == cat["slug"]), 0)
+        siblings = [categories[(cat_idx + offset) % len(categories)]
+                    for offset in (1, 2, 3) if categories[(cat_idx + offset) % len(categories)]["slug"] != cat["slug"]]
         html = render(
             "category.html",
             page_title=f"{cat['name']} — open source alternatives · {SITE_NAME}",
             meta_description=cat["description"],
             canonical_path=f"/category/{cat['slug']}/",
             og_image=og_url(og_slug),
+            structured_data=[cat_breadcrumb],
             category=cat,
             saas_in_category=saas_in_cat,
             oss_in_category=oss_in_cat,
+            siblings=siblings,
         )
         write_page(DIST / "category" / cat["slug"] / "index.html", html)
         add_url(f"/category/{cat['slug']}/", 0.7, "monthly")
@@ -511,7 +684,7 @@ def build():
             alternatives.append({"oss": oss, "best_for": alt["best_for"]})
 
         # Structured data for ItemList.
-        sd = {
+        item_list_sd = {
             "@context": "https://schema.org",
             "@type": "ItemList",
             "name": f"Open source alternatives to {saas['name']}",
@@ -525,6 +698,12 @@ def build():
                 for i, a in enumerate(alternatives)
             ],
         }
+        breadcrumb_sd = schema_breadcrumb([
+            ("Home", "/"),
+            ("Categories", "/categories/"),
+            (saas["category_name"], f"/category/{saas['category']}/"),
+            (f"Alternatives to {saas['name']}", f"/alternatives-to/{saas['slug']}/"),
+        ])
 
         og_slug = f"saas-{saas['slug']}"
         if generate_og_image(
@@ -533,6 +712,10 @@ def build():
             og_dir / f"{og_slug}.png",
         ):
             og_generated += 1
+        # Sibling SaaS in the same category for an internal-link rail.
+        related_saas = [s for s in saas_products
+                        if s["category"] == saas["category"] and s["slug"] != saas["slug"]][:3]
+        related_arts = related_articles_for(saas["category"])
         html = render(
             "saas_page.html",
             page_title=f"{len(alternatives)} open source alternatives to {saas['name']} ({datetime.now().year}) · {SITE_NAME}",
@@ -546,8 +729,10 @@ def build():
             saas=saas,
             category=categories_by_slug[saas["category"]],
             alternatives=alternatives,
+            related_saas=related_saas,
+            related_articles=related_arts,
             og_type="article",
-            structured_data=json.dumps(sd),
+            structured_data=[jsonld(item_list_sd), jsonld(breadcrumb_sd)],
         )
         write_page(DIST / "alternatives-to" / saas["slug"] / "index.html", html)
         add_url(f"/alternatives-to/{saas['slug']}/", 0.9, "monthly")
@@ -564,14 +749,28 @@ def build():
                 oss_replaces[a["slug"]].append(saas_by_slug[saas_slug])
 
     for oss in oss_alternatives:
+        oss_cat = categories_by_slug[oss["category"]]
+        oss_breadcrumb = schema_breadcrumb([
+            ("Home", "/"),
+            ("Categories", "/categories/"),
+            (oss_cat["name"], f"/category/{oss['category']}/"),
+            (oss["name"], f"/open-source/{oss['slug']}/"),
+        ])
+        oss_sw = schema_software_application(oss, oss_cat["name"])
+        related_oss_list = [o for o in oss_alternatives
+                            if o["category"] == oss["category"] and o["slug"] != oss["slug"]][:3]
+        related_arts = related_articles_for(oss["category"])
         html = render(
             "oss_page.html",
             page_title=f"{oss['name']} — {oss['tagline']} · {SITE_NAME}",
             meta_description=oss["tagline"],
             canonical_path=f"/open-source/{oss['slug']}/",
+            structured_data=[jsonld(oss_breadcrumb), jsonld(oss_sw)],
             oss=oss,
-            category=categories_by_slug[oss["category"]],
+            category=oss_cat,
             replaces=oss_replaces[oss["slug"]],
+            related_oss=related_oss_list,
+            related_articles=related_arts,
         )
         write_page(DIST / "open-source" / oss["slug"] / "index.html", html)
         add_url(f"/open-source/{oss['slug']}/", 0.8, "monthly")
@@ -587,6 +786,27 @@ def build():
             oss = oss_by_slug.get(alt["slug"])
             if not oss:
                 continue
+            comp_breadcrumb = schema_breadcrumb([
+                ("Home", "/"),
+                ("Categories", "/categories/"),
+                (saas["category_name"], f"/category/{saas['category']}/"),
+                (f"{saas['name']} vs {oss['name']}", f"/vs/{saas['slug']}-vs-{oss['slug']}/"),
+            ])
+            # Up to 3 other comparisons for the same SaaS (other OSS pairings).
+            sibling_alts = [x for x in alts if x["slug"] != oss["slug"]][:3]
+            related_comparisons = []
+            for s_alt in sibling_alts:
+                s_oss = oss_by_slug.get(s_alt["slug"])
+                if not s_oss:
+                    continue
+                related_comparisons.append({
+                    "saas_slug": saas["slug"],
+                    "saas_name": saas["name"],
+                    "oss_slug": s_oss["slug"],
+                    "oss_name": s_oss["name"],
+                    "subline": s_alt["best_for"],
+                })
+            related_arts = related_articles_for(saas["category"])
             html = render(
                 "comparison.html",
                 page_title=f"{saas['name']} vs {oss['name']} — honest comparison · {SITE_NAME}",
@@ -599,6 +819,9 @@ def build():
                 oss=oss,
                 best_for=alt["best_for"],
                 og_type="article",
+                structured_data=[jsonld(comp_breadcrumb)],
+                related_comparisons=related_comparisons,
+                related_articles=related_arts,
             )
             write_page(DIST / "vs" / f"{saas['slug']}-vs-{oss['slug']}" / "index.html", html)
             add_url(f"/vs/{saas['slug']}-vs-{oss['slug']}/", 0.6, "monthly")
@@ -613,31 +836,44 @@ def build():
     for art in articles:
         body_html = md_to_html(art["body_md"])
         og_slug = f"article-{art['slug']}"
+        og_image_url = og_url(og_slug)
         if generate_og_image(
             art["title"],
             art.get("category") or "Article",
             og_dir / f"{og_slug}.png",
         ):
             og_generated += 1
+        article_breadcrumb = schema_breadcrumb([
+            ("Home", "/"),
+            ("Articles", "/articles/"),
+            (art["title"], f"/article/{art['slug']}/"),
+        ])
+        article_sd = schema_article(art, og_image_url, art["body_md"])
         html = render(
             "article.html",
             page_title=f"{art['title']} · {SITE_NAME}",
             meta_description=art["description"],
             canonical_path=f"/article/{art['slug']}/",
-            og_image=og_url(og_slug),
+            og_image=og_image_url,
             article=art,
             body=body_html,
             og_type="article",
+            structured_data=[jsonld(article_sd), jsonld(article_breadcrumb)],
         )
         write_page(DIST / "article" / art["slug"] / "index.html", html)
         add_url(f"/article/{art['slug']}/", 0.7, "monthly")
 
     # Articles index
+    art_idx_breadcrumb = schema_breadcrumb([
+        ("Home", "/"),
+        ("Articles", "/articles/"),
+    ])
     html = render(
         "articles_index.html",
         page_title=f"Articles · {SITE_NAME}",
         meta_description="Long-form essays on self-hosting, open source evaluation and SaaS migration.",
         canonical_path="/articles/",
+        structured_data=[jsonld(art_idx_breadcrumb)],
         articles=articles,
     )
     write_page(DIST / "articles" / "index.html", html)
@@ -800,11 +1036,42 @@ def build():
     write_page(DIST / "articles" / "rss.xml", "".join(rss_parts))
 
     # -------------------------------------------------------------------
-    # robots.txt + sitemap.xml
+    # robots.txt + sitemap.xml + _headers (Cloudflare Pages cache hints)
     # -------------------------------------------------------------------
-    print("[build] robots.txt + sitemap.xml")
+    print("[build] robots.txt + sitemap.xml + _headers")
     robots = f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n"
     write_page(DIST / "robots.txt", robots)
+
+    # _headers — Cloudflare Pages reads this from the build output root.
+    # 1-year cache for assets that never change content (versioned by name);
+    # short cache for HTML so updates ship quickly.
+    headers = """\
+/static/*
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+/og/*
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.svg
+  Cache-Control: public, max-age=2592000
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+
+/articles/rss.xml
+  Cache-Control: public, max-age=3600
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+"""
+    write_page(DIST / "_headers", headers)
 
     sitemap_parts = ['<?xml version="1.0" encoding="UTF-8"?>\n',
                      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n']

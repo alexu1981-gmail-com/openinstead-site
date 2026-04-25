@@ -22,12 +22,21 @@
   <meta name="twitter:description" content="{{ meta_description }}" />
   <meta name="twitter:image" content="{{ og_image_url }}" />
 
-  {# Structured data, if page provided it #}
+  {# Structured data — supports a single JSON string (legacy) or a list of pre-serialized JSON strings. #}
   {% if structured_data %}
-  <script type="application/ld+json">{{ structured_data | safe }}</script>
+    {% if structured_data is string %}
+      <script type="application/ld+json">{{ structured_data | safe }}</script>
+    {% else %}
+      {% for block in structured_data %}
+      <script type="application/ld+json">{{ block | safe }}</script>
+      {% endfor %}
+    {% endif %}
   {% endif %}
 
+  <meta name="theme-color" content="#0e1116" />
   <link rel="icon" type="image/svg+xml" href="{{ static_prefix }}/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ static_prefix }}/apple-touch-icon.png" />
+  <link rel="manifest" href="{{ static_prefix }}/manifest.json" />
   <link rel="stylesheet" href="{{ static_prefix }}/css/style.css" />
 
   {# AdSense slot — replace ca-pub-XXXX after approval. Safe to leave commented while unapproved. #}

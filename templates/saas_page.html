@@ -113,4 +113,39 @@
     </div>
   </div>
 </section>
+
+{% if related_saas %}
+<section class="section">
+  <div class="container">
+    <h2>Other SaaS in {{ category.name }}</h2>
+    <div class="grid cols-3">
+      {% for s in related_saas %}
+      <a class="card" href="{{ root_prefix }}/alternatives-to/{{ s.slug }}/">
+        <h3>Alternatives to {{ s.name }}</h3>
+        <p class="sub">{{ s.tagline }}</p>
+        <div class="meta">
+          <span class="tag">{{ s.alternative_count }} alternatives</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if related_articles %}
+<section class="section">
+  <div class="container">
+    <h2>Recommended reading</h2>
+    <div class="grid cols-2">
+      {% for a in related_articles %}
+      <a class="card" href="{{ root_prefix }}/article/{{ a.slug }}/">
+        <h3>{{ a.title }}</h3>
+        <p class="sub">{{ a.description }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
 {% endblock %}

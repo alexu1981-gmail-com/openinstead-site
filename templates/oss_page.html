@@ -75,4 +75,39 @@
     </div>
   </div>
 </section>
+
+{% if related_oss %}
+<section class="section">
+  <div class="container">
+    <h2>Other open source projects in {{ category.name }}</h2>
+    <div class="grid cols-3">
+      {% for o in related_oss %}
+      <a class="card" href="{{ root_prefix }}/open-source/{{ o.slug }}/">
+        <h3>{{ o.name }}</h3>
+        <p class="sub">{{ o.tagline }}</p>
+        <div class="meta">
+          <span class="tag">License: {{ o.license }}</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if related_articles %}
+<section class="section">
+  <div class="container">
+    <h2>Recommended reading</h2>
+    <div class="grid cols-2">
+      {% for a in related_articles %}
+      <a class="card" href="{{ root_prefix }}/article/{{ a.slug }}/">
+        <h3>{{ a.title }}</h3>
+        <p class="sub">{{ a.description }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
 {% endblock %}

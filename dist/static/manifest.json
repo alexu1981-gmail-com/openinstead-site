@@ -1,0 +1,21 @@
+{
+  "name": "OpenInstead",
+  "short_name": "OpenInstead",
+  "description": "Open source alternatives to popular SaaS — curated and editorial.",
+  "start_url": "/",
+  "display": "browser",
+  "theme_color": "#0e1116",
+  "background_color": "#0b1020",
+  "icons": [
+    {
+      "src": "/static/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
