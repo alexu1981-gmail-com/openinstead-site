@@ -406,8 +406,38 @@ section.section p.lead { color: var(--text-dim); margin: 0 0 1.5rem; max-width: 
   .search-results { min-width: 260px; right: -20px; }
 }
 @media (max-width: 520px) {
+  /* Wrap header onto two rows so the search bar stays visible on phones */
+  .site-header .container {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+  }
+  .site-header .logo { flex: 0 0 auto; }
   .header-right {
+    order: 3;
+    flex: 0 0 100%;
+    flex-direction: column;
+    align-items: stretch;
     gap: 0.5rem;
   }
-  #search-input { display: none; }
+  .search-wrap { width: 100%; }
+  #search-input,
+  #search-input:focus {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .site-header nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .site-header nav a {
+    margin: 0 0.5rem;
+    font-size: 0.95rem;
+  }
+  .search-results {
+    left: 0;
+    right: 0;
+    min-width: 0;
+    max-width: 100%;
+  }
 }
