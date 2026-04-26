@@ -404,6 +404,22 @@ def schema_breadcrumb(items) -> dict:
     }
 
 
+def to_iso_datetime(date_str: str) -> str:
+    """Convert YYYY-MM-DD (or full ISO) to ISO 8601 with timezone, as required
+    by schema.org Article spec. Existing full ISO strings pass through."""
+    if not date_str:
+        return ""
+    s = date_str.strip()
+    # Already has time component?
+    if "T" in s:
+        # Add UTC suffix if missing both Z and offset.
+        if "+" not in s and "Z" not in s and not s.endswith("+00:00"):
+            return s + "+00:00"
+        return s
+    # Plain date — assume 08:00 UTC publication time.
+    return f"{s}T08:00:00+00:00"
+
+
 def schema_article(art, og_image_url, body_text) -> dict:
     """Build an Article schema from an article dict + computed OG image + body text."""
     word_count = len(body_text.split())
@@ -435,8 +451,9 @@ def schema_article(art, og_image_url, body_text) -> dict:
         },
     }
     if art.get("date"):
-        obj["datePublished"] = art["date"]
-        obj["dateModified"] = art["date"]
+        iso_dt = to_iso_datetime(art["date"])
+        obj["datePublished"] = iso_dt
+        obj["dateModified"] = iso_dt
     return obj
 
 
