@@ -990,8 +990,8 @@ def build():
 
     <h2>The frustration that started it</h2>
     <p>Like a lot of people, I added up my SaaS subscriptions one quarter and found I was paying close to
-    $2,400/year for tools I used heavily for about three of them and barely touched the rest. The lock-in
-    was worse than the cost. Each subscription owned a slice of my data, with export options that ranged from
+    $1,780/year. About three of them were tools I used heavily; the rest I barely touched. The lock-in was
+    worse than the cost. Each subscription owned a slice of my data, with export options that ranged from
     "fine" to "non-existent." Open source isn't always cheaper once you count time, but it gives you the option
     to step out — and that option turns out to be worth a lot.</p>
 
