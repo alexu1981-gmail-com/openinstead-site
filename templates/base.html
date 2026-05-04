@@ -47,18 +47,25 @@
 </head>
 <body>
 
+{% set _path = canonical_path|default('/') %}
 <header class="site-header">
   <div class="container">
-    <a class="logo" href="{{ root_prefix }}/">Open<span>Instead</span></a>
+    <a class="logo" href="{{ root_prefix }}/" aria-label="OpenInstead — home">
+      <svg class="logo-mark" width="30" height="30" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M5 9 L20 9 M16 5 L20 9 L16 13" stroke="#8affc1" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M23 19 L8 19 M12 15 L8 19 L12 23" stroke="#7aa2ff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="logo-word">Open<span class="logo-accent">Instead</span></span>
+    </a>
     <div class="header-right">
       <div class="search-wrap">
-        <input id="search-input" type="search" placeholder="Search SaaS or OSS..." autocomplete="off" />
+        <input id="search-input" type="search" placeholder="Search SaaS or OSS..." autocomplete="off" aria-label="Search" />
         <div id="search-results" class="search-results" hidden></div>
       </div>
-      <nav>
-        <a href="{{ root_prefix }}/">Home</a>
-        <a href="{{ root_prefix }}/categories/">Categories</a>
-        <a href="{{ root_prefix }}/articles/">Articles</a>
+      <nav aria-label="Primary">
+        <a href="{{ root_prefix }}/" {% if _path == '/' %}class="is-active" aria-current="page"{% endif %}>Home</a>
+        <a href="{{ root_prefix }}/categories/" {% if '/categor' in _path %}class="is-active" aria-current="page"{% endif %}>Categories</a>
+        <a href="{{ root_prefix }}/articles/" {% if '/article' in _path %}class="is-active" aria-current="page"{% endif %}>Articles</a>
       </nav>
     </div>
   </div>

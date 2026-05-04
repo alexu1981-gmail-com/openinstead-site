@@ -42,8 +42,9 @@ img { max-width: 100%; display: block; }
 /* Header */
 .site-header {
   border-bottom: 1px solid var(--border);
-  background: rgba(11,16,32,0.8);
-  backdrop-filter: blur(10px);
+  background: rgba(11,16,32,0.85);
+  backdrop-filter: saturate(160%) blur(12px);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
   position: sticky;
   top: 0;
   z-index: 50;
@@ -52,21 +53,63 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+  gap: 1rem;
 }
 .site-header .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   font-weight: 700;
   font-size: 1.1rem;
   color: var(--text);
+  letter-spacing: -0.01em;
+  transition: opacity 0.15s ease, transform 0.15s ease;
 }
-.site-header .logo span { color: var(--accent-2); }
+.site-header .logo:hover {
+  text-decoration: none;
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+.site-header .logo-mark {
+  flex-shrink: 0;
+  display: block;
+  transition: transform 0.25s ease;
+}
+.site-header .logo:hover .logo-mark {
+  transform: rotate(-8deg) scale(1.05);
+}
+.site-header .logo-word { white-space: nowrap; }
+.site-header .logo-accent { color: var(--accent-2); }
+
+.site-header nav { display: inline-flex; gap: 0.25rem; }
 .site-header nav a {
+  position: relative;
   color: var(--text-dim);
-  margin-left: 1.25rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
   font-size: 0.95rem;
+  transition: color 0.12s ease, background 0.12s ease;
 }
-.site-header nav a:hover { color: var(--text); text-decoration: none; }
+.site-header nav a:hover {
+  color: var(--text);
+  text-decoration: none;
+  background: rgba(255,255,255,0.04);
+}
+.site-header nav a.is-active {
+  color: var(--text);
+}
+.site-header nav a.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: -2px;
+  height: 2px;
+  background: var(--accent-2);
+  border-radius: 2px;
+}
 
 /* Hero */
 .hero {
