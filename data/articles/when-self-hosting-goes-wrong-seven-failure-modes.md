@@ -5,84 +5,102 @@ date: 2026-04-25
 category: Opinion
 ---
 
-Most self-hosting guides are written from the high of a fresh install. You `docker compose up`, the dashboard loads, and the post writes itself. This one is written from the other side of that experience — six months or two years later, when the fresh install is running your family's photos, your side project's auth, or your small team's wiki, and something goes sideways.
+Most self-hosting guides are written from the high of a fresh install. You `docker compose up`, the dashboard loads, and the post writes itself. This one is from the other side — six months later, two years later, when the install is running your family's photos and your side project's auth and a friend's small team wiki, and something starts to drift.
 
-We've been doing this long enough, and talking to enough people who do, that the failure modes rhyme. Almost none of them are exotic. They're not "the filesystem melted" or "a zero-day took me out." They're small, human, and preventable if you know they exist.
+I started writing this down because the failure modes rhyme. Not the ones the guides warn about. The boring ones.
 
-Here are the seven that come up most often. If you're in year zero of self-hosting, read this before the failures find you.
+Seven of them, roughly in order of how often I see them happen.
 
 ## 1. "It worked, so I stopped thinking about it"
 
-This is the deepest one, and the hardest to see coming.
+This is the deep one. The one I've watched friends fall into and the one I've fallen into myself.
 
-You set up Nextcloud on a Sunday. It works. You copy some files over. It keeps working. A month goes by, then three, then a year. You have not logged into the server in eleven months. The box is on a VPS you forgot the root password for. The SSH key is on a laptop you replaced.
+You set up Nextcloud on a Sunday. It works. You move some files. It keeps working. A month, three months, a year. You haven't touched the box. The SSH key is on a laptop you replaced. The root password is in a 1Password vault you've stopped paying for. Certbot's cron got wiped by an unattended upgrade and the cert expired three weeks ago — you'd know that if you checked the logs, but you don't, because everything still loads in your browser via Cloudflare's cached origin.
 
-Then something breaks — a disk fills up, a package fails to upgrade, TLS certificate expires silently because certbot's cron was wiped by an OS update. And now you're locked out of a machine that holds the only copy of some of your data.
+Then a disk fills up. Or systemd-resolved decides to be weird. Or your VPS provider sends a "your card was declined" email to an account you've also stopped checking.
 
-**How to avoid it:** Two habits. First, schedule *you* into the loop on a cadence: once a month, log in, look at disk usage, tail the logs, confirm backups ran. Second, keep a `README.md` in the repo that runs the server (you do have one, right?) with the three things you will forget: where SSH keys live, where backups are restored from, and who to call if the server is a shared responsibility. Treat future-you like a new hire who knows nothing.
+The fix isn't automation. It's *attention*.
 
-## 2. Backups that aren't tested are not backups
+Once a month, log in. Look at `df -h`. Tail the journalctl. Confirm the last backup ran. That's it. Twenty minutes. Treat future-you like a stranger you owe a `README.md` to — where the keys are, what the backup paths are, what the recovery story looks like. Future-you will thank you. Or, more accurately, future-you will not curse past-you, which is the same thing.
 
-Everyone reading this knows you need backups. Fewer people know that a backup you haven't restored from is not a backup, it's a hope.
+## 2. Backups that nobody has tested
 
-The pattern: you install restic or duplicati or borg. You point it at your data directory. It runs nightly. The dashboards are green. Two years in, the main disk fails, you pull the backup down, and `restic restore` tells you the snapshot is corrupt, or the encryption key is on the machine that just died, or the backup volume was actually mounted read-only for the last fourteen months and nothing was being written.
+Everyone reading this knows you need backups. Smaller share knows that an untested backup is hope, not data.
 
-**How to avoid it:** The restore drill is non-negotiable. Once a quarter, spin up a throwaway VPS, pull your most recent backup, and restore it end to end. Not "verify the archive" — actually restore and see the files. Also: backups that live on the same host as the thing you're backing up are not backups; make sure at least one copy is on a different provider, different credentials, different physical place.
+Pattern I keep seeing: someone installs restic or borgmatic or duplicacy. Points it at `/data`. Cron fires nightly. Two years pass. Then the disk dies, or the LXC container gets corrupted, or somebody runs `rm -rf` against the wrong path. They reach for the backups and discover one of three things:
 
-## 3. Upgrades you put off because they're scary
+- The encryption key was on the dead machine.
+- The repository was mounted read-only fourteen months ago when something else broke and nothing's been written since.
+- The snapshots exist but `restic check` reports a corrupt pack file. Probably a USB drive that started failing two years in.
 
-Self-hosted software evolves. Releases ship. The further behind you fall, the scarier the next upgrade feels, which makes you fall further behind.
+I've seen all three. The first one twice.
 
-We've seen this with GitLab (jumping over three major versions is an expedition), Nextcloud (apps break between minor versions and you discover it only after the migration), and Jellyfin (upgrades themselves are fine but the ffmpeg transcoder config changes). The longer you wait, the more the delta accumulates, and the higher the stakes when you finally attempt it.
+The mitigation is the *restore drill*, not the backup. Once a quarter, spin up a throwaway VPS. Pull your most recent snapshot. Actually restore the files and look at them. Don't trust `restic check`; trust the experience of the data being readable on a machine that isn't the original. While you're at it, check that at least one backup copy lives on a different provider with separate credentials. If your VPS provider terminates your account by mistake (it happens), you don't want your backups going down with it.
 
-**How to avoid it:** Upgrade on a schedule, not when you feel like it. Monthly or bi-monthly is enough for most things. Read the release notes — not all of them, just the ones between your version and the next. Snapshot the volume before the upgrade if your provider supports it. If a bad upgrade is going to cost you four hours, spend twenty minutes preparing so the rollback path is real.
+## 3. Upgrades you keep putting off
 
-## 4. Running on a single cheap VPS and nothing else
+Self-hosted software ships releases. Falling behind is exponential — it's not a hassle linear in time, it's a hassle in the *square* of time.
 
-The classic starter setup: a $5 VPS, Docker Compose, a dozen services stacked on top. This is fine for a year. It becomes a single point of failure on the day the provider has an incident, or the instance ID gets terminated by a billing error, or an overzealous abuse-report bot flags your traffic.
+GitLab is the canonical bad example. Skipping three majors is no longer an upgrade; it's a migration project. I've watched a friend lose a weekend going from 14.x to 17.x because the path required walking through every minor version checking the runbook. Nextcloud has a similar dynamic — apps break in semi-predictable ways between point releases, and you discover the breakage about an hour after you've already started.
 
-There are three things worth separating early: **storage** (your data doesn't belong on the same VPS as the services), **DNS** (don't tie yourself to a provider whose dashboard is down at the moment you need to change records), and **email** (if you're sending it at all, treat deliverability as a separate problem from hosting).
+Discourse, Mattermost, Authentik — same pattern, less severe.
 
-**How to avoid it:** You don't need Kubernetes to be resilient. You need to answer the question "what happens if this VPS disappears tonight?" without the answer being "I lose everything." A second region's backup, DNS at a separate registrar, data-only volumes that can be moved — those three alone eliminate most catastrophic failure modes.
+Pick a cadence. Bi-monthly is fine for most things. Read only the release notes between your version and the next, not all of them. Snapshot the volume before the upgrade if your provider supports snapshots. If a bad upgrade is going to cost you four hours of recovery, spend twenty minutes preparing so the rollback path is real and not aspirational.
 
-## 5. Exposing things to the public internet before you understand what you exposed
+## 4. Single $5 VPS as a single point of failure
 
-The day you port-forward a service, your box is on the internet. Bots find it within hours. Mature projects defend against the obvious — brute-force logins, common CVEs — but "mature" is doing a lot of work in that sentence.
+The starter setup. A Hetzner CX11 or DigitalOcean droplet, Docker Compose, a dozen services stacked. This is fine for a year. It becomes one bad day from a complete restart.
 
-The failure mode isn't "I got hacked." It's "I got hacked, and then I found out six months later that my server was part of a botnet, because I wasn't watching logs, and my VPS provider emailed me a nastygram before I noticed myself."
+Three things worth separating early, in order of how easy they are:
 
-**How to avoid it:** Default to private. If a service doesn't need to be public, put it behind a VPN (WireGuard is excellent here) or a reverse-proxy with SSO (Authelia, Authentik). Enable fail2ban. Turn on 2FA on anything that offers it. Read the logs *at least* once a week during the first few months — you learn what normal looks like, and anomalies become obvious.
+1. **Storage.** Your data shouldn't live on the same volume as the OS. Even just an attached block-storage volume costs $1-2/month and gives you a portable place for `/var/lib/docker/volumes` (or wherever).
+2. **DNS.** Don't host DNS at the same provider as the box. If their dashboard is down (this happens a few times a year somewhere), you can't change records.
+3. **Email.** If you're sending any, treat deliverability as a separate problem. Don't run your own SMTP outbound from the same VPS as your apps. Postmark, Mailgun, or just your ISP relay — pick one.
 
-## 6. Forgetting that your instance is a legal entity too
+Notice this list isn't "use Kubernetes." It's three small separations. They're enough to mean "the VPS disappears tonight" doesn't equal "I lose everything."
 
-This one surprises people. The moment you host a service that other humans use — even friends, even just family members — you've taken on some operational responsibilities you didn't have when you were a paying customer of a SaaS.
+## 5. Exposing things publicly before understanding what you exposed
 
-Your photos of other people? GDPR-adjacent. Your friend's calendar on your CalDAV? You're a data controller. Your family's Bitwarden vault? If you lose it, you've lost their passwords.
+The first time you port-forward a service, your box is on the internet. The bots find it within hours. Mature projects defend against the obvious — Vaultwarden has rate limits, Nextcloud has built-in 2FA, Forgejo will lock accounts on repeated failed logins. "Mature" is doing a lot of work in that sentence, though.
 
-This doesn't mean you can't self-host. It means you should think about it the way a SaaS vendor thinks: retention, export, delete-on-request, incident response. Not as a legal exercise, but because the people trusting you with their data deserve the same minimum guarantees a paid SaaS would offer.
+The actual failure mode isn't "I got hacked." It's "I got hacked, didn't notice for nine months, my VPS provider sent me an abuse notice because I was part of a botnet, and now I'm cleaning up while also explaining myself to a support agent."
 
-**How to avoid it:** Write a one-page "if this service dies, here's what happens" for anyone who isn't you using your infrastructure. Include how they export their data, how they get it recovered, and what your realistic response time is when they email you at 11pm. Being honest about "I'm not on-call for this" is a feature, not an apology.
+Default to private. Put admin interfaces behind WireGuard. Use Authelia or Authentik in front of dashboards. Enable fail2ban. Read your auth logs at least once a week for the first few months — you learn what normal looks like, and anomalies become obvious. (The first thing I check is `lastb` on a VPS. The number of failed root logins per minute tells you whether you're being noticed.)
 
-## 7. Picking software on hype, not on maintainership
+## 6. Forgetting your instance is a legal entity now
 
-This one maps directly onto the work that informs this site. Not all open source projects are equally likely to still exist in three years. Some are maintained by one person; some by a small handful; some by a foundation; some by a company that could pivot or fold.
+This one surprises people. The moment another human uses your service, you've crossed a line.
 
-The failure mode: you pick the flashy new Notion clone, migrate your notes, and two years later the maintainer burns out, the fork languishes, and you're migrating out on a deadline. Meanwhile the boring project with three commits a week and seven active maintainers would have been there for a decade.
+Your photos, sure, those are yours. Your friend's calendar on your CalDAV? You're a data controller. Your family's Bitwarden vault on your Vaultwarden instance? Lose that and you've lost their passwords. The GDPR text uses the phrase "natural person" a lot. That's everyone you host.
 
-**How to avoid it:** Before you adopt something, look at the last twelve months of commits, the number of distinct contributors, the response time on issues, whether releases ship regularly, and who pays for the maintainers' time if anyone. We wrote a whole checklist for this in [Open source alternatives: the comparison criteria that actually matter](/article/evaluating-open-source-alternatives-framework/) — the short version is: prefer the project that's boring but reliably maintained over the one that's exciting but fragile.
+This doesn't mean you can't self-host. It means you should write a one-page document for everyone who isn't you using your infra: how they export their data, how they get it recovered, what your realistic response time is when they email you at 11pm. (Mine is "next morning, probably." Yours can be "I'm not on call." Saying so isn't an apology.)
 
-## The meta-failure: believing self-hosting means never paying
+## 7. Picking software on hype, not maintainership
 
-This is the stubborn one. Self-hosting can be cheaper than SaaS, and often is, but "cheaper" isn't "free," and the cost is rarely just money.
+Last but, in my experience, the one with the longest fuse.
 
-The cost is: your time to install and maintain, your attention to upgrades and incidents, the opportunity cost of what you could be doing instead. For a weekend hobbyist, that's a feature — you want to tinker. For someone running a team tool, it's a budget line item that usually gets under-counted.
+Not all open source projects survive three years. The flashy new Notion clone gets a Hacker News bump, you migrate your notes, eighteen months later the maintainer burns out and the fork doesn't cohere. Now you're migrating out on a deadline. Meanwhile the boring project — three commits a week, seven distinct contributors, never on the front page — would have outlasted everyone.
 
-We have a piece called [Self-hosting in 2026: the honest survey](/article/self-hosting-in-2026-honest-survey/) that goes deeper into this. The short version: budget at least an hour a week for anything you care about keeping running, and be honest when that budget is too expensive.
+I wrote a whole separate piece on the bus-factor checklist (link below in the notes). The short version: before you adopt anything for real, look at distinct contributors in the last 30 days. One person is risk. Three is okay. Ten is durable. Look at whether someone is paid to work on it. Look at issue-closure behaviour. Look at the license — OSI-approved is forkable insurance, source-available is not.
+
+This is the failure mode where being late beats being early. Let other people stress-test the new thing for a year before you adopt it.
+
+## The meta-failure: thinking self-hosting equals free
+
+This is the stubborn one.
+
+Self-hosting can be cheaper than SaaS. It often is. But "cheaper" isn't "free," and the cost is mostly time and attention, not money. For a weekend hobbyist, that's a feature — you wanted to tinker. For someone running a team tool, it's a budget line item that gets under-counted.
+
+I'd say: budget at least an hour a week for anything you care about keeping running. Be honest when that hour is too expensive. Some things are worth paying $20/month not to think about. Others are worth the hour. The skill is knowing which is which, in advance, before you're locked into a setup that started as a fun Sunday and turned into a small unpaid job.
 
 ## The throughline
 
-None of these failure modes are exotic. They're what happens when motivated, smart people set up something real and then drift away from it, assuming the system will keep running because it's been running. Almost always it does keep running — until one day it doesn't, and the recovery bill has been quietly accumulating interest.
+None of these are exotic. They're what happens to motivated, smart people who set up something real and then drift away. The system keeps running, until it doesn't, and the recovery bill has been quietly accumulating interest the whole time.
 
-The mitigation isn't heroism or automation. It's a small ritual — once a month, maybe, twenty minutes — where you log in, look at the machine, run the restore drill when it's time, and decide whether the thing you're hosting still deserves the attention it takes.
+The mitigation isn't heroism or full automation. It's a small ritual — twenty minutes a month, give or take — where you log in, look at the box, run the restore drill when it's time, and decide whether the thing you're hosting still deserves the attention it costs.
 
-Self-hosting done well is sustainable. Self-hosting done by default, or by momentum, isn't. Knowing the difference is the whole game.
+Self-hosting done well is sustainable. Self-hosting done by default — by momentum, by inertia — isn't. That distinction is the whole game.
+
+---
+
+*Related: [Will the open source project you depend on still exist in three years?](/article/will-this-open-source-project-still-exist-in-three-years/) — the bus-factor checklist for picking what to self-host.*

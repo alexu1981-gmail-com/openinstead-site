@@ -5,100 +5,128 @@ date: 2026-04-25
 category: Opinion
 ---
 
-You're evaluating an open source alternative to some SaaS tool. It looks great. The demo is polished, the features are there, the license is permissive, the community on GitHub feels alive. You migrate over.
+You're evaluating an open source alternative to some SaaS. The demo loads, the features are there, the license is permissive, the GitHub looks alive. You migrate.
 
-Two years later, you hit a bug that nobody is fixing. The last commit on main was four months ago. The single maintainer's social accounts have gone quiet. The two pull requests you opened are sitting there, unreviewed. Your data is locked inside a thing that isn't really going anywhere anymore.
+Two years later, you hit a bug nobody is fixing. Last commit on `main` was five months ago. The single maintainer's Mastodon went quiet in October. Your two PRs are sitting there, marked "needs review" since February. Your data is now hostage to a project that isn't going anywhere.
 
-This is not a rare story. It's the single biggest risk of adopting open source software, and we almost never talk about it until it's too late.
+Not a rare story. The single biggest risk of adopting open source software, and we almost never talk about it until it's too late.
 
-This piece is a framework for asking, before you adopt something, whether it's going to be there when you need it to be.
+This piece is the rule of thumb I use before adopting anything for real work.
 
 ## Why "open" doesn't mean "forever"
 
-People assume open source is automatically durable. The logic runs: the code is public, so if the original maintainer disappears, someone can fork it. This is true in principle and often false in practice.
+The standard reassurance: the code is public, so if the maintainer disappears, someone forks it. True in principle. False often in practice.
 
-Forks happen when three things line up: the project is valuable enough to fork, there are qualified engineers willing to maintain the fork, and those engineers can coordinate. Plenty of beloved projects have died not because the code became useless, but because no fork cohered around them. The maintainers drifted, the fork attempts never reached critical mass, and the codebase rotted.
+Forks happen when three things line up: the project is *valuable enough* to fork, qualified engineers are *willing* to maintain it, and those engineers can *coordinate*. Plenty of beloved projects have died not because the code became useless, but because the fork attempt never reached critical mass.
 
-"It's open source, someone will keep it going" is a hope, not a plan. If you're choosing software to depend on, you need to do better than hope.
+The pattern I've watched: maintainer announces "I need a break, I'll be back in a few weeks." Two months pass, no commits. A well-meaning forker shows up, pushes a few PRs, gets discouraged when nobody reviews them. Six months later the original repo is archived, the fork has 12 stars, and nobody's running either in production.
+
+"It's open source, someone will keep it going" is hope, not a plan. If you're choosing software to depend on for actual work, you need better than hope.
 
 ## The signals that actually matter
 
-We've watched enough projects grow, plateau, and decline to have opinions. Here are the signals that predict durability — ordered roughly by how much they matter.
+Roughly ordered by predictive power, based on the projects I've watched succeed and fail.
 
-### How many humans pay attention to this repo every week
+### Distinct human contributors in the last 30 days
 
-Open up the repo and look at the last four weeks of activity. Count distinct human authors across commits, PR reviews, and substantive issue comments. If the answer is one person, that's a bus factor of one. If it's three or four, better. If it's ten or more, you're in a different category of durability entirely.
+Open the repo, click Insights → Contributors. Look at the last four weeks. Count distinct human authors across commits, PR reviews, and substantive issue triage.
 
-This is easier to assess than it looks. GitHub's "Insights → Contributors" graph shows you recent activity. The pattern you want is: steady, distributed contributions, not a spiky graph that's all one person.
+One person? Bus factor 1. That's not necessarily bad — a lot of fantastic tools are one-person projects — but it's *risk*, and you should price it in.
 
-### Whether someone is being paid to work on it
+Three or four? Different category.
 
-Unpaid volunteer maintainers burn out. Not every one of them, not always, but often enough that you should weight paid contribution heavily when you're picking a dependency.
+Ten or more? Durably alive in a way that survives any single contributor walking away.
 
-Look for: a sponsoring company (Sentry for Symfony, Percona for MySQL forks, Grafana Labs for Grafana); a foundation (Apache Software Foundation, CNCF, Linux Foundation); a commercial entity behind the open source version (Metabase, Mattermost, Chatwoot); a healthy GitHub Sponsors or Open Collective balance that actually funds someone's hours.
+The shape you want is steady, distributed, and recent. A spiky graph that's all one person, or a flat graph for the last six months, are both warning signs.
 
-A project with zero paid contribution isn't doomed, but it's running on pure volunteer energy, and volunteer energy is finite.
+### Whether someone is being paid
+
+Volunteer maintainers burn out. Not all of them, not always, but more often than the OSS romantic story admits.
+
+What you're looking for, in rough order of robustness:
+
+- A foundation backing it. Apache, CNCF, Linux Foundation, OWASP. These projects survive individual maintainers leaving.
+- A commercial company whose business is the project. Mattermost, Metabase, Chatwoot, Ghost — open core or open source with a paid hosted version.
+- A sponsoring corporate user. Cloudflare paying for OctoMozilla bandwidth, Stripe paying for someone's Symfony hours, Sentry's open source program.
+- GitHub Sponsors that actually fund a part-time effort. (Most don't. Check the sponsorship page.)
+- Patreon or Open Collective with enough monthly to fund a few hours weekly.
+
+A project with zero paid contribution isn't doomed. But it's running on volunteer energy, and volunteer energy is finite. You should know which side of that line your dependency sits on.
 
 ### Release cadence over the last twelve months
 
-A healthy project ships releases. Not necessarily major versions — point releases, bug fixes, security patches. Open the releases page and look at the last year. A handful of thoughtful releases is better than a flurry of unstable ones or a silent stretch.
+Healthy projects ship. Not necessarily major versions — point releases, security patches, bug fixes count.
 
-Watch out for the "big rewrite in progress" pattern, where the maintainer has announced that v2 is coming and v1 is in maintenance-only mode. Sometimes v2 ships and is great. More often v2 takes three years and demoralizes the v1 community in the meantime. Ask yourself whether you're willing to be the user who sits on v1 while the big rewrite happens elsewhere.
+Open the releases page. Last year. What does the rhythm look like?
 
-### Issue-closure behaviour
+Watch out for the "big rewrite in progress" pattern, where the maintainer announced v2 is coming and v1 is in maintenance-only mode. Sometimes v2 ships and is great. More often v2 takes three years. The v1 community demoralizes in the meantime. Are you willing to be the user who sits on v1 while the rewrite eats the maintainer's energy for two years? Sometimes the answer is yes, but you should answer it consciously.
 
-This one is subtle. Open the issue tracker and sort by "recently updated." Are maintainers responding to issues within days? Triaging, labeling, asking clarifying questions? Or are issues piling up unanswered, sorted into stale buckets?
+### Issue closure behaviour
 
-The pattern you want isn't "every issue gets solved" (that's unrealistic) — it's "issues get acknowledged." A project where maintainers respond to users is a project that respects the users. A project where issues go into a silent pit is a project that's lost its connection to the people depending on it.
+Open the issue tracker. Sort by "recently updated." Are maintainers responding within days, even just to triage and label? Or are issues piling up unanswered, getting stale-bot closed automatically with no human in the loop?
 
-### The license and its drift risk
+You don't want "every issue gets fixed" — that's unrealistic. You want "issues get acknowledged."
 
-Open source licenses are not neutral. They shape what the project can become later.
+A project that responds to users is a project that respects users. A project where issues vanish into a silent pit has lost its connection to the people depending on it. That's usually a precursor to maintainer burnout, not a separate phenomenon.
 
-Genuinely open licenses (MIT, Apache-2.0, BSD, GPL family) protect users over time — even if the original project gets acquired or the maintainers pivot, the last open release stays available and forkable.
+### License (the slow-fuse risk)
 
-Source-available licenses (BSL, SSPL, Elastic License, Commons Clause) do not offer that guarantee. They allow the company behind them to restrict use in ways a classic OSS license wouldn't. We've watched several beloved tools (Redis, Elastic, HashiCorp's stack) relicense under source-available terms, forcing downstream users and cloud providers to fork or migrate.
+Open source licenses aren't neutral. They shape what the project can become later.
 
-If the license isn't an OSI-approved one, factor in: what happens when this project gets acquired or pivots? Usually the answer is "we relicense, and your use case might not survive the change."
+Genuinely open licenses — MIT, Apache-2.0, BSD, GPL family — protect users over time. Even if the project gets acquired or pivots, the last open release stays available and forkable. Vaultwarden exists because Bitwarden's server is GPL.
 
-### Whether the core maintainers talk about burnout
+Source-available licenses don't. BSL, SSPL, Elastic License, Commons Clause — these allow the company behind them to restrict use later. We've watched Redis, Elastic, and HashiCorp's stack relicense in the last few years, forcing downstream users and cloud providers to fork (Valkey, OpenSearch, OpenTofu).
 
-Read the maintainers' public writing. Their blog posts, their social-media accounts, their conference talks, their commit messages. Are they excited about the project? Frustrated? Tired?
+If the license isn't OSI-approved, treat it as a paid SaaS dependency, not as open source. The economics are different and the long-term protections are weaker.
 
-Burnout is the single largest killer of one-person and two-person OSS projects. A maintainer who is publicly exhausted is a maintainer who may not be maintaining the project in eighteen months. This isn't a judgment — burnout is deeply human and often justified. It's a data point for you, the user, about the durability of the thing you're about to depend on.
+### Maintainer burnout signals
 
-## The checklist we use
+Read the maintainers' public writing. Their commit messages. Their blog. Their social accounts. Their conference talks if there are any.
 
-Before adopting anything for real work, we run through this quickly:
+Are they excited? Frustrated? Tired?
 
-1. **Recent activity.** At least three distinct human contributors in the last thirty days.
-2. **Paid contribution.** Someone's full or partial salary depends on this project continuing. Ideally, more than one someone.
+This isn't about judging anyone. Burnout is human and often justified. It's a *data point* — about the durability of the thing you're about to depend on for years.
+
+A maintainer who is publicly exhausted is a maintainer who may not be there in eighteen months. Plan accordingly.
+
+## The checklist I actually use
+
+Before adopting anything for real work:
+
+1. **Recent activity.** At least three distinct human contributors in the last 30 days, not just the bot account.
+2. **Paid contribution.** Someone's full or partial salary depends on this project continuing. Ideally more than one someone.
 3. **Releases.** At least one release in the last three months, with release notes that aren't just "bug fixes."
 4. **Issue hygiene.** Maintainers respond to new issues within a week on average, even if just to triage.
-5. **License.** OSI-approved. If it's source-available, treat it as a commercial dependency with extra steps.
-6. **Bus factor.** If the top committer left tomorrow, could the project continue? At what velocity?
-7. **Roadmap honesty.** Is the roadmap public, up to date, and realistic? Or is it aspirational wishlist that hasn't been touched since launch?
+5. **License.** OSI-approved. Source-available means commercial dependency with extra steps.
+6. **Bus factor.** If the top committer left tomorrow, could the project continue at any reasonable velocity?
+7. **Roadmap honesty.** Is the public roadmap up to date and realistic, or is it an aspirational wishlist nobody's touched since launch?
 
-A project that hits five of seven is probably safe to depend on. A project that hits three or fewer is one you should adopt only if you're comfortable being the one who might have to fork it someday.
+A project that hits five of seven is probably safe to depend on. Three or fewer means you should adopt only with eyes open about possibly forking it yourself someday.
 
 ## What to do when you spot risk but love the tool anyway
 
-Sometimes the answer is "yes, the bus factor is one, and yes, I'm going to use it anyway." That's fine. Just do it with eyes open.
+Sometimes the answer is "yes, the bus factor is one, and yes, I'm using it anyway." That's fine. Just go in honestly.
 
 Two habits help:
 
-**Keep your data portable.** If the project dies tomorrow, you shouldn't be trapped. Pick tools whose data formats are open (SQLite, plain markdown, standard protocols) over tools that lock your data into a custom binary format only the vendor's software reads. Export regularly. Store exports somewhere the project itself can't write over.
+**Keep your data portable.** If the project dies tomorrow, you shouldn't be trapped. Pick tools whose data formats are open — SQLite, plain markdown, mbox, standard protocols — over tools that lock data into a custom binary only the vendor's software reads. Export regularly. Store exports somewhere the project itself can't write over.
 
-**Contribute defensively.** If you're depending on a small project, contribute to it proportionally. Not because you owe the maintainer — though if they're solo and unpaid, you kind of do — but because being part of the contributor pool means you have a say if the project needs a fork or a handoff later.
+**Contribute defensively.** If you're depending on a small project, contribute proportionally. Not because you owe the maintainer (though if they're solo and unpaid, you kind of do). Because being part of the contributor pool means you have *standing* if the project needs a fork or a handoff later. Maintainers hand projects to people they recognize.
 
-## The landscape we actually live in
+## What I get wrong
 
-Most open source projects in this directory, most projects anywhere, are maintained by small teams with narrow budgets. That's not a problem; it's the model. But it means the thing you're adopting today may not be the thing running in 2029.
+I've been using this checklist informally for a few years and I get it wrong regularly. A few examples I can remember:
 
-The projects that *do* make it that long share patterns. They have more than one maintainer. Someone gets paid. Releases ship. Issues get answered. The license protects users, not just the vendor. And the maintainers sound, in their writing, like people who still like working on the project after several years.
+- I undervalued Plausible early because the contributor graph looked thin. The two-person team turned out to be much more reliable than the metric implied.
+- I overvalued a federated search project (which I won't name) because activity was high. Turns out activity was high *because* of internal disagreement, and the project effectively forked itself a year later.
+- I dismissed Forgejo when it forked from Gitea because forks usually fail. This one didn't. Sometimes the right people coordinate.
 
-We weight our recommendations by these signals. We don't always get it right, but we try not to recommend anything we wouldn't be comfortable depending on for three years. If you spot a project in our directory that's showing the warning signs above — stale commits, unanswered issues, pivoting license — tell us. We update entries when the reality changes.
+The checklist is a heuristic. It's wrong about ~20% of the projects I run it against. That's still better than no checklist, which was my baseline before.
 
-The goal isn't to be cynical about open source. It's to be honest about it. Open source, when it works, is the most durable software in existence. When it doesn't work, it fails quietly, over years, and the users who depended on it are the last to know.
+## The landscape we live in
 
-Choose like you'll still be running the choice three years from now. Because often, you will be.
+Most OSS projects are maintained by small teams with narrow budgets. That isn't a problem; it's the model. But it means the thing you're adopting today may not be the thing running in 2029.
+
+Projects that *do* make it that long share patterns. More than one maintainer. Someone gets paid. Releases ship. Issues get answered. The license protects users, not just the vendor. And the maintainers, when you read their writing, sound like people who still find the project interesting.
+
+Choose like you'll still be running the choice three years from now. Because often, you will be — and the cost of being wrong is paid in migrations you didn't plan for.

@@ -20,7 +20,7 @@
   <meta name="twitter:description" content="GitHub stars lie. Forks can mislead. Here&#39;s a framework for evaluating open source projects that goes beyond the vanity metrics." />
   <meta name="twitter:image" content="https://openinstead.dev/og/article-evaluating-open-source-alternatives-framework.png" />
 
-      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Open source alternatives: the comparison criteria that actually matter","description":"GitHub stars lie. Forks can mislead. Here's a framework for evaluating open source projects that goes beyond the vanity metrics.","image":["https://openinstead.dev/og/article-evaluating-open-source-alternatives-framework.png"],"url":"https://openinstead.dev/article/evaluating-open-source-alternatives-framework/","wordCount":1232,"author":{"@type":"Organization","name":"OpenInstead","url":"https://openinstead.dev"},"publisher":{"@type":"Organization","name":"OpenInstead","url":"https://openinstead.dev","logo":{"@type":"ImageObject","url":"https://openinstead.dev/static/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://openinstead.dev/article/evaluating-open-source-alternatives-framework/"},"datePublished":"2026-04-24T08:00:00+00:00","dateModified":"2026-04-24T08:00:00+00:00"}</script>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Open source alternatives: the comparison criteria that actually matter","description":"GitHub stars lie. Forks can mislead. Here's a framework for evaluating open source projects that goes beyond the vanity metrics.","image":["https://openinstead.dev/og/article-evaluating-open-source-alternatives-framework.png"],"url":"https://openinstead.dev/article/evaluating-open-source-alternatives-framework/","wordCount":1304,"author":{"@type":"Organization","name":"OpenInstead","url":"https://openinstead.dev"},"publisher":{"@type":"Organization","name":"OpenInstead","url":"https://openinstead.dev","logo":{"@type":"ImageObject","url":"https://openinstead.dev/static/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://openinstead.dev/article/evaluating-open-source-alternatives-framework/"},"datePublished":"2026-04-24T08:00:00+00:00","dateModified":"2026-04-24T08:00:00+00:00"}</script>
       <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://openinstead.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://openinstead.dev/articles/"},{"@type":"ListItem","position":3,"name":"Open source alternatives: the comparison criteria that actually matter","item":"https://openinstead.dev/article/evaluating-open-source-alternatives-framework/"}]}</script>
 
   <meta name="theme-color" content="#0e1116" />
@@ -73,10 +73,16 @@
   <div class="container" style="max-width:780px">
     <div class="article-body">
       <p>
-When someone recommends an open source tool, our first instinct is to peek at the GitHub page and check the star count. Twenty thousand stars? Looks serious. Five hundred stars? Feels risky. This heuristic is convenient and about 60% useful. The other 40% of the time, it sends you straight into a ditch.
+When someone recommends an open source tool, the first instinct is to peek at the GitHub page and check the star count. Twenty thousand stars? Looks serious. Five hundred? Feels risky.
 </p>
 <p>
-High-star projects die quietly. Low-star projects become the load-bearing infrastructure of your workflow. The stars don't tell you which is which. Below is the framework we use in <a href="/">this directory</a> to evaluate open source alternatives — five signals that genuinely matter, in rough order of importance.
+This heuristic is convenient and about 60% useful. The other 40% of the time it sends you straight into a ditch.
+</p>
+<p>
+High-star projects die quietly. Low-star projects become the load-bearing infrastructure of your workflow. The stars don't tell you which is which.
+</p>
+<p>
+Below is the framework I use in <a href="/">this directory</a> to evaluate open source alternatives. Five signals that genuinely matter, in rough order of importance.
 </p>
 <h2>1. Commit cadence over the last six months</h2>
 <p>
@@ -85,80 +91,81 @@ Pull up the project's GitHub insights (Insights → Contributors, or just <code>
 <ul>
 <li><strong>Healthy:</strong> 30+ commits per month, spread across multiple weeks, with at least one commit from a non-owner contributor.</li>
 <li><strong>Stable-maintenance:</strong> 5–15 commits per month, mostly dependency bumps and bug fixes. This is fine for mature projects with small surface area.</li>
-<li><strong>Warning:</strong> <5 commits per month, all from the original author. Often a sign of burnout or pivot.</li>
-<li><strong>Dead:</strong> No commits in six months. Can still work, but reconsider if you need something that's being actively maintained.</li>
+<li><strong>Warning:</strong> Fewer than 5 commits per month, all from the original author. Often a sign of burnout or pivot.</li>
+<li><strong>Dead:</strong> No commits in six months. Can still work, but reconsider if you need something actively maintained.</li>
 </ul>
 <p>
-One caveat: some projects have "slow but sure" cadence by design. LibreOffice commits are thousands per month; <code>dnsmasq</code> does a release a year and that's fine. The question is: does the cadence match the project's promise? If a project markets itself as "actively developed," but the graph shows a cliff three months ago, that's a signal. Cross-reference with the issues/discussions — a sudden stop usually has a visible story behind it.
+One caveat: some projects have "slow but sure" cadence by design. LibreOffice does thousands of commits per month. <code>dnsmasq</code> ships once a year and that's fine. The question is: does the cadence match the project's promise? A project that markets itself as "actively developed" with a cliff three months ago is a signal. Cross-reference with the issues — a sudden stop usually has a visible story behind it (maintainer announcement, GitHub Discussions thread, sudden silence after a fundraising drive).
 </p>
-<h2>2. How many people have merged code in the last year</h2>
+<h2>2. How many people merged code in the last year</h2>
 <p>
-GitHub → Insights → Contributors. Count how many humans have had at least one commit merged in the last 12 months.
+GitHub → Insights → Contributors. Count humans with at least one commit merged in the last 12 months.
 </p>
 <ul>
-<li><strong>1 contributor (bus factor = 1):</strong> Everything runs through one person. If they stop, the project stops. Fine for a hobby dependency, scary for anything you're relying on.</li>
+<li><strong>1 contributor (bus factor = 1):</strong> Everything runs through one person. If they stop, the project stops. Fine for a hobby dependency. Scary for anything you're relying on.</li>
 <li><strong>2–3 contributors:</strong> Better, but still fragile.</li>
 <li><strong>10+ contributors:</strong> The project has absorbed outside contribution and can probably survive a maintainer change.</li>
 <li><strong>50+ contributors:</strong> Mature enough to have real governance, for better or worse.</li>
 </ul>
 <p>
-This number is more important than raw commit count, because it tells you about <em>durability</em> rather than activity. A project with 5,000 commits from one person is more brittle than one with 500 commits from 50 people.
+This number is more important than raw commit count, because it tells you about <em>durability</em>, not just activity. A project with 5,000 commits from one person is more brittle than one with 500 commits from 50 people.
 </p>
 <h2>3. Issue responsiveness, not issue count</h2>
 <p>
-The "open issues" count on GitHub is meaningless. What matters is: when somebody files a new issue, does a maintainer respond?
+The "open issues" count on GitHub is meaningless. What matters: when somebody files a new issue, does a maintainer respond?
 </p>
 <p>
-Click into a few recent issues. What's the time from filing to the first maintainer comment?
+Click into a few recent issues. Time from filing to the first maintainer comment?
 </p>
 <ul>
 <li><strong>Under 48 hours:</strong> Healthy. The maintainer is engaged.</li>
 <li><strong>Under two weeks:</strong> Acceptable for a hobby project.</li>
-<li><strong>Issues from months ago with no response:</strong> Warning. Either the maintainer is overwhelmed, uninterested, or gone.</li>
+<li><strong>Months old, no response:</strong> Warning. Either overwhelmed, uninterested, or gone.</li>
 </ul>
 <p>
-Also look at <em>closed</em> issues. Are they closed with resolutions or just with "stale — closing"? A project that closes issues by aging them out is a project where your bug reports will die.
+Also look at <em>closed</em> issues. Are they closed with resolutions, or just "stale — closing" by a bot? A project that closes issues by aging them out is a project where your bug reports will die.
 </p>
 <h2>4. Release cadence and versioning</h2>
 <p>
-Check the Releases tab. A project that ships a real release (with notes, not just a Git tag) at least every few months is in a different league than one that hasn't tagged a release in two years but "just use <code>main</code>."
+Check the Releases tab. A project that ships a real release with notes (not just a Git tag) at least every few months is in a different league than one that hasn't tagged a release in two years but "just use <code>main</code>."
 </p>
 <ul>
 <li><strong>Proper semver + release notes:</strong> Signs of professional discipline. You can upgrade safely.</li>
 <li><strong>Tags but no release notes:</strong> Acceptable for small projects.</li>
-<li><strong>"Just pull main":</strong> Red flag for anything running in production. You will get burned by a breaking change you didn't see coming.</li>
+<li><strong>"Just pull main":</strong> Red flag for anything running in production. You'll get burned by a breaking change you didn't see coming.</li>
 </ul>
 <p>
-Also look at: is there a <strong>changelog</strong>? Is there a <strong>migration guide</strong> for major versions? These are signs the project thinks about users beyond the primary maintainer.
+Also look at: is there a CHANGELOG.md? A migration guide for major versions? Both are signs the project thinks about users beyond the primary maintainer.
 </p>
 <h2>5. License clarity</h2>
 <p>
-Check the <code>LICENSE</code> file. For reasons beyond this essay, not every "open source" project is actually open source. Watch for:
+Check the <code>LICENSE</code> file. Not every "open source" project is actually open source. Watch for:
 </p>
 <ul>
-<li><strong>AGPL-3.0:</strong> Genuinely open source, but has strong copyleft requirements that matter if you're building a SaaS on top.</li>
-<li><strong>MIT / Apache-2.0 / BSD-3-Clause:</strong> Classical permissive. Low-friction to use commercially.</li>
-<li><strong>"BSL" (Business Source License), "Sustainable Use License," "Elastic License v2":</strong> These are source-available, not open source. The vendor is signaling they want to control commercial use. Often a good product, but don't assume open source guarantees (no guaranteed fork, no guaranteed continued freedom).</li>
-<li><strong>"Fair-code" / "Commons Clause":</strong> Same as above. The project's founders may be wonderful people, but you're trusting them, not the license.</li>
-<li><strong>No license file at all:</strong> Legally closed by default. Often an oversight, but don't build on it without asking.</li>
+<li><strong>MIT / Apache-2.0 / BSD-3-Clause:</strong> Classical permissive. Low-friction commercial use.</li>
+<li><strong>AGPL-3.0:</strong> Genuinely open source, but has strong copyleft that matters if you're building SaaS on top.</li>
+<li><strong>GPL-3.0 / GPL-2.0:</strong> Copyleft, less aggressive than AGPL.</li>
+<li><strong>BSL (Business Source License), SSPL, Elastic License v2, "Sustainable Use License":</strong> Source-available, not open source. The vendor is signaling they want to control commercial use. Often good products, but don't assume open source guarantees. No guaranteed fork. No guaranteed continued freedom. Redis and Elasticsearch took this path; the OpenSearch and Valkey forks exist precisely because of it.</li>
+<li><strong>"Fair-code" / "Commons Clause":</strong> Same as above. The founders may be wonderful, but you're trusting them, not the license.</li>
+<li><strong>No license file:</strong> Legally closed by default. Usually an oversight, but don't build on it without asking.</li>
 </ul>
 <h2>Signals that look good but often aren't</h2>
 <p>
 A few things that <em>look</em> meaningful but aren't very predictive.
 </p>
 <p>
-<strong>GitHub stars.</strong> Tell you about marketing, not quality. A viral Hacker News thread years ago can inflate a dead project's count. Current activity is the better signal.
+<strong>GitHub stars.</strong> Tell you about marketing, not quality. A viral Hacker News thread years ago can inflate a dead project's count. Current activity is the better signal. (I check stars <em>first</em> out of habit, but I try to discount what I see.)
 </p>
 <p>
 <strong>Docker pulls.</strong> Can be a bot. Can also be inflated by one popular tutorial that said "just <code>docker run</code> this."
 </p>
 <p>
-<strong>Number of forks.</strong> Similar to stars. Forks get created when people plan to contribute, and also when people want to read the code. Only meaningful if paired with sustained contributions back upstream.
+<strong>Number of forks.</strong> Similar to stars. Forks get created when people plan to contribute, and also when people just want to read the code. Only meaningful when paired with sustained contributions back upstream.
 </p>
 <p>
 <strong>"Built by ex-Google engineers."</strong> Nice, but not predictive. Many great projects come from nowhere. Many pedigreed projects stall.
 </p>
-<h2>Signals that matter more than GitHub shows you</h2>
+<h2>Signals that matter more than GitHub shows</h2>
 <p>
 <strong>Community forum activity.</strong> Discourse, Discord, Zulip, Matrix. A project with 5,000 stars but a dead Discord is probably trading on past virality. A project with 500 stars and an active Discord where the maintainer answers questions daily is probably the one you want.
 </p>
@@ -166,28 +173,31 @@ A few things that <em>look</em> meaningful but aren't very predictive.
 <strong>Quality of the docs.</strong> Read the Getting Started. Can you install it without Googling? Did you trip over a typo or an out-of-date instruction? Docs are the tell for whether the project cares about <em>users</em>, as opposed to caring only about <em>the code</em>. A project that cares about users is a project that will still be around in three years.
 </p>
 <p>
-<strong>Governance documents.</strong> Does the project have a CONTRIBUTING.md? A CODE_OF_CONDUCT.md? A STEERING.md? These don't make a project good, but their absence on a project claiming to be "community-driven" is a tell.
+<strong>Governance documents.</strong> Does the project have a CONTRIBUTING.md? A CODE_OF_CONDUCT.md? A STEERING.md or DECISIONS.md? These don't make a project good, but their absence in a project claiming "community-driven" governance is a tell.
 </p>
 <h2>Applying this in practice</h2>
 <p>
-Most of our directory entries include license and self-host difficulty scores explicitly. Before you pick an alternative and commit to it for anything important, do this 10-minute test:
+Most directory entries here include license and self-host difficulty scores explicitly. Before you pick an alternative and commit to it for anything important, do this 10-minute test:
 </p>
 <ol>
 <li>Open the GitHub repo. Look at commit cadence.</li>
 <li>Count distinct contributors in the last year.</li>
-<li>Read the 3 most recent issues. How fast did a maintainer respond?</li>
+<li>Read the three most recent issues. How fast did a maintainer respond?</li>
 <li>Read the last release notes. Is the project shipping?</li>
 <li>Verify the license is what you expect.</li>
 </ol>
 <p>
-If four of those five look good, the project is probably solid. If only two or three look good, read more carefully before you commit.
+If four of those five look good, the project is probably solid. If only two or three, read more carefully before you commit.
+</p>
+<p>
+I'll also admit: I get this checklist wrong about 20% of the time. Plausible looked thinner than it was. A federated search project I evaluated in 2023 looked stronger than it was. The framework is a heuristic, not a verdict. The point is to spend ten minutes thinking <em>before</em> you adopt rather than ten months unwinding <em>after</em>.
 </p>
 <hr>
 <p>
 The best open source projects are usually not the loudest ones. They're the ones with a few dozen steady contributors, a boring but consistent release cadence, and a maintainer who answers issues within the week. When you find those, you've found something worth building on.
 </p>
 <p>
-Want to apply this lens to a specific category? Browse our <a href="/categories/">category index</a> — we've done a first-pass evaluation on every project listed, but your own 10-minute review before committing is always worthwhile.
+Want to apply this lens to a specific category? Browse our <a href="/categories/">category index</a>. We've done a first-pass evaluation on every project listed, but your own 10-minute review before committing is always worthwhile.
 </p>
     </div>
   </div>
@@ -208,7 +218,7 @@ Want to apply this lens to a specific category? Browse our <a href="/categories/
 <footer class="site-footer">
   <div class="container">
     <div>
-      <strong>OpenInstead</strong> — open source alternatives to the SaaS you already use. Updated April 2026.<br>
+      <strong>OpenInstead</strong> — open source alternatives to the SaaS you already use. Updated May 2026.<br>
       <small>Disclaimer: licensing, features and pricing change. Verify each tool's current status on its official site before committing.</small>
     </div>
     <nav>
