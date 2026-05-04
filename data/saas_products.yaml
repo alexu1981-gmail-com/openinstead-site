@@ -4,7 +4,7 @@
 - slug: notion
   name: Notion
   category: note-taking
-  tagline: All-in-one workspace for notes, docs and databases.
+  tagline: All-in-one workspace for notes, docs, and databases.
   pricing: Free tier; paid from $10/user/month.
   common_gripes:
     - Data lives on someone else's server; sensitive notes feel exposed.
@@ -37,7 +37,7 @@
 - slug: slack
   name: Slack
   category: team-communication
-  tagline: Team messaging with channels, threads and integrations.
+  tagline: Team messaging with channels, threads, and integrations.
   pricing: Free tier limited to 90 days of history; Pro from $7.25/user/month.
   common_gripes:
     - Free tier message history cap makes it unusable for serious teams.
@@ -48,7 +48,7 @@
 - slug: discord
   name: Discord
   category: team-communication
-  tagline: Voice, video and text chat — popular with gamers and communities.
+  tagline: Voice, video, and text chat — popular with gamers and communities.
   pricing: Free with Nitro upgrades.
   common_gripes:
     - Closed ecosystem — you do not own your community data.
@@ -70,7 +70,7 @@
 - slug: zoom
   name: Zoom
   category: video-conferencing
-  tagline: Video meetings, webinars and events.
+  tagline: Video meetings, webinars, and events.
   pricing: Free tier with 40-min group call limit; Pro from $14.99/month.
   common_gripes:
     - Past security incidents and data-handling concerns.
@@ -151,7 +151,7 @@
   pricing: 15 GB free shared with Google account; paid from $1.99/month.
   common_gripes:
     - Data indexed by Google.
-    - 15 GB free tier is shared across Gmail, Photos and Drive.
+    - 15 GB free tier is shared across Gmail, Photos, and Drive.
     - Locking in to Google ecosystem.
   homepage: https://drive.google.com
 
@@ -301,7 +301,7 @@
 - slug: hubspot-crm
   name: HubSpot CRM
   category: crm-sales
-  tagline: Marketing, sales and service in one platform.
+  tagline: Marketing, sales, and service in one platform.
   pricing: Free tier; Starter Suite from $15/seat/month.
   common_gripes:
     - Upsell pressure across tiers.
@@ -444,7 +444,7 @@
 - slug: github
   name: GitHub
   category: code-hosting
-  tagline: Code hosting with Actions, Copilot and Issues.
+  tagline: Code hosting with Actions, Copilot, and Issues.
   pricing: Free for public repos; Team from $4/user/month.
   common_gripes:
     - Microsoft acquisition; privacy/AI-training concerns.
@@ -488,7 +488,7 @@
 - slug: microsoft-teams
   name: Microsoft Teams
   category: team-communication
-  tagline: Video, chat and collaboration bundled with Microsoft 365.
+  tagline: Video, chat, and collaboration bundled with Microsoft 365.
   pricing: Included in Microsoft 365 from $6.99/month; Teams Essentials from $4/user/month standalone.
   common_gripes:
     - Deeply tied to Microsoft ecosystem.
@@ -510,7 +510,7 @@
 - slug: clickup
   name: ClickUp
   category: project-management
-  tagline: One-app-to-replace-them-all workspace for tasks, docs and goals.
+  tagline: One-app-to-replace-them-all workspace for tasks, docs, and goals.
   pricing: Free Forever; Unlimited from $7/user/month.
   common_gripes:
     - Feature overload — steep learning curve for new users.
@@ -543,7 +543,7 @@
 - slug: miro
   name: Miro
   category: whiteboards
-  tagline: Online whiteboard for workshops, retros and diagrams.
+  tagline: Online whiteboard for workshops, retros, and diagrams.
   pricing: Free up to 3 boards; Starter from $8/user/month.
   common_gripes:
     - Pricing scales with boards and seats.
@@ -554,7 +554,7 @@
 - slug: invision
   name: InVision
   category: whiteboards
-  tagline: Design collaboration, prototyping and whiteboards.
+  tagline: Design collaboration, prototyping, and whiteboards.
   pricing: Freehand Basic free; Pro from $4.95/user/month (limited availability 2024+).
   common_gripes:
     - InVision shuttered its core prototyping product in late 2024.
@@ -587,7 +587,7 @@
 - slug: grammarly
   name: Grammarly
   category: writing-tools
-  tagline: AI-powered grammar, spelling and tone checker.
+  tagline: AI-powered grammar, spelling, and tone checker.
   pricing: Free tier; Premium from $12/month.
   common_gripes:
     - Cloud-based — your writing is sent to Grammarly servers.
@@ -752,7 +752,7 @@
 - slug: okta
   name: Okta
   category: identity-sso
-  tagline: Enterprise identity, SSO and MFA cloud.
+  tagline: Enterprise identity, SSO, and MFA cloud.
   pricing: SSO from $2/user/month; MFA, Lifecycle Management tiers climb quickly.
   common_gripes:
     - Per-user per-feature pricing balloons past 200 seats.
@@ -807,7 +807,7 @@
 - slug: netlify
   name: Netlify
   category: paas-hosting
-  tagline: Jamstack hosting with Git-based deploys, functions and forms.
+  tagline: Jamstack hosting with Git-based deploys, functions, and forms.
   pricing: Free tier; Pro from $19/user/month; bandwidth overages sting.
   common_gripes:
     - Bandwidth and build-minute overages on viral spikes.
@@ -818,7 +818,7 @@
 - slug: render
   name: Render
   category: paas-hosting
-  tagline: Heroku-style PaaS for web services, workers and databases.
+  tagline: Heroku-style PaaS for web services, workers, and databases.
   pricing: Free static sites; paid services from $7/month; managed Postgres priced per plan.
   common_gripes:
     - Free tier spins down after inactivity (cold starts).
@@ -844,7 +844,7 @@
   pricing: Essential from $14/user/month; Advanced from $29; Power and Enterprise higher.
   common_gripes:
     - Feature unlocks sit on higher tiers (automation, reports).
-    - Add-ons for LeadBooster, Campaigns and Projects add up.
+    - Add-ons for LeadBooster, Campaigns, and Projects add up.
     - Customization limits frustrate teams with complex pipelines.
   homepage: https://www.pipedrive.com
 
@@ -942,7 +942,7 @@
   tagline: Microsoft's BI suite bundled with Fabric and M365.
   pricing: Pro $14/user/month; Premium per-user $24; Fabric capacity priced separately.
   common_gripes:
-    - Licensing is a maze between Pro, Premium, Fabric and E5.
+    - Licensing is a maze between Pro, Premium, Fabric, and E5.
     - Vendor lock-in to Azure and Microsoft identity.
     - Performance degrades on complex models without premium capacity.
   homepage: https://www.microsoft.com/power-platform/products/power-bi

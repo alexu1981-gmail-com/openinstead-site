@@ -47,7 +47,7 @@ What you're looking for, in rough order of robustness:
 
 - A foundation backing it. Apache, CNCF, Linux Foundation, OWASP. These projects survive individual maintainers leaving.
 - A commercial company whose business is the project. Mattermost, Metabase, Chatwoot, Ghost — open core or open source with a paid hosted version.
-- A sponsoring corporate user. Cloudflare paying for OctoMozilla bandwidth, Stripe paying for someone's Symfony hours, Sentry's open source program.
+- A sponsoring corporate user. Stripe paying for Symfony maintainer hours, Sentry's open source pledge funding several upstream projects, Cloudflare's open-source sponsorship program.
 - GitHub Sponsors that actually fund a part-time effort. (Most don't. Check the sponsorship page.)
 - Patreon or Open Collective with enough monthly to fund a few hours weekly.
 
@@ -61,7 +61,7 @@ Open the releases page. Last year. What does the rhythm look like?
 
 Watch out for the "big rewrite in progress" pattern, where the maintainer announced v2 is coming and v1 is in maintenance-only mode. Sometimes v2 ships and is great. More often v2 takes three years. The v1 community demoralizes in the meantime. Are you willing to be the user who sits on v1 while the rewrite eats the maintainer's energy for two years? Sometimes the answer is yes, but you should answer it consciously.
 
-### Issue closure behaviour
+### Issue closure behavior
 
 Open the issue tracker. Sort by "recently updated." Are maintainers responding within days, even just to triage and label? Or are issues piling up unanswered, getting stale-bot closed automatically with no human in the loop?
 

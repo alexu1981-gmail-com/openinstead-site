@@ -128,7 +128,7 @@ Somewhere between day 60 and 90, you'll know. The migration either stuck or it d
 
 **The backup plan wasn't tested.** Day 42, something goes wrong, you go to restore, the backup was never working. Test *before* day 42.
 
-**The rollback wasn't actually possible.** You cancelled the SaaS too early. Don't.
+**The rollback wasn't actually possible.** You canceled the SaaS too early. Don't.
 
 ## Which services to run this on first
 

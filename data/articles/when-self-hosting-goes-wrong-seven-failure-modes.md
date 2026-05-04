@@ -25,7 +25,7 @@ Once a month, log in. Look at `df -h`. Tail the journalctl. Confirm the last bac
 
 ## 2. Backups that nobody has tested
 
-Everyone reading this knows you need backups. Smaller share knows that an untested backup is hope, not data.
+Everyone reading this knows you need backups. Fewer people know that an untested backup is hope, not data.
 
 Pattern I keep seeing: someone installs restic or borgmatic or duplicacy. Points it at `/data`. Cron fires nightly. Two years pass. Then the disk dies, or the LXC container gets corrupted, or somebody runs `rm -rf` against the wrong path. They reach for the backups and discover one of three things:
 
@@ -39,7 +39,7 @@ The mitigation is the *restore drill*, not the backup. Once a quarter, spin up a
 
 ## 3. Upgrades you keep putting off
 
-Self-hosted software ships releases. Falling behind is exponential — it's not a hassle linear in time, it's a hassle in the *square* of time.
+Self-hosted software ships releases. Falling behind is exponential — the longer you wait, the harder the catch-up gets, and not in a linear way.
 
 GitLab is the canonical bad example. Skipping three majors is no longer an upgrade; it's a migration project. I've watched a friend lose a weekend going from 14.x to 17.x because the path required walking through every minor version checking the runbook. Nextcloud has a similar dynamic — apps break in semi-predictable ways between point releases, and you discover the breakage about an hour after you've already started.
 
@@ -77,11 +77,11 @@ This doesn't mean you can't self-host. It means you should write a one-page docu
 
 ## 7. Picking software on hype, not maintainership
 
-Last but, in my experience, the one with the longest fuse.
+Last on the list, but in my experience the one with the longest fuse.
 
 Not all open source projects survive three years. The flashy new Notion clone gets a Hacker News bump, you migrate your notes, eighteen months later the maintainer burns out and the fork doesn't cohere. Now you're migrating out on a deadline. Meanwhile the boring project — three commits a week, seven distinct contributors, never on the front page — would have outlasted everyone.
 
-I wrote a whole separate piece on the bus-factor checklist (link below in the notes). The short version: before you adopt anything for real, look at distinct contributors in the last 30 days. One person is risk. Three is okay. Ten is durable. Look at whether someone is paid to work on it. Look at issue-closure behaviour. Look at the license — OSI-approved is forkable insurance, source-available is not.
+I wrote a whole separate piece on the bus-factor checklist (link below in the notes). The short version: before you adopt anything for real, look at distinct contributors in the last 30 days. One person is risk. Three is okay. Ten is durable. Look at whether someone is paid to work on it. Look at issue-closure behavior. Look at the license — OSI-approved is forkable insurance, source-available is not.
 
 This is the failure mode where being late beats being early. Let other people stress-test the new thing for a year before you adopt it.
 

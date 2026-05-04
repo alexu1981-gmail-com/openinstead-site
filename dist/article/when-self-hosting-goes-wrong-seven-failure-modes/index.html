@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="An honest retrospective on the ways self-hosted setups break — not in theory, but in practice — and the small habits that prevent most of them." />
   <meta name="twitter:image" content="https://openinstead.dev/og/article-when-self-hosting-goes-wrong-seven-failure-modes.png" />
 
-      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"When self-hosting goes wrong: seven failure modes and how to avoid them","description":"An honest retrospective on the ways self-hosted setups break — not in theory, but in practice — and the small habits that prevent most of them.","image":["https://openinstead.dev/og/article-when-self-hosting-goes-wrong-seven-failure-modes.png"],"url":"https://openinstead.dev/article/when-self-hosting-goes-wrong-seven-failure-modes/","wordCount":1616,"author":{"@type":"Person","name":"Alexandru Drăghici","url":"https://openinstead.dev/about/"},"publisher":{"@type":"Organization","name":"OpenInstead","url":"https://openinstead.dev","logo":{"@type":"ImageObject","url":"https://openinstead.dev/static/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://openinstead.dev/article/when-self-hosting-goes-wrong-seven-failure-modes/"},"datePublished":"2026-04-25T08:00:00+00:00","dateModified":"2026-04-25T08:00:00+00:00"}</script>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"When self-hosting goes wrong: seven failure modes and how to avoid them","description":"An honest retrospective on the ways self-hosted setups break — not in theory, but in practice — and the small habits that prevent most of them.","image":["https://openinstead.dev/og/article-when-self-hosting-goes-wrong-seven-failure-modes.png"],"url":"https://openinstead.dev/article/when-self-hosting-goes-wrong-seven-failure-modes/","wordCount":1619,"author":{"@type":"Person","name":"Alexandru Drăghici","url":"https://openinstead.dev/about/"},"publisher":{"@type":"Organization","name":"OpenInstead","url":"https://openinstead.dev","logo":{"@type":"ImageObject","url":"https://openinstead.dev/static/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://openinstead.dev/article/when-self-hosting-goes-wrong-seven-failure-modes/"},"datePublished":"2026-04-25T08:00:00+00:00","dateModified":"2026-04-25T08:00:00+00:00"}</script>
       <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://openinstead.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://openinstead.dev/articles/"},{"@type":"ListItem","position":3,"name":"When self-hosting goes wrong: seven failure modes and how to avoid them","item":"https://openinstead.dev/article/when-self-hosting-goes-wrong-seven-failure-modes/"}]}</script>
 
   <meta name="theme-color" content="#0e1116" />
@@ -101,7 +101,7 @@ Once a month, log in. Look at <code>df -h</code>. Tail the journalctl. Confirm t
 </p>
 <h2>2. Backups that nobody has tested</h2>
 <p>
-Everyone reading this knows you need backups. Smaller share knows that an untested backup is hope, not data.
+Everyone reading this knows you need backups. Fewer people know that an untested backup is hope, not data.
 </p>
 <p>
 Pattern I keep seeing: someone installs restic or borgmatic or duplicacy. Points it at <code>/data</code>. Cron fires nightly. Two years pass. Then the disk dies, or the LXC container gets corrupted, or somebody runs <code>rm -rf</code> against the wrong path. They reach for the backups and discover one of three things:
@@ -119,7 +119,7 @@ The mitigation is the <em>restore drill</em>, not the backup. Once a quarter, sp
 </p>
 <h2>3. Upgrades you keep putting off</h2>
 <p>
-Self-hosted software ships releases. Falling behind is exponential — it's not a hassle linear in time, it's a hassle in the <em>square</em> of time.
+Self-hosted software ships releases. Falling behind is exponential — the longer you wait, the harder the catch-up gets, and not in a linear way.
 </p>
 <p>
 GitLab is the canonical bad example. Skipping three majors is no longer an upgrade; it's a migration project. I've watched a friend lose a weekend going from 14.x to 17.x because the path required walking through every minor version checking the runbook. Nextcloud has a similar dynamic — apps break in semi-predictable ways between point releases, and you discover the breakage about an hour after you've already started.
@@ -167,13 +167,13 @@ This doesn't mean you can't self-host. It means you should write a one-page docu
 </p>
 <h2>7. Picking software on hype, not maintainership</h2>
 <p>
-Last but, in my experience, the one with the longest fuse.
+Last on the list, but in my experience the one with the longest fuse.
 </p>
 <p>
 Not all open source projects survive three years. The flashy new Notion clone gets a Hacker News bump, you migrate your notes, eighteen months later the maintainer burns out and the fork doesn't cohere. Now you're migrating out on a deadline. Meanwhile the boring project — three commits a week, seven distinct contributors, never on the front page — would have outlasted everyone.
 </p>
 <p>
-I wrote a whole separate piece on the bus-factor checklist (link below in the notes). The short version: before you adopt anything for real, look at distinct contributors in the last 30 days. One person is risk. Three is okay. Ten is durable. Look at whether someone is paid to work on it. Look at issue-closure behaviour. Look at the license — OSI-approved is forkable insurance, source-available is not.
+I wrote a whole separate piece on the bus-factor checklist (link below in the notes). The short version: before you adopt anything for real, look at distinct contributors in the last 30 days. One person is risk. Three is okay. Ten is durable. Look at whether someone is paid to work on it. Look at issue-closure behavior. Look at the license — OSI-approved is forkable insurance, source-available is not.
 </p>
 <p>
 This is the failure mode where being late beats being early. Let other people stress-test the new thing for a year before you adopt it.
@@ -232,7 +232,7 @@ Self-hosting done well is sustainable. Self-hosting done by default — by momen
     <div>
       <strong>OpenInstead</strong> — open source alternatives to the SaaS you already use. Updated May 2026.<br>
       <small>Maintained by <a href="/about/">Alexandru Drăghici</a> in Bucharest, Romania. Reach out: <a href="mailto:contact@openinstead.dev">contact@openinstead.dev</a>.</small><br>
-      <small>Disclaimer: licensing, features and pricing change. Verify each tool's current status on its official site before committing.</small>
+      <small>Disclaimer: licensing, features, and pricing change. Verify each tool's current status on its official site before committing.</small>
     </div>
     <nav>
       <a href="/about/">About</a>

@@ -650,7 +650,7 @@ def build():
     html = render(
         "categories_index.html",
         page_title=f"All categories · {SITE_NAME}",
-        meta_description="Browse every category of SaaS tools and the open source alternatives we track.",
+        meta_description="Browse every category of SaaS tools and the open source alternatives tracked here.",
         canonical_path="/categories/",
         structured_data=[cat_index_breadcrumb],
         categories=categories,
@@ -898,7 +898,7 @@ def build():
     html = render(
         "articles_index.html",
         page_title=f"Articles · {SITE_NAME}",
-        meta_description="Long-form essays on self-hosting, open source evaluation and SaaS migration.",
+        meta_description="Long-form essays on self-hosting, open source evaluation, and SaaS migration.",
         canonical_path="/articles/",
         structured_data=[jsonld(art_idx_breadcrumb)],
         articles=articles,
@@ -997,7 +997,7 @@ def build():
 
     <h2>How entries get added</h2>
     <p>I evaluate each open source project on a small set of signals: contributor diversity, release cadence,
-    issue-response behaviour, license clarity, and self-host difficulty. The framework is written up in
+    issue-response behavior, license clarity, and self-host difficulty. The framework is written up in
     <a href="/article/evaluating-open-source-alternatives-framework/">this article</a>. I don't accept paid
     placements; every entry is editorial, including the ones for tools I personally use.</p>
 
@@ -1024,7 +1024,7 @@ def build():
     html = render(
         "static_page.html",
         page_title=f"About · {SITE_NAME}",
-        meta_description=f"About {SITE_NAME} — why we track open source alternatives.",
+        meta_description=f"About {SITE_NAME} — who runs this and why open source alternatives are worth tracking.",
         canonical_path="/about/",
         page_heading="About",
         lead="Curated open source alternatives to popular SaaS, without the affiliate spam.",
@@ -1035,19 +1035,19 @@ def build():
 
     contact_body = """
     <p>Have a correction? Notice a dead project or a missed alternative? Want to suggest a new SaaS to track?</p>
-    <p>Email us at <a href="mailto:contact@openinstead.dev">contact@openinstead.dev</a> and we'll update the directory.
-    We read every message and usually reply within 72 hours.</p>
-    <p>We do not accept paid placements. Every entry in this directory is editorial; we say so publicly because it
-    affects how much you should trust our recommendations.</p>
-    <p>For press, partnerships or larger conversations, same address.</p>
+    <p>Email me at <a href="mailto:contact@openinstead.dev">contact@openinstead.dev</a> and I'll update the directory.
+    I read every message and usually reply within a few days.</p>
+    <p>I don't accept paid placements. Every entry in this directory is editorial; I say so publicly because it
+    affects how much you should trust the recommendations.</p>
+    <p>For press, partnerships, or larger conversations, same address.</p>
     """
     html = render(
         "static_page.html",
         page_title=f"Contact · {SITE_NAME}",
-        meta_description=f"Contact {SITE_NAME} — corrections, suggestions and press enquiries.",
+        meta_description=f"Contact {SITE_NAME} — corrections, suggestions, and press inquiries.",
         canonical_path="/contact/",
         page_heading="Contact",
-        lead="How to reach us about the directory.",
+        lead="How to reach me about the directory.",
         body=contact_body,
     )
     write_page(DIST / "contact" / "index.html", html)
@@ -1055,12 +1055,12 @@ def build():
 
     privacy_body = """
     <p>This site uses privacy-friendly analytics to understand which pages are helpful. No personal data is
-    collected or sold. We may show display advertising from Google AdSense; advertisers receive only the
+    collected or sold. The site may show display advertising from Google AdSense; advertisers receive only the
     information AdSense itself collects, per their privacy policy at
     <a href="https://policies.google.com/privacy" target="_blank" rel="noopener nofollow">policies.google.com/privacy</a>.</p>
-    <p>If you prefer to opt out of personalised ads, see
+    <p>If you prefer to opt out of personalized ads, see
     <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener nofollow">aboutads.info/choices</a>.</p>
-    <p>Outbound links to project websites and GitHub repos use <code>rel="nofollow"</code> so we pass no editorial
+    <p>Outbound links to project websites and GitHub repos use <code>rel="nofollow"</code> so the site passes no editorial
     endorsement by default.</p>
     """
     html = render(
@@ -1069,7 +1069,7 @@ def build():
         meta_description=f"Privacy policy for {SITE_NAME}.",
         canonical_path="/privacy/",
         page_heading="Privacy",
-        lead="How we handle data on this site.",
+        lead="How data is handled on this site.",
         body=privacy_body,
     )
     write_page(DIST / "privacy" / "index.html", html)
@@ -1086,7 +1086,7 @@ def build():
         f'  <title>{SITE_NAME} Articles</title>\n',
         f'  <link>{SITE_URL}/articles/</link>\n',
         f'  <atom:link href="{SITE_URL}/articles/rss.xml" rel="self" type="application/rss+xml" />\n',
-        '  <description>Long-form essays on self-hosting, open source evaluation and SaaS migration.</description>\n',
+        '  <description>Long-form essays on self-hosting, open source evaluation, and SaaS migration.</description>\n',
         '  <language>en-us</language>\n',
     ]
     for art in articles:

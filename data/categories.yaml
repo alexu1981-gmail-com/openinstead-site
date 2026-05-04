@@ -8,17 +8,17 @@
 
 - slug: team-communication
   name: Team Communication
-  description: Chat, messaging and voice platforms for teams — open source replacements for Slack, Discord, and WhatsApp.
+  description: Chat, messaging, and voice platforms for teams — open source replacements for Slack, Discord, and WhatsApp.
   icon: "\U0001F4AC"
 
 - slug: video-conferencing
   name: Video Conferencing
-  description: Meetings, webinars and virtual classrooms — self-hosted alternatives to Zoom, Google Meet and Microsoft Teams.
+  description: Meetings, webinars, and virtual classrooms — self-hosted alternatives to Zoom, Google Meet and Microsoft Teams.
   icon: "\U0001F3A5"
 
 - slug: project-management
   name: Project Management & Kanban
-  description: Task boards, sprints, roadmaps and issue tracking — open source alternatives to Asana, Jira, Trello and Monday.
+  description: Task boards, sprints, roadmaps, and issue tracking — open source alternatives to Asana, Jira, Trello, and Monday.
   icon: "\U0001F4CB"
 
 - slug: file-storage
@@ -33,12 +33,12 @@
 
 - slug: design-tools
   name: Design & Creative Tools
-  description: Graphic design, image editing, and vector tools — open source alternatives to Figma, Canva, Photoshop and Illustrator.
+  description: Graphic design, image editing, and vector tools — open source alternatives to Figma, Canva, Photoshop, and Illustrator.
   icon: "\U0001F3A8"
 
 - slug: automation
   name: Automation & Workflows
-  description: Connect apps and automate repetitive tasks — self-hosted alternatives to Zapier, IFTTT and Make.
+  description: Connect apps and automate repetitive tasks — self-hosted alternatives to Zapier, IFTTT, and Make.
   icon: "\U0001F916"
 
 - slug: password-managers
@@ -48,7 +48,7 @@
 
 - slug: analytics
   name: Analytics & Product Tracking
-  description: Privacy-friendly web and product analytics — open source alternatives to Google Analytics, Mixpanel and Amplitude.
+  description: Privacy-friendly web and product analytics — open source alternatives to Google Analytics, Mixpanel, and Amplitude.
   icon: "\U0001F4CA"
 
 - slug: crm-sales
@@ -58,7 +58,7 @@
 
 - slug: helpdesk
   name: Helpdesk & Support
-  description: Ticketing, live chat and customer support — open source alternatives to Zendesk and Intercom.
+  description: Ticketing, live chat, and customer support — open source alternatives to Zendesk and Intercom.
   icon: "\U0001F3AF"
 
 - slug: email-marketing
@@ -68,7 +68,7 @@
 
 - slug: forms-surveys
   name: Forms & Surveys
-  description: Build forms, surveys and questionnaires — open source alternatives to Typeform, Google Forms and SurveyMonkey.
+  description: Build forms, surveys, and questionnaires — open source alternatives to Typeform, Google Forms and SurveyMonkey.
   icon: "\U0001F4CB"
 
 - slug: scheduling
@@ -78,22 +78,22 @@
 
 - slug: media-streaming
   name: Media Streaming
-  description: Host and stream your own video, music and photos — open source alternatives to Netflix, Spotify and Google Photos.
+  description: Host and stream your own video, music, and photos — open source alternatives to Netflix, Spotify and Google Photos.
   icon: "\U0001F3AC"
 
 - slug: task-management
   name: Personal Task Management
-  description: Individual todo and task apps — open source alternatives to Todoist, Any.do and TickTick.
+  description: Individual todo and task apps — open source alternatives to Todoist, Any.do, and TickTick.
   icon: "\u2705"
 
 - slug: code-hosting
   name: Code Hosting & DevOps
-  description: Git hosting, CI/CD and code review — open source alternatives to GitHub and Bitbucket.
+  description: Git hosting, CI/CD, and code review — open source alternatives to GitHub and Bitbucket.
   icon: "\U0001F468\u200D\U0001F4BB"
 
 - slug: monitoring
   name: Monitoring & Observability
-  description: Application performance, logs and uptime — open source alternatives to Datadog and New Relic.
+  description: Application performance, logs, and uptime — open source alternatives to Datadog and New Relic.
   icon: "\U0001F4C8"
 
 - slug: internal-tools
@@ -103,22 +103,22 @@
 
 - slug: whiteboards
   name: Online Whiteboards & Diagramming
-  description: Virtual whiteboards for workshops, retros and diagrams — open source alternatives to Miro, Mural and InVision Freehand.
+  description: Virtual whiteboards for workshops, retros, and diagrams — open source alternatives to Miro, Mural and InVision Freehand.
   icon: "\U0001F4CF"
 
 - slug: screen-recording
   name: Screen Recording & Video Capture
-  description: Record screens, make tutorials and share async videos — open source alternatives to Loom, Camtasia and Bandicam.
+  description: Record screens, make tutorials, and share async videos — open source alternatives to Loom, Camtasia, and Bandicam.
   icon: "\U0001F4F9"
 
 - slug: writing-tools
   name: Writing & Grammar Tools
-  description: Spell and grammar checkers, prose linters and style helpers — open source alternatives to Grammarly and Hemingway.
+  description: Spell and grammar checkers, prose linters, and style helpers — open source alternatives to Grammarly and Hemingway.
   icon: "\u270D\uFE0F"
 
 - slug: rss-readers
   name: RSS Readers & News Aggregators
-  description: Follow blogs, news and podcasts via open standards — self-hosted alternatives to Feedly and Inoreader.
+  description: Follow blogs, news, and podcasts via open standards — self-hosted alternatives to Feedly and Inoreader.
   icon: "\U0001F4F0"
 
 - slug: social-media
@@ -128,7 +128,7 @@
 
 - slug: website-builders
   name: Website Builders & CMS
-  description: Build sites without raw code — open source alternatives to Webflow, Wix and Squarespace.
+  description: Build sites without raw code — open source alternatives to Webflow, Wix, and Squarespace.
   icon: "\U0001F310"
 
 - slug: ecommerce
@@ -138,12 +138,12 @@
 
 - slug: paas-hosting
   name: App Hosting & PaaS
-  description: Deploy apps without managing servers — open source alternatives to Heroku, Vercel and Netlify.
+  description: Deploy apps without managing servers — open source alternatives to Heroku, Vercel, and Netlify.
   icon: "\U0001F680"
 
 - slug: accounting
   name: Accounting & Invoicing
-  description: Track invoices, expenses and finances — open source alternatives to QuickBooks, Xero and FreshBooks.
+  description: Track invoices, expenses, and finances — open source alternatives to QuickBooks, Xero, and FreshBooks.
   icon: "\U0001F4B3"
 
 - slug: ai-coding
@@ -153,27 +153,27 @@
 
 - slug: identity-sso
   name: Identity & SSO
-  description: Single sign-on, OAuth and identity providers you can self-host — open source alternatives to Okta, Auth0 and Azure AD.
+  description: Single sign-on, OAuth, and identity providers you can self-host — open source alternatives to Okta, Auth0 and Azure AD.
   icon: "\U0001F510"
 
 - slug: vpn
   name: VPN & Private Networks
-  description: Encrypted tunnels and mesh VPNs on infrastructure you control — open source alternatives to NordVPN, ExpressVPN and commercial mesh services.
+  description: Encrypted tunnels and mesh VPNs on infrastructure you control — open source alternatives to NordVPN, ExpressVPN, and commercial mesh services.
   icon: "\U0001F6E1"
 
 - slug: transactional-email
   name: Transactional Email
-  description: Send password resets, receipts and alerts from your own mail infra — open source alternatives to SendGrid, Mailgun and Postmark.
+  description: Send password resets, receipts, and alerts from your own mail infra — open source alternatives to SendGrid, Mailgun, and Postmark.
   icon: "\U0001F4EC"
 
 - slug: wiki-docs
   name: Wikis & Documentation
-  description: Team wikis, handbooks and product docs you own — open source alternatives to Confluence, GitBook and Notion docs.
+  description: Team wikis, handbooks, and product docs you own — open source alternatives to Confluence, GitBook and Notion docs.
   icon: "\U0001F4DA"
 
 - slug: time-tracking
   name: Time Tracking
-  description: Log hours, invoice clients and monitor billable time — open source alternatives to Toggl, Harvest and Clockify.
+  description: Log hours, invoice clients, and monitor billable time — open source alternatives to Toggl, Harvest, and Clockify.
   icon: "\u23F1"
 
 - slug: status-pages
@@ -183,10 +183,10 @@
 
 - slug: business-intelligence
   name: Business Intelligence
-  description: Dashboards, SQL explorers and embedded analytics — open source alternatives to Tableau, Power BI and Looker.
+  description: Dashboards, SQL explorers, and embedded analytics — open source alternatives to Tableau, Power BI and Looker.
   icon: "\U0001F4CA"
 
 - slug: newsletters
   name: Newsletters & Paid Publishing
-  description: Write, send and monetize newsletters you own — open source alternatives to Substack, Beehiiv and Revue.
+  description: Write, send, and monetize newsletters you own — open source alternatives to Substack, Beehiiv, and Revue.
   icon: "\U0001F4E8"

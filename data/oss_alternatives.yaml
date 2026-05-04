@@ -5,7 +5,7 @@
 - slug: appflowy
   name: AppFlowy
   category: note-taking
-  tagline: Open source alternative to Notion, built in Rust and Flutter.
+  tagline: Open source alternative to Notion, built in Rust, and Flutter.
   license: AGPL-3.0
   self_host_difficulty: 3
   hosted_cloud_option: true
@@ -75,7 +75,7 @@
   github: https://github.com/laurent22/joplin
   strengths:
     - End-to-end encryption for syncable notes.
-    - Works with Nextcloud, Dropbox, WebDAV and Joplin Cloud.
+    - Works with Nextcloud, Dropbox, WebDAV, and Joplin Cloud.
     - Web clipper and mobile apps available.
   weaknesses:
     - Interface can feel basic compared to Notion-style tools.
@@ -235,7 +235,7 @@
   github: https://github.com/bigbluebutton/bigbluebutton
   strengths:
     - Designed for virtual classrooms with whiteboard and polls.
-    - Recording, breakout rooms and captions built in.
+    - Recording, breakout rooms, and captions built in.
     - Integrates with Moodle and other LMS.
   weaknesses:
     - Demanding hardware for self-hosting.
@@ -314,7 +314,7 @@
   website: https://openproject.org
   github: https://github.com/opf/openproject
   strengths:
-    - Strong Gantt, roadmaps and budget features.
+    - Strong Gantt, roadmaps, and budget features.
     - BIM (Building Information Modeling) for construction industry.
     - Active enterprise adoption.
   weaknesses:
@@ -335,7 +335,7 @@
   github: https://github.com/makeplane/plane
   strengths:
     - Modern UI inspired by Linear/Jira.
-    - Cycles, modules and views.
+    - Cycles, modules, and views.
     - Active community and rapid updates.
   weaknesses:
     - Still adding features at pace — occasional rough edges.
@@ -365,7 +365,7 @@
 - slug: nextcloud
   name: Nextcloud
   category: file-storage
-  tagline: Self-hosted Dropbox and Google Drive alternative — files, calendar, contacts and more.
+  tagline: Self-hosted Dropbox and Google Drive alternative — files, calendar, contacts, and more.
   license: AGPL-3.0
   self_host_difficulty: 3
   hosted_cloud_option: true
@@ -434,12 +434,12 @@
   website: https://onlyoffice.com
   github: https://github.com/ONLYOFFICE/DocumentServer
   strengths:
-    - Best-in-class Word/Excel/PowerPoint rendering fidelity.
+    - High-fidelity Word/Excel/PowerPoint rendering — closest to MS Office of the OSS options.
     - Integrates with Nextcloud, Seafile, WordPress, and more.
     - Both desktop app and server editor available.
   weaknesses:
     - Document Server install is heavier than Collabora Online.
-    - Some advanced features require enterprise licence.
+    - Some advanced features require an enterprise license.
     - Concurrent edit conflicts still occur occasionally.
 
 - slug: collabora-online
@@ -455,7 +455,7 @@
   github: https://github.com/CollaboraOnline/online
   strengths:
     - True LibreOffice engine in the browser.
-    - Plugs into Nextcloud, ownCloud and more.
+    - Plugs into Nextcloud, ownCloud, and more.
     - Strong at ODF-first workflows.
   weaknesses:
     - MS Office fidelity is good but below ONLYOFFICE in places.
@@ -645,7 +645,7 @@
 - slug: huginn
   name: Huginn
   category: automation
-  tagline: Self-hosted "agents" that watch, scrape and act.
+  tagline: Self-hosted "agents" that watch, scrape, and act.
   license: MIT
   self_host_difficulty: 3
   hosted_cloud_option: false
@@ -775,7 +775,7 @@
   github: https://github.com/matomo-org/matomo
   strengths:
     - Feature parity with GA for most reports.
-    - Heatmaps, session recordings and goal funnels available.
+    - Heatmaps, session recordings, and goal funnels available.
     - Strong GDPR tooling.
   weaknesses:
     - Heavier to self-host (PHP + DB + cron).
@@ -845,7 +845,7 @@
 - slug: zammad
   name: Zammad
   category: helpdesk
-  tagline: Ticketing system with email, chat and telephony.
+  tagline: Ticketing system with email, chat, and telephony.
   license: AGPL-3.0
   self_host_difficulty: 3
   hosted_cloud_option: true
@@ -874,7 +874,7 @@
   website: https://freescout.net
   github: https://github.com/freescout-helpdesk/freescout
   strengths:
-    - Email-first inbox, minimal and fast.
+    - Email-first inbox, minimal, and fast.
     - Runs on standard LAMP hosting.
     - Good free module selection.
   weaknesses:
@@ -1005,7 +1005,7 @@
 - slug: jellyfin
   name: Jellyfin
   category: media-streaming
-  tagline: Open source media server — stream your movies, shows and music.
+  tagline: Open source media server — stream your movies, shows, and music.
   license: GPL-2.0
   self_host_difficulty: 2
   hosted_cloud_option: false
@@ -1105,7 +1105,7 @@
 - slug: vikunja
   name: Vikunja
   category: task-management
-  tagline: Open source task manager with Kanban, lists and Gantt.
+  tagline: Open source task manager with Kanban, lists, and Gantt.
   license: AGPL-3.0
   self_host_difficulty: 2
   hosted_cloud_option: true
@@ -1165,7 +1165,7 @@
 - slug: gitlab-ce
   name: GitLab Community Edition
   category: code-hosting
-  tagline: Full DevOps platform with CI/CD, registry and more.
+  tagline: Full DevOps platform with CI/CD, registry, and more.
   license: MIT
   self_host_difficulty: 4
   hosted_cloud_option: true
@@ -1205,7 +1205,7 @@
 - slug: signoz
   name: SigNoz
   category: monitoring
-  tagline: Open source Datadog alternative — metrics, traces and logs in one.
+  tagline: Open source Datadog alternative — metrics, traces, and logs in one.
   license: Apache-2.0 (community) / commercial (cloud)
   self_host_difficulty: 3
   hosted_cloud_option: true
@@ -1296,7 +1296,7 @@
   strengths:
     - Bundled BudibaseDB — no external DB required.
     - Easy self-host via docker-compose.
-    - Forms, dashboards and workflows supported.
+    - Forms, dashboards, and workflows supported.
   weaknesses:
     - Pricing for cloud premium features.
     - Smaller component library than Retool.
@@ -1455,7 +1455,7 @@
   github: https://github.com/obsproject/obs-studio
   strengths:
     - Industry-standard for streamers and creators.
-    - Unlimited scenes, sources and effects.
+    - Unlimited scenes, sources, and effects.
     - No subscription, no cloud dependency.
   weaknesses:
     - Heavier learning curve than Loom.
@@ -1474,7 +1474,7 @@
   website: https://getsharex.com
   github: https://github.com/ShareX/ShareX
   strengths:
-    - Huge feature set for screenshots, GIFs and recordings.
+    - Huge feature set for screenshots, GIFs, and recordings.
     - Custom uploader destinations (including self-hosted).
     - Free forever.
   weaknesses:
@@ -1485,7 +1485,7 @@
 - slug: languagetool
   name: LanguageTool
   category: writing-tools
-  tagline: Open source grammar, spelling and style checker.
+  tagline: Open source grammar, spelling, and style checker.
   license: LGPL-2.1
   self_host_difficulty: 2
   hosted_cloud_option: true
@@ -1805,7 +1805,7 @@
 - slug: erpnext
   name: ERPNext
   category: accounting
-  tagline: Full ERP with accounting, HR, CRM and inventory.
+  tagline: Full ERP with accounting, HR, CRM, and inventory.
   license: GPL-3.0
   self_host_difficulty: 3
   hosted_cloud_option: true
@@ -1915,7 +1915,7 @@
   github: https://github.com/caprover/caprover
   strengths:
     - One-command install on any Ubuntu/Debian box.
-    - Web UI for managing apps, volumes and domains.
+    - Web UI for managing apps, volumes, and domains.
     - Strong one-click app library (databases, etc.).
   weaknesses:
     - Docker Swarm under the hood — not Kubernetes.
@@ -1995,7 +1995,7 @@
   github: https://github.com/keycloak/keycloak
   strengths:
     - SAML, OIDC, OAuth2, LDAP federation — the full kit.
-    - Fine-grained RBAC, scopes and client management.
+    - Fine-grained RBAC, scopes, and client management.
     - Backed by Red Hat with a mature release cadence.
   weaknesses:
     - Admin console is complex — real operational learning curve.
@@ -2114,7 +2114,7 @@
   website: https://postalserver.io
   github: https://github.com/postalserver/postal
   strengths:
-    - Web UI, SMTP and HTTP API out of the box.
+    - Web UI, SMTP, and HTTP API out of the box.
     - Per-server tracking (opens, clicks, bounces).
     - Modular MariaDB + RabbitMQ architecture.
   weaknesses:
@@ -2185,7 +2185,7 @@
 - slug: bookstack
   name: BookStack
   category: wiki-docs
-  tagline: Opinionated team wiki organized as books, chapters and pages.
+  tagline: Opinionated team wiki organized as books, chapters, and pages.
   license: MIT
   self_host_difficulty: 2
   hosted_cloud_option: false
@@ -2214,9 +2214,9 @@
   website: https://js.wiki
   github: https://github.com/Requarks/wiki
   strengths:
-    - Storage backends include Git, S3, local disk and cloud providers.
+    - Storage backends include Git, S3, local disk, and cloud providers.
     - Multiple authentication sources out of the box.
-    - Polished editor with markdown, WYSIWYG and code modes.
+    - Polished editor with markdown, WYSIWYG, and code modes.
   weaknesses:
     - v3 rewrite slowed 2.x feature additions.
     - AGPL-3.0 may block some commercial vendors.
@@ -2294,7 +2294,7 @@
   website: https://www.kimai.org
   github: https://github.com/kimai/kimai
   strengths:
-    - Teams, projects, customers and invoices in one tool.
+    - Teams, projects, customers, and invoices in one tool.
     - REST API plus mobile clients.
     - Easy PHP/MySQL deployment on any VPS.
   weaknesses:
@@ -2355,7 +2355,7 @@
   github: https://github.com/apache/superset
   strengths:
     - Connects to 40+ SQL engines out of the box.
-    - Rich visualizations, row-level security and dashboards.
+    - Rich visualizations, row-level security, and dashboards.
     - Mature role/permission model for enterprise deployments.
   weaknesses:
     - Non-trivial to operate (Celery workers, caches, metadata DB).
@@ -2375,7 +2375,7 @@
   github: https://github.com/metabase/metabase
   strengths:
     - Single JAR install — runs on a laptop or a server.
-    - Questions, dashboards and alerts usable by non-analysts.
+    - Questions, dashboards, and alerts usable by non-analysts.
     - Large integration catalog.
   weaknesses:
     - Community edition lacks some features (SSO, audit, data sandboxing).
@@ -2395,7 +2395,7 @@
   github: https://github.com/getredash/redash
   strengths:
     - SQL editor plus query scheduling and caching.
-    - Connects to dozens of sources, including NoSQL and APIs.
+    - Connects to dozens of sources, including NoSQL, and APIs.
     - Alerts on query results, not just dashboards.
   weaknesses:
     - Development slowed after Databricks acquisition in 2020.
