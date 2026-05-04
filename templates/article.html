@@ -12,6 +12,7 @@
     <h1>{{ article.title }}</h1>
     <p class="lead">{{ article.description }}</p>
     <div class="meta">
+      <span class="badge">By <a href="{{ root_prefix }}/about/">{{ author_name }}</a></span>
       <span class="badge">{{ article.category }}</span>
       <span class="badge">{{ article.date }}</span>
     </div>
@@ -27,6 +28,15 @@
 </section>
 
 <div class="ad-slot slot-inline"><span>Ad slot — article end</span></div>
+
+<section class="section">
+  <div class="container" style="max-width:780px">
+    <div class="cta-box">
+      <h4>About the author</h4>
+      <p>{{ author_name }} maintains <strong>OpenInstead</strong> from {{ author_location }}. <a href="{{ root_prefix }}/about/">Read more about why this directory exists →</a></p>
+    </div>
+  </div>
+</section>
 
 <section class="section">
   <div class="container">

@@ -31,6 +31,9 @@ except Exception:
 # ---------------------------------------------------------------------------
 SITE_NAME = "OpenInstead"
 SITE_URL = os.environ.get("SITE_URL", "https://openinstead.dev")  # production domain, live since 2026-04-25
+AUTHOR_NAME = "Alexandru Drăghici"
+AUTHOR_LOCATION = "Bucharest, Romania"  # Edit if different city — used in footer + about page
+AUTHOR_URL = f"{SITE_URL.rstrip('/')}/about/"
 ROOT = Path(__file__).parent
 DATA = ROOT / "data"
 TEMPLATES = ROOT / "templates"
@@ -361,6 +364,11 @@ def schema_organization() -> dict:
         "url": SITE_URL,
         "logo": f"{SITE_URL}/static/favicon.svg",
         "description": "Open source alternatives to popular SaaS — curated and editorial.",
+        "founder": {
+            "@type": "Person",
+            "name": AUTHOR_NAME,
+            "url": AUTHOR_URL,
+        },
         "sameAs": [],
         "contactPoint": [{
             "@type": "ContactPoint",
@@ -432,9 +440,9 @@ def schema_article(art, og_image_url, body_text) -> dict:
         "url": f"{SITE_URL}/article/{art['slug']}/",
         "wordCount": word_count,
         "author": {
-            "@type": "Organization",
-            "name": SITE_NAME,
-            "url": SITE_URL,
+            "@type": "Person",
+            "name": AUTHOR_NAME,
+            "url": AUTHOR_URL,
         },
         "publisher": {
             "@type": "Organization",
@@ -493,6 +501,8 @@ def render(template_name: str, **ctx) -> str:
         "updated": datetime.now(timezone.utc).strftime("%B %Y"),
         "og_type": "website",
         "structured_data": None,
+        "author_name": AUTHOR_NAME,
+        "author_location": AUTHOR_LOCATION,
     }
     defaults.update(ctx)
     return tmpl.render(**defaults)
@@ -960,13 +970,56 @@ def build():
     # Static content pages (About, Privacy)
     # -------------------------------------------------------------------
     print("[build] about / privacy")
-    about_body = """
-    <p><strong>OpenInstead</strong> is a curated directory of open source alternatives to the SaaS tools most
-    teams and individuals use every day. Every page is editorial, not affiliate-driven: we list strengths,
-    weaknesses, licenses and self-host difficulty without picking winners for money.</p>
-    <p>We maintain this directory because every SaaS subscription is three things: a monthly bill,
-    a data-sharing decision, and a lock-in risk. Open source gives you the option to step out.</p>
-    <p>Spot something wrong? Projects evolve, licenses change, features ship. Reach out and we'll update the entry.</p>
+    about_body = f"""
+    <h2>Who runs this</h2>
+    <p>I'm {AUTHOR_NAME}, based in {AUTHOR_LOCATION}. I've been around tech and software projects long enough
+    to have paid for plenty of SaaS subscriptions I didn't fully use, and I've spent enough weekends installing
+    self-hosted alternatives to know where the real friction lives. OpenInstead is the directory I wished
+    existed when I started looking for alternatives myself.</p>
+
+    <h2>Why this directory exists</h2>
+    <p>Every "alternatives to X" search result I clicked fell into one of three buckets. AlternativeTo's
+    upvote-driven lists buried the actually-good options under abandonware. <em>awesome-selfhosted</em> was
+    comprehensive but unopinionated. One-off blog posts were either ad-driven or stale by the time I found them.
+    None of those answered the only question I cared about: <strong>which open source tool is actually worth
+    switching to, and when?</strong></p>
+
+    <p>So I'm trying a fourth approach. Editorial directory. Hand-curated, with explicit strengths and
+    weaknesses on every entry, no upvote popularity contests. The goal is to be the source you trust when
+    the rest of the "alternatives to X" results are SEO spam.</p>
+
+    <h2>The frustration that started it</h2>
+    <p>Like a lot of people, I added up my SaaS subscriptions one quarter and found I was paying close to
+    $2,400/year for tools I used heavily for about three of them and barely touched the rest. The lock-in
+    was worse than the cost. Each subscription owned a slice of my data, with export options that ranged from
+    "fine" to "non-existent." Open source isn't always cheaper once you count time, but it gives you the option
+    to step out — and that option turns out to be worth a lot.</p>
+
+    <h2>How entries get added</h2>
+    <p>I evaluate each open source project on a small set of signals: contributor diversity, release cadence,
+    issue-response behaviour, license clarity, and self-host difficulty. The framework is written up in
+    <a href="/article/evaluating-open-source-alternatives-framework/">this article</a>. I don't accept paid
+    placements; every entry is editorial, including the ones for tools I personally use.</p>
+
+    <h2>About the build</h2>
+    <p>OpenInstead is a static site generated from YAML data and Jinja2 templates, hosted on Cloudflare Pages.
+    AI tools assist with build tooling and copy editing — I'm transparent about that because it matters: the
+    <em>editorial direction</em> is mine, the <em>opinions and recommendations</em> are mine, and every entry
+    is reviewed by a human (me) before it goes live. If you spot anything that reads as inaccurate or
+    AI-flavored in a way that doesn't reflect a real assessment, please email and I'll fix it.</p>
+
+    <h2>What this site is not</h2>
+    <ul>
+      <li>Not a comprehensive list. Some categories are deliberately skipped (self-hosted email, for example,
+      is its own category of suffering and doesn't deserve a quick "alternatives to" page).</li>
+      <li>Not affiliate-driven. No referral links. No commissions on signups.</li>
+      <li>Not user-submitted. Suggestions are welcome, but every entry is reviewed and written by me.</li>
+    </ul>
+
+    <h2>How to reach me</h2>
+    <p>Email <a href="mailto:contact@openinstead.dev">contact@openinstead.dev</a>. Corrections, suggestions,
+    project additions, anything — I read every message and reply within a few days. (Faster if I'm in a
+    weekend mood. Slower if I'm not.)</p>
     """
     html = render(
         "static_page.html",

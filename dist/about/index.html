@@ -6,6 +6,7 @@
   <title>About · OpenInstead</title>
   <meta name="description" content="About OpenInstead — why we track open source alternatives." />
   <link rel="canonical" href="https://openinstead.dev/about/" />
+  <meta name="author" content="Alexandru Drăghici" />
 
   <meta property="og:title" content="About · OpenInstead" />
   <meta property="og:description" content="About OpenInstead — why we track open source alternatives." />
@@ -60,12 +61,55 @@
 <section class="section">
   <div class="container" style="max-width:800px">
     
-    <p><strong>OpenInstead</strong> is a curated directory of open source alternatives to the SaaS tools most
-    teams and individuals use every day. Every page is editorial, not affiliate-driven: we list strengths,
-    weaknesses, licenses and self-host difficulty without picking winners for money.</p>
-    <p>We maintain this directory because every SaaS subscription is three things: a monthly bill,
-    a data-sharing decision, and a lock-in risk. Open source gives you the option to step out.</p>
-    <p>Spot something wrong? Projects evolve, licenses change, features ship. Reach out and we'll update the entry.</p>
+    <h2>Who runs this</h2>
+    <p>I'm Alexandru Drăghici, based in Bucharest, Romania. I've been around tech and software projects long enough
+    to have paid for plenty of SaaS subscriptions I didn't fully use, and I've spent enough weekends installing
+    self-hosted alternatives to know where the real friction lives. OpenInstead is the directory I wished
+    existed when I started looking for alternatives myself.</p>
+
+    <h2>Why this directory exists</h2>
+    <p>Every "alternatives to X" search result I clicked fell into one of three buckets. AlternativeTo's
+    upvote-driven lists buried the actually-good options under abandonware. <em>awesome-selfhosted</em> was
+    comprehensive but unopinionated. One-off blog posts were either ad-driven or stale by the time I found them.
+    None of those answered the only question I cared about: <strong>which open source tool is actually worth
+    switching to, and when?</strong></p>
+
+    <p>So I'm trying a fourth approach. Editorial directory. Hand-curated, with explicit strengths and
+    weaknesses on every entry, no upvote popularity contests. The goal is to be the source you trust when
+    the rest of the "alternatives to X" results are SEO spam.</p>
+
+    <h2>The frustration that started it</h2>
+    <p>Like a lot of people, I added up my SaaS subscriptions one quarter and found I was paying close to
+    $2,400/year for tools I used heavily for about three of them and barely touched the rest. The lock-in
+    was worse than the cost. Each subscription owned a slice of my data, with export options that ranged from
+    "fine" to "non-existent." Open source isn't always cheaper once you count time, but it gives you the option
+    to step out — and that option turns out to be worth a lot.</p>
+
+    <h2>How entries get added</h2>
+    <p>I evaluate each open source project on a small set of signals: contributor diversity, release cadence,
+    issue-response behaviour, license clarity, and self-host difficulty. The framework is written up in
+    <a href="/article/evaluating-open-source-alternatives-framework/">this article</a>. I don't accept paid
+    placements; every entry is editorial, including the ones for tools I personally use.</p>
+
+    <h2>About the build</h2>
+    <p>OpenInstead is a static site generated from YAML data and Jinja2 templates, hosted on Cloudflare Pages.
+    AI tools assist with build tooling and copy editing — I'm transparent about that because it matters: the
+    <em>editorial direction</em> is mine, the <em>opinions and recommendations</em> are mine, and every entry
+    is reviewed by a human (me) before it goes live. If you spot anything that reads as inaccurate or
+    AI-flavored in a way that doesn't reflect a real assessment, please email and I'll fix it.</p>
+
+    <h2>What this site is not</h2>
+    <ul>
+      <li>Not a comprehensive list. Some categories are deliberately skipped (self-hosted email, for example,
+      is its own category of suffering and doesn't deserve a quick "alternatives to" page).</li>
+      <li>Not affiliate-driven. No referral links. No commissions on signups.</li>
+      <li>Not user-submitted. Suggestions are welcome, but every entry is reviewed and written by me.</li>
+    </ul>
+
+    <h2>How to reach me</h2>
+    <p>Email <a href="mailto:contact@openinstead.dev">contact@openinstead.dev</a>. Corrections, suggestions,
+    project additions, anything — I read every message and reply within a few days. (Faster if I'm in a
+    weekend mood. Slower if I'm not.)</p>
     
   </div>
 </section>
@@ -75,6 +119,7 @@
   <div class="container">
     <div>
       <strong>OpenInstead</strong> — open source alternatives to the SaaS you already use. Updated May 2026.<br>
+      <small>Maintained by <a href="/about/">Alexandru Drăghici</a> in Bucharest, Romania. Reach out: <a href="mailto:contact@openinstead.dev">contact@openinstead.dev</a>.</small><br>
       <small>Disclaimer: licensing, features and pricing change. Verify each tool's current status on its official site before committing.</small>
     </div>
     <nav>
