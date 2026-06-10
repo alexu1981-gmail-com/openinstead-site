@@ -1109,11 +1109,18 @@ def build():
     write_page(DIST / "articles" / "rss.xml", "".join(rss_parts))
 
     # -------------------------------------------------------------------
-    # robots.txt + sitemap.xml + _headers (Cloudflare Pages cache hints)
+    # robots.txt + sitemap.xml + ads.txt + _headers (Cloudflare Pages cache hints)
     # -------------------------------------------------------------------
-    print("[build] robots.txt + sitemap.xml + _headers")
+    print("[build] robots.txt + sitemap.xml + ads.txt + _headers")
     robots = f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n"
     write_page(DIST / "robots.txt", robots)
+
+    # ads.txt — IAB Authorized Digital Sellers. Declares Google AdSense as the
+    # only authorized seller of inventory. Without this file, programmatic
+    # bidders discount our inventory by 30-50%. f08c47fec0942fa0 is Google's
+    # standard TAG-ID for AdSense — same for every AdSense publisher.
+    ads_txt = "google.com, pub-2427461648108914, DIRECT, f08c47fec0942fa0\n"
+    write_page(DIST / "ads.txt", ads_txt)
 
     # _headers — Cloudflare Pages reads this from the build output root.
     # 1-year cache for assets that never change content (versioned by name);
