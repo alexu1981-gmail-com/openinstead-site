@@ -40,8 +40,9 @@
   <link rel="manifest" href="{{ static_prefix }}/manifest.json" />
   <link rel="stylesheet" href="{{ static_prefix }}/css/style.css" />
 
-  {# AdSense slot — replace ca-pub-XXXX after approval. Safe to leave commented while unapproved. #}
-  {# <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> #}
+  {# Google AdSense — verification script (publisher ID ca-pub-2427461648108914). Required on every page for ownership verification + auto ads. #}
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2427461648108914" crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2427461648108914">
 
   <script defer src="{{ static_prefix }}/js/search.js"></script>
 </head>

@@ -586,6 +586,9 @@ def build():
         "will-this-open-source-project-still-exist-in-three-years": {
             "general", "evaluation", "sustainability",
         },
+        "escaping-salesforce-open-source-crm-guide": {
+            "crm-sales", "salesforce", "selfhost", "migration",
+        },
     }
 
     def related_articles_for(category_slug: str, limit: int = 3) -> list:

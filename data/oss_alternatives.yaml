@@ -2441,3 +2441,43 @@
     - Not a full newsletter tool — pair with Listmonk for email sends.
     - No paid-subscription or Stripe integration out of the box.
     - Theming options are intentionally limited.
+
+- slug: odoo-crm
+  name: Odoo CRM
+  category: crm-sales
+  tagline: Open source CRM as part of a full ERP suite — free Community edition available.
+  license: LGPL-3.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: [iOS, Android]
+  website: https://www.odoo.com/page/crm
+  github: https://github.com/odoo/odoo
+  strengths:
+    - CRM integrates natively with invoicing, inventory, email marketing, and 30+ other modules.
+    - Community edition is genuinely free and self-hostable.
+    - Huge ecosystem of community modules and certified partners.
+  weaknesses:
+    - Community edition lacks some features (e.g. email marketing, studio customizer) — Enterprise starts at $20/user/month.
+    - Upgrade path between major versions can be painful.
+    - The line between open source Community and proprietary Enterprise is intentionally blurry.
+
+- slug: civicrm
+  name: CiviCRM
+  category: crm-sales
+  tagline: Open source CRM designed specifically for nonprofits, advocacy, and civic organizations.
+  license: AGPL-3.0
+  self_host_difficulty: 3
+  hosted_cloud_option: true
+  desktop_apps: []
+  mobile_apps: []
+  website: https://civicrm.org
+  github: https://github.com/civicrm/civicrm-core
+  strengths:
+    - Purpose-built for nonprofits — donor management, memberships, events, campaigns, grant tracking.
+    - Integrates with WordPress, Drupal, Joomla, and Backdrop.
+    - Active since 2005 with a large nonprofit user base worldwide.
+  weaknesses:
+    - Not suitable for B2B sales pipelines — it is a constituent/donor CRM, not a sales CRM.
+    - UI feels dated compared to modern CRM tools.
+    - Requires CMS integration (WordPress/Drupal) — not standalone.
