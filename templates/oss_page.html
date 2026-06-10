@@ -11,6 +11,9 @@
   <div class="article-head">
     <h1>{{ oss.name }} — open source alternative</h1>
     <p class="lead">{{ oss.tagline }}</p>
+    {% if oss.aliases %}
+    <p class="meta-line" style="color:var(--text-dim); font-size:0.9rem; margin-top:0.5rem;">Also known as / searched as: {{ oss.aliases|join(', ') }}.</p>
+    {% endif %}
   </div>
 </div>
 

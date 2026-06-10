@@ -44,6 +44,7 @@
 
 - slug: trilium
   name: Trilium Notes
+  aliases: [Trillium, Trillium Notes, TriliumNext]
   category: note-taking
   tagline: Hierarchical personal notes with scripting.
   license: AGPL-3.0
@@ -1864,8 +1865,9 @@
 
 - slug: dokku
   name: Dokku
+  aliases: [Heroku open source alternative]
   category: paas-hosting
-  tagline: Self-hosted mini-Heroku on a single server.
+  tagline: Open source Heroku alternative — git push deploys on your own VPS.
   license: MIT
   self_host_difficulty: 2
   hosted_cloud_option: false

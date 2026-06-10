@@ -746,13 +746,14 @@ def build():
         related_saas = [s for s in saas_products
                         if s["category"] == saas["category"] and s["slug"] != saas["slug"]][:3]
         related_arts = related_articles_for(saas["category"])
+        top3 = ", ".join(a["oss"]["name"] for a in alternatives[:3])
         html = render(
             "saas_page.html",
-            page_title=f"{len(alternatives)} open source alternatives to {saas['name']} ({datetime.now().year}) · {SITE_NAME}",
+            page_title=f"{len(alternatives)} free, open source alternatives to {saas['name']} ({datetime.now().year}) · {SITE_NAME}",
             meta_description=(
-                f"The best open source alternatives to {saas['name']}: "
-                + ", ".join(a["oss"]["name"] for a in alternatives[:3])
-                + ". Honest pros, cons, licenses and self-host difficulty."
+                f"Replace {saas['name']} with self-hosted open source. "
+                f"{len(alternatives)} alternatives with honest pros, cons, license, "
+                f"and difficulty: {top3}."
             ),
             canonical_path=f"/alternatives-to/{saas['slug']}/",
             og_image=og_url(og_slug),
@@ -790,10 +791,15 @@ def build():
         related_oss_list = [o for o in oss_alternatives
                             if o["category"] == oss["category"] and o["slug"] != oss["slug"]][:3]
         related_arts = related_articles_for(oss["category"])
+        # Build meta description: include aliases (common misspellings) for SEO
+        meta_desc = oss["tagline"]
+        if oss.get("aliases"):
+            alias_list = ", ".join(oss["aliases"])
+            meta_desc = f"{oss['tagline']} Also searched as: {alias_list}."
         html = render(
             "oss_page.html",
             page_title=f"{oss['name']} — {oss['tagline']} · {SITE_NAME}",
-            meta_description=oss["tagline"],
+            meta_description=meta_desc,
             canonical_path=f"/open-source/{oss['slug']}/",
             structured_data=[jsonld(oss_breadcrumb), jsonld(oss_sw)],
             oss=oss,
