@@ -7,6 +7,13 @@
   <description>Long-form essays on self-hosting, open source evaluation, and SaaS migration.</description>
   <language>en-us</language>
   <item>
+    <title>Escaping Salesforce: an honest guide to open source CRMs in 2026</title>
+    <link>https://openinstead.dev/article/escaping-salesforce-open-source-crm-guide/</link>
+    <guid>https://openinstead.dev/article/escaping-salesforce-open-source-crm-guide/</guid>
+    <description><![CDATA[Salesforce costs a fortune, requires consultants to configure, and locks your data in. Here's what actually works as a replacement — from battle-tested SuiteCRM to the new wave of Twenty and EspoCRM.]]></description>
+    <pubDate>Tue, 05 May 2026 00:00:00 +0000</pubDate>
+  </item>
+  <item>
     <title>When self-hosting goes wrong: seven failure modes and how to avoid them</title>
     <link>https://openinstead.dev/article/when-self-hosting-goes-wrong-seven-failure-modes/</link>
     <guid>https://openinstead.dev/article/when-self-hosting-goes-wrong-seven-failure-modes/</guid>

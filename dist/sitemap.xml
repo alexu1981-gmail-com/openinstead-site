@@ -2486,6 +2486,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://openinstead.dev/article/escaping-salesforce-open-source-crm-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://openinstead.dev/article/when-self-hosting-goes-wrong-seven-failure-modes/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

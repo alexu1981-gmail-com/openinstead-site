@@ -2458,7 +2458,7 @@
     - Community edition is genuinely free and self-hostable.
     - Huge ecosystem of community modules and certified partners.
   weaknesses:
-    - Community edition lacks some features (e.g. email marketing, studio customizer) — Enterprise starts at $20/user/month.
+    - Community edition lacks some features (e.g., email marketing, studio customizer) — Enterprise starts at $20/user/month.
     - Upgrade path between major versions can be painful.
     - The line between open source Community and proprietary Enterprise is intentionally blurry.
 
